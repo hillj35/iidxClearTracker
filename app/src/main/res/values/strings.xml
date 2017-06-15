@@ -1008,9 +1008,6 @@
         completions."
     </string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="title_activity_opening">opening</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
@@ -1018,4 +1015,34 @@
     <string name="title_activity_goal">GoalActivity</string>
     <string name="title_activity_add_list">AddListActivity</string>
     <string name="title_activity_list">ListActivity</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <string name="defualt_difficulty_name">Default Version Folder Difficulty</string>
+
+    <string-array name="defualt_difficulty">
+        <item>Normal</item>
+        <item>Hyper</item>
+        <item>Another</item>
+    </string-array>
+
+    <string name="defualt_sort_name">Default Folder Sort</string>
+
+    <string-array name="defualt_sort">
+        <item>Alphabetically</item>
+        <item>Level</item>
+        <item>Clear</item>
+        <item>Version</item>
+    </string-array>
+
+    <string-array name="default_difficulty_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="defualt_sort_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

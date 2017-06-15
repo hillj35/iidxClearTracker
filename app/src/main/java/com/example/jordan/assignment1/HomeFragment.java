@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +29,8 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "arrayid";
     private static final String ARG_PARAM2 = "page";
+    private View view;
+    ListView lv;
 
     // TODO: Rename and change types of parameters
     private int arrayid;
@@ -68,13 +72,19 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
+        lv = (ListView)view.findViewById(R.id.lst_folders);
+        updateList();
+        return view;
+    }
+
+    public void updateList() {
         if (arrayid > 0)
             list = view.getResources().getStringArray(arrayid);
         else
             list = databaseHelper.getLists();
 
-        ListView lv = (ListView)view.findViewById(R.id.lst_folders);
+        lv = (ListView)view.findViewById(R.id.lst_folders);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -90,10 +100,10 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
         ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.folder_list_item, list);
-        //ArrayAdapter adapter = ArrayAdapter.createFromResource(getContext(), arrayid, R.layout.folder_list_item);
         lv.setAdapter(adapter);
-        return view;
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event

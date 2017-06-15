@@ -28,8 +28,7 @@ public class NewGoalDialogFragment extends DialogFragment {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         databaseHelper.addList(et.getText().toString());
-                        Spinner spinner = (Spinner)getActivity().findViewById(R.id.spn_goalList);
-                        databaseHelper.updateListSpinner(spinner, getActivity());
+                        ((HomeActivity)getActivity()).updateGoalList();
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

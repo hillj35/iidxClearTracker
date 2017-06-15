@@ -6,11 +6,21 @@
         android:actionViewClass="android.widget.SearchView"
         android:icon="@android:drawable/ic_menu_search"
         android:title="Search"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/app_bar_add"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Add"
+        android:visible="false"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/app_bar_stats"
+        android:title="Stats"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_settings"
         android:icon="@android:drawable/ic_menu_preferences"
-        android:title="settings"
-        app:showAsAction="ifRoom" />
+        android:title="Settings"
+        app:showAsAction="never" />
 
 </menu>

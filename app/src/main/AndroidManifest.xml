@@ -27,6 +27,7 @@
         <activity android:name=".GoalActivity" />
         <activity android:name=".AddToGoalActivity" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>

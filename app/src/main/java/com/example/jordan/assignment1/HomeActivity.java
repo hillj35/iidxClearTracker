@@ -11,6 +11,7 @@ import android.app.Fragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -32,33 +33,57 @@ import java.util.HashMap;
  */
 
 public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener {
-    private static HomeActivity instance;
-
+    private Menu menu;
     HashMap<String, TextView> clearTexts = new HashMap<String, TextView>();
+    private homeFragmentPagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (instance == null)
-            instance = this;
+
         setContentView(R.layout.home_activity);
 
         databaseHelper.getInstance(this);
 
         //for tabs
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpagerHome);
-        viewPager.setAdapter(new homeFragmentPagerAdapter(getSupportFragmentManager(), HomeActivity.this));
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpagerHome);
+        adapter = new homeFragmentPagerAdapter(getSupportFragmentManager(), HomeActivity.this);
+
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 3) {
+                    //goals page
+                    menu.getItem(1).setVisible(true);
+                }
+                else
+                    menu.getItem(1).setVisible(false);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabsHome);
         tabLayout.setupWithViewPager(viewPager);
     }
 
-    public static HomeActivity getInstance() {
-        return instance;
+    public void updateGoalList() {
+        HomeFragment hf = (HomeFragment) adapter.getCurrentFragment();
+        hf.updateList();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.home_action_bar_layout, menu);
         return true;
@@ -72,14 +97,21 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
+        Intent intent;
         switch (itemId) {
             case R.id.app_bar_search:
-                Intent intent = new Intent(this, AddToGoalActivity.class);
+                intent = new Intent(this, AddToGoalActivity.class);
                 startActivity(intent);
                 break;
-
+            case R.id.action_settings:
+                intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.app_bar_add:
+                NewGoalDialogFragment ngdf = new NewGoalDialogFragment();
+                ngdf.show(getFragmentManager(), "NewGoalListFragment");
+                break;
         }
-
         return true;
     }
 }

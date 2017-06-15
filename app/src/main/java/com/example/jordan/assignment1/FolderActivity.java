@@ -1,8 +1,10 @@
 package com.example.jordan.assignment1;
 
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Point;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -42,6 +44,10 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         if (type == 0) {
             ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
             viewPager.setAdapter(new iidxFragmentPagerAdapter(getSupportFragmentManager(), FolderActivity.this, search, type));
+            //get preference
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+            int defaultDifficulty = Integer.parseInt(sp.getString("default_difficulty", "0"));
+            viewPager.setCurrentItem(defaultDifficulty);
 
             TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
             tabLayout.setupWithViewPager(viewPager);
