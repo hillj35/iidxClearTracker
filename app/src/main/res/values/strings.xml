@@ -1,0 +1,1021 @@
+<resources>
+    <string name="app_name">IIDX Clear Tracker</string>
+    <string name="lbl_version">Version Name</string>
+    <string name="btn_help">How to Use</string>
+    <string name="help_text_home">IIDX is a rhythm game with many different songs. Many players like to
+    keep track of which songs they\'ve cleared. This application helps with that. Songs are split into different "folders"
+    with the name (ie Pendual) of each version released. You can select a folder to see all the songs released on that version.</string>
+    <string name="help_text_2">Lists of goals that you want to clear can be made by touching the navigation bar in the top left
+    and selecting "Goals." You can add goal lists and edit them to add or delete songs off of them.</string>
+    <string name="help_text">On this page you can select a clear type for the song. Clear types range from "No Play" to "Full Combo".
+    After selecting a clear type, it\'s saved in a database and persists between openning and closing of the application.</string>
+    <string name="normal">Normal</string>
+    <string name="hyper">Hyper</string>
+    <string name="another">Another</string>
+    <string name="open">Open Drawer</string>
+    <string name="close">Close Drawer</string>
+    <string-array name="Pages">
+        <item>Goals</item>
+        <item>Search</item>
+    </string-array>
+    <string-array name="levels">
+        <item>ALL</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+    <string-array name="Versions">
+        <item>Pendual</item>
+        <item>Spada</item>
+        <item>Tricoro</item>
+        <item>Lincle</item>
+        <item>Resort Anthem</item>
+        <item>Sirius</item>
+        <item>Empress</item>
+        <item>DJ Troopers</item>
+        <item>Gold</item>
+        <item>Distorted</item>
+        <item>Happy Sky</item>
+        <item>IIDX Red</item>
+        <item>10th Style</item>
+        <item>9th Style</item>
+        <item>8th Style</item>
+        <item>7th Style</item>
+        <item>6th Style</item>
+        <item>5th Style</item>
+        <item>4th Style</item>
+        <item>3rd Style</item>
+        <item>2nd Style</item>
+        <item>Substream</item>
+        <item>1st Style</item>
+
+    </string-array>
+    <string-array name="VersionsAll">
+        <item>ALL</item>
+        <item>Pendual</item>
+        <item>Spada</item>
+        <item>Tricoro</item>
+        <item>Lincle</item>
+        <item>Resort Anthem</item>
+        <item>Sirius</item>
+        <item>Empress</item>
+        <item>DJ Troopers</item>
+        <item>Gold</item>
+        <item>Distorted</item>
+        <item>Happy Sky</item>
+        <item>IIDX Red</item>
+        <item>10th Style</item>
+        <item>9th Style</item>
+        <item>8th Style</item>
+        <item>7th Style</item>
+        <item>6th Style</item>
+        <item>5th Style</item>
+        <item>4th Style</item>
+        <item>3rd Style</item>
+        <item>2nd Style</item>
+        <item>Substream</item>
+        <item>1st Style</item>
+
+    </string-array>
+    <string-array name="clear_types">
+        <item>No Play</item>
+        <item>Fail</item>
+        <item>Assist Easy</item>
+        <item>Easy</item>
+        <item>Normal</item>
+        <item>Hard</item>
+        <item>Ex Hard</item>
+        <item>Full Combo</item>
+    </string-array>
+    <string-array name="songs">
+        <item>1st Style,Dr.LOVE,2,3,3</item>
+        <item>1st Style,GAMBOL,1,1,-</item>
+        <item>1st Style,GRADIUSIC CYBER,5,6,7</item>
+        <item>1st Style,R3,4,5,6</item>
+        <item>1st Style,22DUNK,3,4,5</item>
+        <item>1st Style,5.1.1.,1,6,10</item>
+        <item>Substream,BRILLIANT 2U,3,4,4</item>
+        <item>Substream,deep in you,3,3,5</item>
+        <item>Substream,GENOM SCREAMS,3,6,9</item>
+        <item>Substream,KEEP ON MOVIN\',1,3,-</item>
+        <item>Substream,Macho Gang,2,7,10</item>
+        <item>Substream,PARANOIA MAX～DIRTY MIX～,5,6,8</item>
+        <item>Substream,RUGGED ASH,2,3,9</item>
+        <item>Substream,THE EARTH LIGHT,4,7,8</item>
+        <item>2nd Style,Dancin\' Into The Night,2,3,-</item>
+        <item>2nd Style,Digital MinD(A/T Libra mix),3,5,6</item>
+        <item>2nd Style,Electro Tuned(the SubS mix),4,5,6</item>
+        <item>2nd Style,Indigo Vision(full flavour hide around mix),3,5,8</item>
+        <item>2nd Style,I Was The One,2,3,3</item>
+        <item>2nd Style,PUT YOUR FAITH IN ME(for beatmania II),3,6,-</item>
+        <item>2nd Style,SP-TRIP MACHINE(for beatmania II),3,4,4</item>
+        <item>2nd Style,.59,4,6,7</item>
+        <item>3rd Style,CAN\'T STOP FALLIN\'IN LOVE,3,8,-</item>
+        <item>3rd Style,Don\'t Stop!,4,4,4</item>
+        <item>3rd Style,era (nostalmix),5,8,9</item>
+        <item>3rd Style,Holic,5,7,11</item>
+        <item>3rd Style,LEADING CYBER,4,6,7</item>
+        <item>3rd Style,Presto,3,8,8</item>
+        <item>3rd Style,R5,5,8,11</item>
+        <item>3rd Style,REINCARNATION,4,5,7</item>
+        <item>3rd Style,Schlagwerk,4,6,8</item>
+        <item>3rd Style,Skyscraper,4,6,7</item>
+        <item>3rd Style,Tangerine Stream,1,2,-</item>
+        <item>3rd Style,THE SAFARI,7,10,-</item>
+        <item>4th Style,ABSOLUTE,6,8,10</item>
+        <item>4th Style,B4U,5,9,10</item>
+        <item>4th Style,Broken My Heart,5,7,9</item>
+        <item>4th Style,Burnin\' The Floor,3,4,7</item>
+        <item>4th Style,CHECKING YOU OUT,7,9,11</item>
+        <item>4th Style,Clione,4,5,9</item>
+        <item>4th Style,DXY!,6,9,10</item>
+        <item>4th Style,empathy,5,7,8</item>
+        <item>4th Style,era (step mix),5,8,9</item>
+        <item>4th Style,FLOWERS for ALBION,2,5,-</item>
+        <item>4th Style,HIGHER,3,4,6</item>
+        <item>4th Style,Hitch Hiker2,4,6,7</item>
+        <item>4th Style,Jam&amp;Marmalade,6,7,8</item>
+        <item>4th Style,KAMIKAZE,5,6,10</item>
+        <item>4th Style,LOVE WILL・・・,4,4,7</item>
+        <item>4th Style,minimalian,3,8,9</item>
+        <item>4th Style,Mr.T.(take me higher),3,4,10</item>
+        <item>4th Style,Nasty!,3,4,9</item>
+        <item>4th Style,starmine,5,8,9</item>
+        <item>4th Style,ULTRA HIGH-HEELS,4,5,5</item>
+        <item>4th Style,Voltage (feat. Hidemaru),5,7,8</item>
+        <item>4th Style,250bpm,5,8,10</item>
+        <item>5th Style,Abyss,5,7,8</item>
+        <item>5th Style,in my eyes,5,6,7</item>
+        <item>5th Style,Kiss me all night long,5,6,7</item>
+        <item>5th Style,LOVE AGAIN TONIGHT～for Mellisa mix～,4,5,6</item>
+        <item>5th Style,outer wall,5,6,8</item>
+        <item>5th Style,QQQ,5,8,10</item>
+        <item>5th Style,Radical Faith,5,6,7</item>
+        <item>5th Style,Real,5,8,9</item>
+        <item>5th Style,Regulus,6,9,10</item>
+        <item>5th Style,RIDE ON THE LIGHT (HI GREAT MIX),4,5,8</item>
+        <item>5th Style,RISLIM,4,7,-</item>
+        <item>5th Style,Spin the disc,5,7,8</item>
+        <item>5th Style,STILL IN MY HEART,5,7,9</item>
+        <item>5th Style,still my words,4,6,-</item>
+        <item>5th Style,sync,6,8,10</item>
+        <item>5th Style,THE CUBE,4,6,7</item>
+        <item>5th Style,THE SHINING POLARIS,5,7,8</item>
+        <item>5th Style,V,5,10,12</item>
+        <item>6th Style,BALLAD FOR YOU～想いの雨～,3,5,7</item>
+        <item>6th Style,Blueberry Stream,5,7,8</item>
+        <item>6th Style,Buffalo,5,7,10</item>
+        <item>6th Style,Colors (radio edit),6,9,12</item>
+        <item>6th Style,DIVE ～INTO YOUR HEART～,5,8,10</item>
+        <item>6th Style,fly through the night,4,7,8</item>
+        <item>6th Style,Free Style,5,6,7</item>
+        <item>6th Style,Frozen Ray (original mix),6,9,9</item>
+        <item>6th Style,G2,8,9,11</item>
+        <item>6th Style,Linus,5,9,11</item>
+        <item>6th Style,NEMESIS,5,9,11</item>
+        <item>6th Style,route 80s,6,8,9</item>
+        <item>6th Style,rottel-da-sun,5,8,10</item>
+        <item>6th Style,SOMETHING WONDERFUL,6,8,10</item>
+        <item>6th Style,Summer Vacation(CU mix),6,9,-</item>
+        <item>6th Style,Take It Easy,7,10,11</item>
+        <item>6th Style,November,5,6,8</item>
+        <item>6th Style,こっちを向いてよ,5,6,7</item>
+        <item>6th Style,電人イェーガーのテーマ(Theme of DENJIN J),5,7,-</item>
+        <item>7th Style,A,6,10,12</item>
+        <item>7th Style,AVE DE RAPINA,6,8,9</item>
+        <item>7th Style,Bad Routine,5,7,9</item>
+        <item>7th Style,Burning Heat! (Full Option Mix),3,5,7</item>
+        <item>7th Style,Cheer Train,5,6,9</item>
+        <item>7th Style,D2R,5,6,8</item>
+        <item>7th Style,DESTINY,5,6,8</item>
+        <item>7th Style,foreplay,4,8,8</item>
+        <item>7th Style,Glorious Days,3,5,6</item>
+        <item>7th Style,Happy Wedding,6,7,8</item>
+        <item>7th Style,Last Message,5,8,9</item>
+        <item>7th Style,Let the Snow Paint Me,4,6,7</item>
+        <item>7th Style,Love Me Do,5,7,9</item>
+        <item>7th Style,Marmalade Reverie,4,5,7</item>
+        <item>7th Style,MAX 300,8,10,-</item>
+        <item>7th Style,Spica,4,9,11</item>
+        <item>7th Style,stoic,8,10,11</item>
+        <item>7th Style,Tomorrow Perfume,6,9,9</item>
+        <item>7th Style,traces,6,9,10</item>
+        <item>7th Style,ZERO-ONE,5,9,10</item>
+        <item>7th Style,革命,6,10,10</item>
+        <item>8th Style,abstract,6,9,9</item>
+        <item>8th Style,airflow,3,5,7</item>
+        <item>8th Style,ALL RIGHT,4,8,9</item>
+        <item>8th Style,Attitude,5,8,9</item>
+        <item>8th Style,bit mania,4,5,8</item>
+        <item>8th Style,Blame,6,7,11</item>
+        <item>8th Style,CELEBRATE NITE,5,6,8</item>
+        <item>8th Style,Colors -Y&amp;Co. Eurobeat Remix-,5,9,10</item>
+        <item>8th Style,dual control,5,7,9</item>
+        <item>8th Style,Giudecca,4,9,11</item>
+        <item>8th Style,Halfway of promise,4,8,11</item>
+        <item>8th Style,Hormiga obrera,5,7,8</item>
+        <item>8th Style,LAB,5,9,10</item>
+        <item>8th Style,LOVE IS ORANGE,4,6,8</item>
+        <item>8th Style,memories,5,9,9</item>
+        <item>8th Style,Monkey Dance,4,7,9</item>
+        <item>8th Style,murmur twins,5,9,11</item>
+        <item>8th Style,MUSIC TO YOUR HEAD,4,7,9</item>
+        <item>8th Style,PLEASE DON\'T GO,5,7,12</item>
+        <item>8th Style,rainbow flyer,5,9,11</item>
+        <item>8th Style,STAR DREAM,5,7,9</item>
+        <item>8th Style,symbolic,6,9,10</item>
+        <item>8th Style,thunder,6,8,9</item>
+        <item>8th Style,WAR GAME,4,8,10</item>
+        <item>8th Style,World Wide Love,3,5,5</item>
+        <item>8th Style,xenon,5,9,11</item>
+        <item>8th Style,蒼い衝動,5,7,8</item>
+        <item>8th Style,合体せよ！ストロングイェーガー！！,6,7,-</item>
+        <item>8th Style,桜,7,10,12</item>
+        <item>9th Style,Abyss -The Heavens Remix-,7,10,10</item>
+        <item>9th Style,ACT,6,9,9</item>
+        <item>9th Style,BAD BOY BASS!! (dj Remo-con MIX),5,7,8</item>
+        <item>9th Style,bag,5,6,10</item>
+        <item>9th Style,BRIGHTNESS DARKNESS,3,8,9</item>
+        <item>9th Style,Cradle,5,8,10</item>
+        <item>9th Style,Distress,7,10,-</item>
+        <item>9th Style,ECHOES,4,5,8</item>
+        <item>9th Style,e-motion 2003 -romantic extra-,6,8,10</item>
+        <item>9th Style,Golden Horn,3,8,9</item>
+        <item>9th Style,HYPER EUROBEAT (2DX style),5,8,10</item>
+        <item>9th Style,I Was The One (80\'s EUROBEAT STYLE),4,6,7</item>
+        <item>9th Style,Karma,6,9,10</item>
+        <item>9th Style,Let The Snow Paint Me -Y&amp;Co. Remix-,5,6,10</item>
+        <item>9th Style,lights,3,6,8</item>
+        <item>9th Style,LOVE♡SHINE,5,9,10</item>
+        <item>9th Style,lower world,6,9,10</item>
+        <item>9th Style,Make A Difference,5,9,10</item>
+        <item>9th Style,MARIA (I believe... ),4,8,9</item>
+        <item>9th Style,moon_child,5,10,12</item>
+        <item>9th Style,one or eight,7,10,12</item>
+        <item>9th Style,POWER DREAM,4,8,10</item>
+        <item>9th Style,quasar,6,9,11</item>
+        <item>9th Style,Quickening,5,9,10</item>
+        <item>9th Style,Really Love,4,6,10</item>
+        <item>9th Style,RISLIM -Remix-,4,6,11</item>
+        <item>9th Style,rottel-the-Mercury,6,9,10</item>
+        <item>9th Style,Silvia Drive,4,8,9</item>
+        <item>9th Style,SNOW,5,7,10</item>
+        <item>9th Style,STAR FIELD,3,8,9</item>
+        <item>9th Style,Sweet Sweet♡Magic,5,8,10</item>
+        <item>9th Style,SWEETEST SAVAGE,4,7,11</item>
+        <item>9th Style,真夏の花・真夏の夢,4,6,9</item>
+        <item>9th Style,ライオン好き,3,5,7</item>
+        <item>10th Style,ALIEN TEMPLE,5,7,8</item>
+        <item>10th Style,ASTRAL VOYAGE,5,6,9</item>
+        <item>10th Style,BABY LOVE,6,7,10</item>
+        <item>10th Style,Back Into The Light,6,7,10</item>
+        <item>10th Style,Boundary,4,9,9</item>
+        <item>10th Style,CARRY ON NIGHT (English version),5,7,9</item>
+        <item>10th Style,Daisuke,6,8,10</item>
+        <item>10th Style,Debtty Daddy,5,9,11</item>
+        <item>10th Style,desolation,2,4,5</item>
+        <item>10th Style,DoLL,5,6,7</item>
+        <item>10th Style,EXE,4,8,10</item>
+        <item>10th Style,Feedback,5,8,10</item>
+        <item>10th Style,FEEL IT,5,9,10</item>
+        <item>10th Style,Freezing atmosphere,4,6,9</item>
+        <item>10th Style,GHOST REVIVAL,5,9,10</item>
+        <item>10th Style,GRADIUS -FULL SPEED-,4,8,10</item>
+        <item>10th Style,HIGH,5,9,9</item>
+        <item>10th Style,Innocent Walls,8,12,12</item>
+        <item>10th Style,Love Is Eternity,6,9,11</item>
+        <item>10th Style,LOW,4,8,9</item>
+        <item>10th Style,Lucy,4,9,11</item>
+        <item>10th Style,Narcissus At Oasis,4,10,10</item>
+        <item>10th Style,No.13,8,10,11</item>
+        <item>10th Style,One More Lovely,5,9,12</item>
+        <item>10th Style,pandora,5,8,9</item>
+        <item>10th Style,rainbow rainbow,7,10,11</item>
+        <item>10th Style,Ready To Rockit Blues,3,6,9</item>
+        <item>10th Style,Rise\'n Beauty,6,9,10</item>
+        <item>10th Style,SHOOTING STAR,7,8,9</item>
+        <item>10th Style,SPACE FIGHT,3,8,11</item>
+        <item>10th Style,1st Samurai,5,10,11</item>
+        <item>10th Style,システムロマンス,4,7,8</item>
+        <item>10th Style,雪月花,6,10,12</item>
+        <item>IIDX Red,AA,5,10,12</item>
+        <item>IIDX Red,AGEHA,5,8,9</item>
+        <item>IIDX Red,ANDROMEDA,5,8,11</item>
+        <item>IIDX Red,awakening,5,7,10</item>
+        <item>IIDX Red,Be quiet,5,9,11</item>
+        <item>IIDX Red,BLOCKS,5,7,11</item>
+        <item>IIDX Red,BREATH,6,7,10</item>
+        <item>IIDX Red,Click Again,5,6,11</item>
+        <item>IIDX Red,Close my Eyes for Me,5,8,9</item>
+        <item>IIDX Red,D.A.N.C.E.!,3,5,10</item>
+        <item>IIDX Red,Don\'t be afraid myself,5,9,10</item>
+        <item>IIDX Red,earth scape,2,5,7</item>
+        <item>IIDX Red,FAKE TIME,5,11,12</item>
+        <item>IIDX Red,Fly Away To India,3,6,7</item>
+        <item>IIDX Red,GENOCIDE,6,10,11</item>
+        <item>IIDX Red,gigadelic,9,12,12</item>
+        <item>IIDX Red,HORIZON,5,7,8</item>
+        <item>IIDX Red,INJECTION OF LOVE,4,6,9</item>
+        <item>IIDX Red,KEY,6,8,11</item>
+        <item>IIDX Red,NEBULA GRASPER,6,9,10</item>
+        <item>IIDX Red,Raspberry♡Heart(English version),5,8,9</item>
+        <item>IIDX Red,RED ZONE,5,9,11</item>
+        <item>IIDX Red,RESONATE 1794,5,10,11</item>
+        <item>IIDX Red,Secret of Love,5,7,11</item>
+        <item>IIDX Red,SPEEDY CAT,5,8,9</item>
+        <item>IIDX Red,Sphere,5,9,10</item>
+        <item>IIDX Red,spiral galaxy,5,9,11</item>
+        <item>IIDX Red,The Hope of Tomorrow,5,8,10</item>
+        <item>IIDX Red,ULTiM∧TE,5,7,9</item>
+        <item>IIDX Red,Wonder Bullfighter,5,7,11</item>
+        <item>IIDX Red,大桟橋,3,6,9</item>
+        <item>IIDX Red,太陽～T・A・I・Y・O～,4,8,9</item>
+        <item>IIDX Red,ピアノ協奏曲第1番"蠍火",5,11,12</item>
+        <item>Happy Sky,Agnus Dei,5,9,10</item>
+        <item>Happy Sky,alla turca con passione,5,8,10</item>
+        <item>Happy Sky,Aurora,7,10,11</item>
+        <item>Happy Sky,CaptivAte～浄化～,5,9,11</item>
+        <item>Happy Sky,Catch Me,5,8,10</item>
+        <item>Happy Sky,double thrash,6,10,10</item>
+        <item>Happy Sky,EDEN,6,9,10</item>
+        <item>Happy Sky,EMPTY OF THE SKY,3,5,8</item>
+        <item>Happy Sky,First Resolution,5,7,9</item>
+        <item>Happy Sky,garden,4,7,10</item>
+        <item>Happy Sky,Get\'em up to R.A.V.E,5,8,10</item>
+        <item>Happy Sky,HAPPY☆ANGEL,5,7,10</item>
+        <item>Happy Sky,I am,5,8,10</item>
+        <item>Happy Sky,in motion,5,6,7</item>
+        <item>Happy Sky,INAZUMA,5,9,11</item>
+        <item>Happy Sky,LESSON 5,5,8,9</item>
+        <item>Happy Sky,Little Little Princess,5,10,11</item>
+        <item>Happy Sky,Love Magic,5,8,10</item>
+        <item>Happy Sky,MOON RACE,5,7,9</item>
+        <item>Happy Sky,Pink Rose,3,5,8</item>
+        <item>Happy Sky,PLASMA,4,8,9</item>
+        <item>Happy Sky,Pollinosis,4,6,11</item>
+        <item>Happy Sky,POODLE,5,8,10</item>
+        <item>Happy Sky,rage against usual,7,10,12</item>
+        <item>Happy Sky,SCREAM SQUAD,7,10,12</item>
+        <item>Happy Sky,Scripted Connection⇒ N mix,6,8,10</item>
+        <item>Happy Sky,Scripted Connection⇒ H mix,7,10,11</item>
+        <item>Happy Sky,Scripted Connection⇒ A mix,7,10,12</item>
+        <item>Happy Sky,SigSig,5,7,10</item>
+        <item>Happy Sky,Tizona d\'El Cid,5,9,10</item>
+        <item>Happy Sky,Twelfth Style,6,7,10</item>
+        <item>Happy Sky,Under the Sky,5,7,9</item>
+        <item>Happy Sky,vault of heaven,4,8,10</item>
+        <item>Happy Sky,Votum stellarum,4,9,10</item>
+        <item>Happy Sky,We are Disっ娘よっつ打ち命,3,5,9</item>
+        <item>Happy Sky,Xepher,5,10,11</item>
+        <item>Happy Sky,100% minimoo-G,5,10,11</item>
+        <item>Happy Sky,オレはビートマニア！お前は何マニア？,7,8,10</item>
+        <item>Happy Sky,合体せよ！ストロングイェーガー！！ (Ryu☆ remix),5,8,11</item>
+        <item>Happy Sky,月光,5,8,10</item>
+        <item>Happy Sky,ヒマワリ,3,9,10</item>
+        <item>Happy Sky,冥,5,10,12</item>
+        <item>Happy Sky,ラクエン,4,6,11</item>
+        <item>Distorted,ALFARSHEAR 双神威に廻る夢,5,7,10</item>
+        <item>Distorted,Apocalypse ～dirge of swans～,5,9,10</item>
+        <item>Distorted,BALLAD THE FEATHERS,4,6,8</item>
+        <item>Distorted,Bloody Tears(IIDX EDITION),5,9,10</item>
+        <item>Distorted,BOOM BOOM DISCO NIGHT,5,8,10</item>
+        <item>Distorted,Broadbanded,4,8,11</item>
+        <item>Distorted,Concertino in Blue,5,10,12</item>
+        <item>Distorted,CONTRACT,9,10,11</item>
+        <item>Distorted,Crazy K.I.N.O.,5,7,9</item>
+        <item>Distorted,D.C.fish,5,9,11</item>
+        <item>Distorted,Double♡♡Loving Heart,3,6,9</item>
+        <item>Distorted,EURO-ROMANCE,5,8,10</item>
+        <item>Distorted,Ganymede,6,10,11</item>
+        <item>Distorted,Harmony and Lovely,4,8,11</item>
+        <item>Distorted,Heavenly Sun (IIDX VERSION),4,7,10</item>
+        <item>Distorted,INFERNO,5,7,9</item>
+        <item>Distorted,Leaving...,4,8,10</item>
+        <item>Distorted,Melody Life,4,6,9</item>
+        <item>Distorted,MINT,6,10,11</item>
+        <item>Distorted,MOON,5,9,10</item>
+        <item>Distorted,Power of Love,5,7,10</item>
+        <item>Distorted,So Fabulous !!,5,8,10</item>
+        <item>Distorted,Sun Field,3,8,11</item>
+        <item>Distorted,The Dirty of Loudness,7,10,11</item>
+        <item>Distorted,This is Love,4,8,10</item>
+        <item>Distorted,tripping contact,6,9,12</item>
+        <item>Distorted,tripping contact(teranoid&amp;MC Natsack Remix),6,10,11</item>
+        <item>Distorted,TYPE MARS(G-Style Mix),5,9,11</item>
+        <item>Distorted,waxing and wanding,7,10,11</item>
+        <item>Distorted,Why did you go away,5,8,10</item>
+        <item>Distorted,WISH(EUROBEAT MIX),5,8,9</item>
+        <item>Distorted,with you…,4,6,9</item>
+        <item>Distorted,Zenius -I- vanisher,5,7,10</item>
+        <item>Distorted,カゴノトリ～弐式～,6,9,12</item>
+        <item>Distorted,華蝶風雪,6,10,11</item>
+        <item>Distorted,タシカナモノ,5,7,9</item>
+        <item>Distorted,嘆きの樹,8,11,12</item>
+        <item>Distorted,虹色,5,8,9</item>
+        <item>Distorted,罠,2,8,10</item>
+        <item>Gold,Air Bell,5,6,8</item>
+        <item>Gold,ANDROMEDA II,5,9,10</item>
+        <item>Gold,Blind Justice ～Torn souls Hurt Faiths～,6,8,11</item>
+        <item>Gold,Candy Galy,7,10,12</item>
+        <item>Gold,CaptivAte～裁き～,6,8,9</item>
+        <item>Gold,CaptivAte～誓い～,6,9,10</item>
+        <item>Gold,CROSSROAD ～Left Story～,5,8,10</item>
+        <item>Gold,Cyber Force,5,9,10</item>
+        <item>Gold,Fascination MAXX,9,11,12</item>
+        <item>Gold,FIRE FIRE,7,10,12</item>
+        <item>Gold,four-leaf,4,6,8</item>
+        <item>Gold,GOLD RUSH,7,9,11</item>
+        <item>Gold,GRID KNIGHT,6,8,10</item>
+        <item>Gold,heaven above,5,7,9</item>
+        <item>Gold,High School Love,4,6,9</item>
+        <item>Gold,INORI,6,10,11</item>
+        <item>Gold,KAMAITACHI,6,9,11</item>
+        <item>Gold,LASER CRUSTER,7,11,12</item>
+        <item>Gold,Love Again...,3,4,5</item>
+        <item>Gold,Make Me Your Own,5,9,10</item>
+        <item>Gold,METALLIC MIND,4,8,9</item>
+        <item>Gold,never…,4,7,8</item>
+        <item>Gold,PHOTONGENIC,7,10,10</item>
+        <item>Gold,Roulette,5,8,10</item>
+        <item>Gold,Second Heaven,5,8,11</item>
+        <item>Gold,Sense 2007,9,11,12</item>
+        <item>Gold,smile,7,9,11</item>
+        <item>Gold,snow storm,4,9,10</item>
+        <item>Gold,the shadow,6,9,11</item>
+        <item>Gold,The Smile of You,4,7,8</item>
+        <item>Gold,TRANOID,5,10,11</item>
+        <item>Gold,VANESSA,8,11,12</item>
+        <item>Gold,Watch out!!,4,6,9</item>
+        <item>Gold,With your Smile,4,6,8</item>
+        <item>Gold,X-rated,4,8,10</item>
+        <item>Gold,クルクル☆ラブ～Opioid Peptide MIX～,5,8,10</item>
+        <item>Gold,零 - ZERO -,6,8,9</item>
+        <item>Gold,電人、暁に斃れる。,7,10,12</item>
+        <item>Gold,花吹雪 ～ IIDX LIMITED ～,4,6,8</item>
+        <item>Gold,星をこの手に,7,9,10</item>
+        <item>Gold,ヨシダさん,5,7,9</item>
+        <item>Gold,リグレット,6,8,10</item>
+        <item>DJ Troopers,Anisakis -somatic mutation type"Forza"-,6,10,11</item>
+        <item>DJ Troopers,avant-guerre,4,7,10</item>
+        <item>DJ Troopers,beatonic nation,5,8,9</item>
+        <item>DJ Troopers,Be OK,5,8,10</item>
+        <item>DJ Troopers,Blue Rain,6,8,11</item>
+        <item>DJ Troopers,Darling my LUV,4,6,8</item>
+        <item>DJ Troopers,Dazzlin\' Darlin,4,7,10</item>
+        <item>DJ Troopers,Digitank System,6,9,11</item>
+        <item>DJ Troopers,Do it!! Do it!!,8,10,11</item>
+        <item>DJ Troopers,end of world,6,9,10</item>
+        <item>DJ Troopers,evergreen,5,7,10</item>
+        <item>DJ Troopers,four pieces of heaven,5,10,11</item>
+        <item>DJ Troopers,Freeway Shuffle,4,7,10</item>
+        <item>DJ Troopers,ICARUS,7,10,12</item>
+        <item>DJ Troopers,in the Sky,7,9,11</item>
+        <item>DJ Troopers,Kick Out 仮面,5,7,9</item>
+        <item>DJ Troopers,LOVELY STORM,6,9,10</item>
+        <item>DJ Troopers,MAX LOVE,5,8,10</item>
+        <item>DJ Troopers,MENDES,6,11,12</item>
+        <item>DJ Troopers,MENTAL MELTDOWN,6,10,11</item>
+        <item>DJ Troopers,NEW GENERATION -もう、お前しか見えない-,5,9,10</item>
+        <item>DJ Troopers,oratio,7,10,12</item>
+        <item>DJ Troopers,PARANOiA ～HADES～,7,11,12</item>
+        <item>DJ Troopers,PROMISE FOR LIFE,3,7,8</item>
+        <item>DJ Troopers,REMINISCENCE,6,9,10</item>
+        <item>DJ Troopers,Ristaccia,6,9,12</item>
+        <item>DJ Troopers,satellite020712 from "CODED ARMS",6,9,11</item>
+        <item>DJ Troopers,satfinal,5,7,9</item>
+        <item>DJ Troopers,scar in the earth,3,5,8</item>
+        <item>DJ Troopers,SOUND OF GIALLARHORN,6,10,11</item>
+        <item>DJ Troopers,STEEL NEEDLE,6,10,11</item>
+        <item>DJ Troopers,switch,4,9,11</item>
+        <item>DJ Troopers,THE DEEP STRIKER,6,10,11</item>
+        <item>DJ Troopers,the trigger of innocence,5,7,9</item>
+        <item>DJ Troopers,Time to Air,6,10,11</item>
+        <item>DJ Troopers,TROOPERS,6,10,12</item>
+        <item>DJ Troopers,Übertreffen,6,10,11</item>
+        <item>DJ Troopers,Wanna Party?,4,7,8</item>
+        <item>DJ Troopers,2 tribe 4 K,5,7,11</item>
+        <item>DJ Troopers,エコ爺,4,6,9</item>
+        <item>DJ Troopers,高高度降下低高度開傘,4,7,9</item>
+        <item>DJ Troopers,少年A,6,10,12</item>
+        <item>DJ Troopers,走馬灯 -The Last Song-,3,4,7</item>
+        <item>DJ Troopers,華爛漫 -Flowers-,6,8,10</item>
+        <item>DJ Troopers,マチ子の唄,4,6,8</item>
+        <item>DJ Troopers,ミラージュ・レジデンス,5,9,10</item>
+        <item>Empress,ALL I NEED YOUR LOVE,5,7,9</item>
+        <item>Empress,ALL MY TURN -このターンに、オレの全てを賭ける-,6,9,11</item>
+        <item>Empress,Arabian Rave Night,6,10,11</item>
+        <item>Empress,B4U(BEMANI FOR YOU MIX),6,9,11</item>
+        <item>Empress,Bahram Attack-猫叉Master Remix-,4,9,10</item>
+        <item>Empress,BITTER CHOCOLATE STRIKER,5,10,12</item>
+        <item>Empress,BRIDAL FESTIVAL !!!,4,7,9</item>
+        <item>Empress,CaptivAte2～覚醒～,6,9,11</item>
+        <item>Empress,Colorful Cookie,5,10,12</item>
+        <item>Empress,Cyber Force -DJ Yoshitaka Remix-,5,9,10</item>
+        <item>Empress,Flash Back 90\'s,4,8,10</item>
+        <item>Empress,Fly Above,5,6,8</item>
+        <item>Empress,Go Beyond!!,6,10,12</item>
+        <item>Empress,HYPERION,6,9,11</item>
+        <item>Empress,I\'m Screaming LOVE,4,6,7</item>
+        <item>Empress,Jack,5,7,10</item>
+        <item>Empress,Just a Little Smile,4,8,11</item>
+        <item>Empress,Kung-fu Empire,6,10,11</item>
+        <item>Empress,Mind Mapping,4,7,9</item>
+        <item>Empress,Monkey Dance \'09,4,8,10</item>
+        <item>Empress,MY FUTURE,5,8,9</item>
+        <item>Empress,naughty girl@Queen\'s Palace,5,9,11</item>
+        <item>Empress,neogenesis,4,6,9</item>
+        <item>Empress,NΦ CRIME,4,7,9</item>
+        <item>Empress,Programmed World,5,9,11</item>
+        <item>Empress,Punch Love♡仮面,5,8,10</item>
+        <item>Empress,Queen\'s Tragedy,4,8,10</item>
+        <item>Empress,Secrets,6,9,11</item>
+        <item>Empress,smooooch・∀・,4,8,10</item>
+        <item>Empress,SOLITON BEAM,6,9,10</item>
+        <item>Empress,THANK YOU FOR PLAYING,5,9,10</item>
+        <item>Empress,Turii ～Panta rhei～,4,9,10</item>
+        <item>Empress,V2,6,10,11</item>
+        <item>Empress,You\'ll say "Now!",6,10,11</item>
+        <item>Empress,3y3s,7,10,12</item>
+        <item>Empress,翼,4,7,9</item>
+        <item>Empress,鉄甲乙女-under the steel-,4,7,10</item>
+        <item>Empress,天空脳番長危機十六連打,5,10,11</item>
+        <item>Empress,卑弥呼,6,11,12</item>
+        <item>Empress,不沈艦CANDY,6,9,12</item>
+        <item>Empress,まほろば,5,7,9</item>
+        <item>Empress,山岡晃の「クイズ！家事都合！」,4,7,10</item>
+        <item>Empress,凛として咲く花の如く,6,9,10</item>
+        <item>Sirius,AIR RAID FROM THA UNDAGROUND,7,9,11</item>
+        <item>Sirius,Almagest,7,11,12</item>
+        <item>Sirius,Bad Maniacs,7,10,12</item>
+        <item>Sirius,bass 2 bass,4,7,10</item>
+        <item>Sirius,beatchic☆仮面～好き、でいさせて～,5,8,9</item>
+        <item>Sirius,BEAUTIFUL ANGEL,4,8,10</item>
+        <item>Sirius,being torn the sky,4,7,10</item>
+        <item>Sirius,bloomin\' feeling,7,9,11</item>
+        <item>Sirius,Brazilian Fire,6,8,9</item>
+        <item>Sirius,CaptivAte～裁き～(SUBLIME TECHNO MIX),6,8,10</item>
+        <item>Sirius,D,8,10,11</item>
+        <item>Sirius,DAWN -THE NEXT ENDEAVOUR-,7,9,11</item>
+        <item>Sirius,Dazzlin\' Darlin-秋葉工房mix-,4,8,10</item>
+        <item>Sirius,DESIRE,5,9,11</item>
+        <item>Sirius,DOMINION,7,10,12</item>
+        <item>Sirius,DROP,4,9,11</item>
+        <item>Sirius,Elisha,6,10,11</item>
+        <item>Sirius,Empire State Glory,6,9,11</item>
+        <item>Sirius,eRAseRmOToRpHAntOM,7,10,12</item>
+        <item>Sirius,Evans [N][H] Evans -prototype-,6,11,12</item>
+        <item>Sirius,EXUSIA,6,10,12</item>
+        <item>Sirius,G59,7,10,12</item>
+        <item>Sirius,GALGALIM,6,10,11</item>
+        <item>Sirius,GOLDEN CROSS,5,9,12</item>
+        <item>Sirius,Hydrogen Blueback,5,8,10</item>
+        <item>Sirius,IN THE NAME OF LOVE,4,7,9</item>
+        <item>Sirius,Keep it-秋葉工房mix-,5,9,10</item>
+        <item>Sirius,Last Burning,5,7,10</item>
+        <item>Sirius,Light Shine,5,7,10</item>
+        <item>Sirius,MIRACLE MEETS,6,9,11</item>
+        <item>Sirius,mosaic,7,10,12</item>
+        <item>Sirius,NEW SENSATION -もう、あなたしか見えない-,6,10,11</item>
+        <item>Sirius,NoN-Fiction Story!,4,7,10</item>
+        <item>Sirius,Programmed Sun,6,9,11</item>
+        <item>Sirius,quell～the seventh slave～,4,9,12</item>
+        <item>Sirius,Raison d\'être～交差する宿命～,5,10,11</item>
+        <item>Sirius,Red. by Full Metal Jacket,6,10,12</item>
+        <item>Sirius,Roots of my way!,4,7,9</item>
+        <item>Sirius,Session 1 -Genesis-,6,9,11</item>
+        <item>Sirius,She is my wife,5,9,10</item>
+        <item>Sirius,SOLID STATE SQUAD,5,10,12</item>
+        <item>Sirius,Sorrows,5,8,10</item>
+        <item>Sirius,Special One,5,7,9</item>
+        <item>Sirius,THE LAST STRIKER,6,8,11</item>
+        <item>Sirius,The Story Begins,4,8,10</item>
+        <item>Sirius,かずあそび,3,6,8</item>
+        <item>Sirius,コスモス,5,8,9</item>
+        <item>Sirius,サヨナラ・ヘヴン,4,6,8</item>
+        <item>Sirius,水上の提督(Short mix from "幻想水滸伝V"),4,8,10</item>
+        <item>Sirius,たからもの,6,8,9</item>
+        <item>Sirius,バビロニア,4,7,8</item>
+        <item>Sirius,未来のプリズム,4,7,9</item>
+        <item>Sirius,ワルツ第17番 ト短調"大犬のワルツ",6,10,12</item>
+        <item>Resort Anthem,Aegis,6,8,11</item>
+        <item>Resort Anthem,ALBIDA,6,10,12</item>
+        <item>Resort Anthem,Answer,4,7,10</item>
+        <item>Resort Anthem,ANTHEM LANDING,5,9,11</item>
+        <item>Resort Anthem,Believe In Me,5,9,11</item>
+        <item>Resort Anthem,BLUST OF WIND,5,8,10</item>
+        <item>Resort Anthem,Bounce Bounce Bounce,5,9,11</item>
+        <item>Resort Anthem,Breaking the ground,5,8,10</item>
+        <item>Resort Anthem,Broken,5,9,12</item>
+        <item>Resort Anthem,BROKEN EDEN,6,9,11</item>
+        <item>Resort Anthem,Dances with Snow Fairies,7,10,12</item>
+        <item>Resort Anthem,DAYDREAMER,6,8,10</item>
+        <item>Resort Anthem,Destiny Sword,5,9,11</item>
+        <item>Resort Anthem,DM STAR～関西 energy style～,6,9,10</item>
+        <item>Resort Anthem,ELECTRIC MASSIVE DIVER,6,10,12</item>
+        <item>Resort Anthem,Energy Drive,6,8,11</item>
+        <item>Resort Anthem,Eternal Tears,2,5,7</item>
+        <item>Resort Anthem,Everlasting Resort,4,7,10</item>
+        <item>Resort Anthem,Fantasia,3,8,10</item>
+        <item>Resort Anthem,Golden Palms,5,8,10</item>
+        <item>Resort Anthem,I FIGHT ME,3,7,9</item>
+        <item>Resort Anthem,Kailua,5,9,11</item>
+        <item>Resort Anthem,Let The Track Flow,6,9,11</item>
+        <item>Resort Anthem,Love♡km,3,8,10</item>
+        <item>Resort Anthem,Medicine of love,4,6,9</item>
+        <item>Resort Anthem,Mermaid girl,5,8,10</item>
+        <item>Resort Anthem,Never Fade Away,4,8,11</item>
+        <item>Resort Anthem,PARADISE LOST,7,11,12</item>
+        <item>Resort Anthem,passionate fate,6,8,10</item>
+        <item>Resort Anthem,perditus†paradisus,7,11,12</item>
+        <item>Resort Anthem,Programmed Life,6,9,10</item>
+        <item>Resort Anthem,Programmed Sun (xac Antarctic Ocean mix),4,7,10</item>
+        <item>Resort Anthem,reunion,8,11,12</item>
+        <item>Resort Anthem,Rock Da House,5,9,11</item>
+        <item>Resort Anthem,SABER WING,5,9,11</item>
+        <item>Resort Anthem,Sakura Reflection,3,9,11</item>
+        <item>Resort Anthem,sakura storm,5,8,12</item>
+        <item>Resort Anthem,Session 9 -Chronicles-,5,10,12</item>
+        <item>Resort Anthem,Space Time,4,8,10</item>
+        <item>Resort Anthem,SPECIAL SUMMER CAMPAIGN!,4,8,12</item>
+        <item>Resort Anthem,Stay my side,4,6,8</item>
+        <item>Resort Anthem,STELLAR WIND,4,9,11</item>
+        <item>Resort Anthem,Survival Games,4,7,10</item>
+        <item>Resort Anthem,THE BLACK KNIGHT,5,10,11</item>
+        <item>Resort Anthem,THE DOOR INTO RAINBOW,4,8,10</item>
+        <item>Resort Anthem,THE FALLEN,5,8,11</item>
+        <item>Resort Anthem,Tropical April,8,10,11</item>
+        <item>Resort Anthem,Vermillion,5,7,10</item>
+        <item>Resort Anthem,Watch Out Pt.2,6,9,12</item>
+        <item>Resort Anthem,WE LOVE SHONAN,4,9,10</item>
+        <item>Resort Anthem,WISE UP!,3,7,9</item>
+        <item>Resort Anthem,Wuv U,3,8,10</item>
+        <item>Resort Anthem,XANADU OF TWO,5,8,10</item>
+        <item>Resort Anthem,ZETA～素数の世界と超越者～,4,9,11</item>
+        <item>Resort Anthem,おおきなこえで,3,5,7</item>
+        <item>Resort Anthem,かげぬい ～ Ver.BENIBOTAN ～,5,7,9</item>
+        <item>Resort Anthem,黒髪乱れし修羅となりて,4,9,12</item>
+        <item>Resort Anthem,灼熱Beach Side Bunny,7,10,12</item>
+        <item>Resort Anthem,旅人リラン,6,9,11</item>
+        <item>Resort Anthem,中華急行,2,8,10</item>
+        <item>Resort Anthem,夕焼け ～Fading Day～,5,9,11</item>
+        <item>Lincle,A MINSTREL ～ ver. short-scape ～,3,6,9</item>
+        <item>Lincle,Almace,4,8,10</item>
+        <item>Lincle,ANAGRAMS I to Y,4,7,9</item>
+        <item>Lincle,BLACK.by X-Cross Fade,6,10,12</item>
+        <item>Lincle,CALL,2,5,8</item>
+        <item>Lincle,Castle on the Moon,4,9,11</item>
+        <item>Lincle,Change the World,5,7,9</item>
+        <item>Lincle,DIAVOLO,6,9,12</item>
+        <item>Lincle,Drive Me Crazy,4,7,10</item>
+        <item>Lincle,Express Emotion,4,6,10</item>
+        <item>Lincle,F,5,10,12</item>
+        <item>Lincle,ƒƒƒƒƒ,4,10,12</item>
+        <item>Lincle,Far east nightbird,3,7,9</item>
+        <item>Lincle,Flip Flap,3,7,10</item>
+        <item>Lincle,Follow Tomorrow,4,8,10</item>
+        <item>Lincle,HAERETICUS,5,10,12</item>
+        <item>Lincle,I\'m so Happy,3,8,11</item>
+        <item>Lincle,Infinite cave,6,9,10</item>
+        <item>Lincle,In the Blackest Den,5,8,11</item>
+        <item>Lincle,LAX5 feat.Ryota Yoshinari,6,9,10</item>
+        <item>Lincle,LETHEBOLG ～双神威に斬り咲けり～,5,8,10</item>
+        <item>Lincle,Liquid Crystal Girl feat. echo,2,6,9</item>
+        <item>Lincle,LOVE B.B.B,4,8,10</item>
+        <item>Lincle,Lucky Days,4,8,10</item>
+        <item>Lincle,Mermaid girl-秋葉工房 MIX-,4,6,9</item>
+        <item>Lincle,Miami Sunset Drive,4,6,9</item>
+        <item>Lincle,NNRT,6,10,12</item>
+        <item>Lincle,Phoenix,5,7,10</item>
+        <item>Lincle,prompt,5,8,11</item>
+        <item>Lincle,QUANTUM TELEPORTATION,7,10,11</item>
+        <item>Lincle,quaver♪,4,9,12</item>
+        <item>Lincle,Quick Silver,5,9,11</item>
+        <item>Lincle,Release The Music,4,7,10</item>
+        <item>Lincle,RESISTANCE,3,7,10</item>
+        <item>Lincle,Round and Round,4,6,9</item>
+        <item>Lincle,SA.YO.NA.RA. SUPER STAR,4,8,10</item>
+        <item>Lincle,Scharfrichter,5,9,11</item>
+        <item>Lincle,Several Words,4,8,10</item>
+        <item>Lincle,SHADE,5,9,11</item>
+        <item>Lincle,Snake Stick,6,10,12</item>
+        <item>Lincle,Snow Goose,3,8,11</item>
+        <item>Lincle,Star Trail,4,7,10</item>
+        <item>Lincle,The Limbo,6,10,12</item>
+        <item>Lincle,The Sampling Paradise,5,9,12</item>
+        <item>Lincle,Thunderbolt,5,9,12</item>
+        <item>Lincle,TITANS RETURN,4,8,11</item>
+        <item>Lincle,Todestrieb,5,9,12</item>
+        <item>Lincle,Voxane,3,7,9</item>
+        <item>Lincle,WONDER WALKER,5,9,12</item>
+        <item>Lincle,YAKSHA,6,10,12</item>
+        <item>Lincle,yellow head joe,4,8,10</item>
+        <item>Lincle,Yellow Sunrise,4,7,10</item>
+        <item>Lincle,24th Century BOY,5,9,11</item>
+        <item>Lincle,532nm,3,7,11</item>
+        <item>Lincle,蛇神,4,8,11</item>
+        <item>Lincle,陽炎,3,6,9</item>
+        <item>Lincle,君のハートにロックオン,4,9,11</item>
+        <item>Lincle,恋する☆宇宙戦争っ!!,5,8,12</item>
+        <item>Lincle,子供の落書き帳,6,10,12</item>
+        <item>Lincle,衰色小町メランコリア,4,7,10</item>
+        <item>Lincle,聖人の塔,6,10,12</item>
+        <item>Lincle,天空の夜明け,7,10,12</item>
+        <item>Lincle,突撃!ガラスのニーソ姫!,4,7,10</item>
+        <item>Lincle,ビューティフルレシート,3,8,10</item>
+        <item>Lincle,ユミル,3,7,11</item>
+        <item>Tricoro,Ascalon,5,8,10</item>
+        <item>Tricoro,Beastie Starter,3,7,11</item>
+        <item>Tricoro,BLUE STRAGGLER,4,7,10</item>
+        <item>Tricoro,BRAVE GLOW,4,8,10</item>
+        <item>Tricoro,CONCEPTUAL,5,7,11</item>
+        <item>Tricoro,Confiserie,5,10,12</item>
+        <item>Tricoro,connective,2,6,8</item>
+        <item>Tricoro,Cookie Bouquets,5,9,11</item>
+        <item>Tricoro,DAY DREAM,5,10,12</item>
+        <item>Tricoro,Devilz Staircase,3,10,12</item>
+        <item>Tricoro,Echo Of Forever,3,6,9</item>
+        <item>Tricoro,Elemental Creation,7,10,12</item>
+        <item>Tricoro,examination leave,6,9,11</item>
+        <item>Tricoro,FLOWER,6,9,11</item>
+        <item>Tricoro,Fly you to the star,4,8,10</item>
+        <item>Tricoro,GAIA,5,10,12</item>
+        <item>Tricoro,GRADIUS 2012,5,8,10</item>
+        <item>Tricoro,Hollywood Galaxy,5,10,12</item>
+        <item>Tricoro,Howling,4,7,9</item>
+        <item>Tricoro,I know You know,3,6,9</item>
+        <item>Tricoro,ILIAS,4,7,10</item>
+        <item>Tricoro,Illegal Function Call,5,9,11</item>
+        <item>Tricoro,In Heaven,4,7,9</item>
+        <item>Tricoro,JOMANDA,6,10,12</item>
+        <item>Tricoro,Liberation,6,9,12</item>
+        <item>Tricoro,Light and Cyber･･･,5,9,11</item>
+        <item>Tricoro,Little Star,5,8,12</item>
+        <item>Tricoro,LUV CAN SAVE U,3,7,9</item>
+        <item>Tricoro,mnemoniq,4,5,8</item>
+        <item>Tricoro,Neonlights,4,8,10</item>
+        <item>Tricoro,neu,6,10,12</item>
+        <item>Tricoro,New Decade IIDX Edition,5,9,11</item>
+        <item>Tricoro,New Lights,6,9,10</item>
+        <item>Tricoro,Plan 8,6,10,12</item>
+        <item>Tricoro,planarian,4,8,10</item>
+        <item>Tricoro,POINT ZERO,4,7,10</item>
+        <item>Tricoro,Präludium,4,8,10</item>
+        <item>Tricoro,Proof of the existence,6,10,12</item>
+        <item>Tricoro,Rainbow after snow,3,7,10</item>
+        <item>Tricoro,Re:GENERATION,5,8,10</item>
+        <item>Tricoro,rumrum triplets,5,10,11</item>
+        <item>Tricoro,Saturn,7,10,11</item>
+        <item>Tricoro,Shining World,6,8,9</item>
+        <item>Tricoro,SHION,4,7,10</item>
+        <item>Tricoro,S!ck,5,8,11</item>
+        <item>Tricoro,Sol Cosine Job 2,6,9,12</item>
+        <item>Tricoro,Spinning Around,5,7,10</item>
+        <item>Tricoro,STULTI,5,10,12</item>
+        <item>Tricoro,SYNC-ANTHEM,5,10,12</item>
+        <item>Tricoro,Synergy For Angels,4,8,11</item>
+        <item>Tricoro,Take My Life,5,8,11</item>
+        <item>Tricoro,Thor\'s Hammer,5,10,12</item>
+        <item>Tricoro,Timepiece phase II,5,10,12</item>
+        <item>Tricoro,Timepiece phase II (CN Ver.),6,10,12</item>
+        <item>Tricoro,Time to Empress,4,9,10</item>
+        <item>Tricoro,To my star,3,6,9</item>
+        <item>Tricoro,True Blue,5,10,12</item>
+        <item>Tricoro,Valanga,7,10,12</item>
+        <item>Tricoro,VALLIS-NERIA,6,10,11</item>
+        <item>Tricoro,VEGA,5,9,11</item>
+        <item>Tricoro,YELLOW FROG from Steel Chronicle,3,7,9</item>
+        <item>Tricoro,ZED,5,8,11</item>
+        <item>Tricoro,Zirkfied,5,10,12</item>
+        <item>Tricoro,405nm (Ryu☆mix),5,9,11</item>
+        <item>Tricoro,8bit Princess,3,6,10</item>
+        <item>Tricoro,ΕΛΠΙΣ,6,10,12</item>
+        <item>Tricoro,アストライアの双皿,4,9,12</item>
+        <item>Tricoro,梅雪夜,5,7,10</item>
+        <item>Tricoro,お米の美味しい炊き方、そしてお米を食べることによるその効果。,5,8,10</item>
+        <item>Tricoro,朧,4,7,10</item>
+        <item>Tricoro,音楽,5,10,12</item>
+        <item>Tricoro,下弦の月,5,7,9</item>
+        <item>Tricoro,カジノファイヤーことみちゃん,4,8,11</item>
+        <item>Tricoro,仮想空間の旅人たち,5,9,11</item>
+        <item>Tricoro,キャトられ♥恋はモ～モク,6,10,12</item>
+        <item>Tricoro,狂イ咲ケ焔ノ華,6,10,12</item>
+        <item>Tricoro,シュレーディンガーの猫,6,10,12</item>
+        <item>Tricoro,創世ノート,4,9,11</item>
+        <item>Tricoro,即席！脳直★ミュージックシステム,6,10,12</item>
+        <item>Tricoro,たまゆら,7,10,12</item>
+        <item>Tricoro,トリカゴノ鳳凰,6,9,12</item>
+        <item>Tricoro,†渚の小悪魔ラヴリィ～レイディオ†(IIDX EDIT),3,9,12</item>
+        <item>Tricoro,メイメツ、フラグメンツ,4,8,10</item>
+        <item>Tricoro,ラキラキ,4,8,10</item>
+        <item>Tricoro,龍と少女とデコヒーレンス,5,8,11</item>
+        <item>Spada,Adularia,6,10,12</item>
+        <item>Spada,ALBA -黎明-,5,8,11</item>
+        <item>Spada,Ancient Scapes,6,10,12</item>
+        <item>Spada,Atröpøs,6,8,11</item>
+        <item>Spada,BLUE DRAGON(雷龍RemixIIDX),7,10,12</item>
+        <item>Spada,BRAINSTORM,4,10,11</item>
+        <item>Spada,BRAVE OUT,5,8,10</item>
+        <item>Spada,Claiomh Solais,2,6,9</item>
+        <item>Spada,Cleopatrysm,4,8,11</item>
+        <item>Spada,Close the World feat.a☆ru,5,10,12</item>
+        <item>Spada,Critical Crystal,6,8,11</item>
+        <item>Spada,Dark Fall,5,8,11</item>
+        <item>Spada,DARK LEGACY,6,9,12</item>
+        <item>Spada,Devilz Sacrifice -贖罪の羊-,5,9,11</item>
+        <item>Spada,diagram,3,7,11</item>
+        <item>Spada,Elektrick U-Phoria,6,9,11</item>
+        <item>Spada,Element of SPADA,3,7,9</item>
+        <item>Spada,Engraved Mark,4,8,11</item>
+        <item>Spada,esrev:eR,4,7,9</item>
+        <item>Spada,EXTREME MACH COLLIDER,5,8,11</item>
+        <item>Spada,Feel The Beat,7,10,12</item>
+        <item>Spada,Funny shuffle,3,6,11</item>
+        <item>Spada,HYENA,6,9,11</item>
+        <item>Spada,Hypersonik,5,8,10</item>
+        <item>Spada,Idola,6,10,12</item>
+        <item>Spada,Immortal,5,9,12</item>
+        <item>Spada,Insane Techniques,4,7,11</item>
+        <item>Spada,INSOMNIA,4,8,12</item>
+        <item>Spada,into the battlefield,4,8,10</item>
+        <item>Spada,invoker,5,9,12</item>
+        <item>Spada,I will be back -オレは帰ってきた-,6,9,11</item>
+        <item>Spada,KAISER PHOENIX,7,10,12</item>
+        <item>Spada,KHAMEN BREAK,3,7,11</item>
+        <item>Spada,LA FESTA LA VITA!!,5,9,11</item>
+        <item>Spada,Last Dance,6,10,12</item>
+        <item>Spada,Lighting Shower,4,7,11</item>
+        <item>Spada,MAD ATTACK,3,6,9</item>
+        <item>Spada,MAGIC &amp; LOVE,5,9,11</item>
+        <item>Spada,M.D.Injection,3,6,10</item>
+        <item>Spada,m1dy Deluxe,6,9,11</item>
+        <item>Spada,Miracle 5ympho X,5,8,10</item>
+        <item>Spada,NPC World,5,8,10</item>
+        <item>Spada,Odin,4,7,10</item>
+        <item>Spada,Overload Frontier,5,8,11</item>
+        <item>Spada,Pharaoh,3,8,11</item>
+        <item>Spada,PUNISHER,5,9,12</item>
+        <item>Spada,ra\'am,8,10,12</item>
+        <item>Spada,rainbow guitar weeps,5,9,11</item>
+        <item>Spada,Recollection,5,7,9</item>
+        <item>Spada,refractive index,3,7,11</item>
+        <item>Spada,RISE,5,8,10</item>
+        <item>Spada,RIZING YOU UP,6,9,10</item>
+        <item>Spada,SCHWARZSCHILD FIELD,6,9,11</item>
+        <item>Spada,Sigmund,7,10,12</item>
+        <item>Spada,Smug Face-どうだ、オレの生き様は- (ONLY ONE EDITION),6,9,11</item>
+        <item>Spada,Squeeze,5,8,11</item>
+        <item>Spada,THE DETONATOR,7,10,11</item>
+        <item>Spada,Unicorn tail,5,9,11</item>
+        <item>Spada,Valgus,4,7,11</item>
+        <item>Spada,Verflucht,6,10,12</item>
+        <item>Spada,VOX UP,8,11,12</item>
+        <item>Spada,Wonder Girl feat. Kanae Asaba,4,6,11</item>
+        <item>Spada,IX,6,11,12</item>
+        <item>Spada,ÆTHER,5,8,11</item>
+        <item>Spada,アルストロメリア,5,8,10</item>
+        <item>Spada,御千手メディテーション,4,9,11</item>
+        <item>Spada,お願いアインシュタイン,5,8,10</item>
+        <item>Spada,幻想系世界修復少女,4,7,10</item>
+        <item>Spada,疾風迅雷,6,10,12</item>
+        <item>Spada,旋律のドグマ～Misérables～,6,10,12</item>
+        <item>Spada,超!!遠距離らぶ♡メ～ル,3,7,10</item>
+        <item>Spada,罪と罰,5,7,10</item>
+        <item>Spada,デッドボヲルdeホームラン,3,9,11</item>
+        <item>Spada,轟け！恋のビーンボール！！,6,10,12</item>
+        <item>Spada,廿,5,8,10</item>
+        <item>Spada,バンブーソード・ガール,5,9,11</item>
+        <item>Spada,牧神笛吹きて,4,8,11</item>
+        <item>Spada,煉獄のエルフェリア,7,10,12</item>
+        <item>Spada,海神,7,10,12</item>
+        <item>Pendual,AFRO KNUCKLE,5,8,11</item>
+        <item>Pendual,Amnolys,5,9,11</item>
+        <item>Pendual,Beat Radiance,5,8,10</item>
+        <item>Pendual,Beyond The Earth,5,10,11</item>
+        <item>Pendual,Blaze it UP!,5,8,11</item>
+        <item>Pendual,BLUE MIRAGE,5,10,12</item>
+        <item>Pendual,Broken Sword,7,10,12</item>
+        <item>Pendual,Chain of pain,4,8,10</item>
+        <item>Pendual,chrono diver -fragment-,3,6,9</item>
+        <item>Pendual,CHRONO DIVER -NORNIR-,5,9,11</item>
+        <item>Pendual,Chrono Diver -PENDULUMs-,7,11,12</item>
+        <item>Pendual,Chronos,5,8,11</item>
+        <item>Pendual,cinder,5,9,12</item>
+        <item>Pendual,COLOSSEUM,4,7,11</item>
+        <item>Pendual,Cosmic Cat,6,9,11</item>
+        <item>Pendual,Despair of ELFERIA,7,10,12</item>
+        <item>Pendual,EBONY &amp; IVORY,6,9,12</item>
+        <item>Pendual,entelecheia,6,10,12</item>
+        <item>Pendual,Erosion Mark,4,8,11</item>
+        <item>Pendual,fallen leaves -IIDX edition-,6,10,12</item>
+        <item>Pendual,FANTASTIC THREE,7,10,12</item>
+        <item>Pendual,Flashes,6,9,12</item>
+        <item>Pendual,Gravigazer,5,10,12</item>
+        <item>Pendual,GUILTY,5,8,10</item>
+        <item>Pendual,HELL SCAPER -Last Escape Remix-,5,8,11</item>
+        <item>Pendual,Hello Happiness,5,9,11</item>
+        <item>Pendual,Hollywood Galaxy(DJ NAGAI Remix),6,10,12</item>
+        <item>Pendual,illuminate,3,8,10</item>
+        <item>Pendual,IMPLANTATION,5,10,12</item>
+        <item>Pendual,In The Breeze,4,7,9</item>
+        <item>Pendual,IXION,5,8,9</item>
+        <item>Pendual,Light My Fire,4,7,10</item>
+        <item>Pendual,Line 4 Ruin,4,9,11</item>
+        <item>Pendual,Ludus In Tenebris,5,10,12</item>
+        <item>Pendual,m1dy Festival,5,8,11</item>
+        <item>Pendual,Monopole.,4,8,12</item>
+        <item>Pendual,NEO GENERATOR SEVEN,5,9,12</item>
+        <item>Pendual,Night sky,6,9,11</item>
+        <item>Pendual,No Tears,6,9,11</item>
+        <item>Pendual,On My Wings(Hardstyle IIDX),5,7,10</item>
+        <item>Pendual,PENDUAL TALISMAN,5,8,11</item>
+        <item>Pendual,Rave Saves You feat. Cardz (Exclusive IIDX Mix),4,8,11</item>
+        <item>Pendual,Rave*it!! Rave*it!!,6,9,12</item>
+        <item>Pendual,Realize Maze,6,9,11</item>
+        <item>Pendual,Reflux,5,9,12</item>
+        <item>Pendual,Sakura Mirage,6,8,11</item>
+        <item>Pendual,SAMSARA,4,7,10</item>
+        <item>Pendual,Say YEEEAHH,6,9,12</item>
+        <item>Pendual,Scarlet Moon,6,9,11</item>
+        <item>Pendual,Scars of FAUNA,5,8,11</item>
+        <item>Pendual,Shooting Fireball,6,10,12</item>
+        <item>Pendual,Sometimes feat. Kanae Asaba,4,8,10</item>
+        <item>Pendual,Sounds Of Summer,6,10,12</item>
+        <item>Pendual,SpaceLand☆TOYBOX,6,9,12</item>
+        <item>Pendual,subtractive,4,7,10</item>
+        <item>Pendual,Sweet Radar,4,7,10</item>
+        <item>Pendual,Symmetry,6,10,12</item>
+        <item>Pendual,TA・DA☆YO・SHI,5,8,10</item>
+        <item>Pendual,The Least 100sec,5,9,12</item>
+        <item>Pendual,TIEFSEE,6,9,12</item>
+        <item>Pendual,TOXIC VIBRATION,7,10,12</item>
+        <item>Pendual,Vulkan,5,9,11</item>
+        <item>Pendual,We\'re so Happy (P*Light Remix) IIDX ver.,6,10,12</item>
+        <item>Pendual,ZZ,6,10,12</item>
+        <item>Pendual,妖隠し -あやかしかくし-,5,9,10</item>
+        <item>Pendual,十六夜セツナ,5,7,10</item>
+        <item>Pendual,鬼天,6,9,11</item>
+        <item>Pendual,共鳴遊戯の華,7,10,12</item>
+        <item>Pendual,恋は白帯、サンシロー,3,6,9</item>
+        <item>Pendual,時空トラベローグ,6,9,11</item>
+        <item>Pendual,少年は空を辿る,6,10,12</item>
+        <item>Pendual,白露の風,2,6,9</item>
+        <item>Pendual,千年ノ理,6,9,12</item>
+        <item>Pendual,全力 SPECIAL VACATION!! ～限りある休日～,6,8,11</item>
+        <item>Pendual,それは花火のような恋,6,10,12</item>
+        <item>Pendual,打打打打打打打打打打,5,8,11</item>
+        <item>Pendual,超青少年ノ為ノ超多幸ナ超古典的超舞曲,6,9,11</item>
+        <item>Pendual,デンドロビウム,4,8,10</item>
+        <item>Pendual,ドッキン☆サマーあばんちゅーる,5,8,11</item>
+        <item>Pendual,取り残された美術(Arranged:HiZuMi),5,8,10</item>
+        <item>Pendual,とろぴかる倶楽部,5,8,11</item>
+        <item>Pendual,夏色DIARY - L.E.D.-G STYLE MIX -,6,10,12</item>
+        <item>Pendual,パ→ピ→プ→Yeah!,6,9,11</item>
+        <item>Pendual,表裏一体！？怪盗いいんちょの悩み♥,6,10,12</item>
+        <item>Pendual,フェイクアウト,5,8,10</item>
+        <item>Pendual,ぷろぐれっしぶ時空少女！うらしまたろ子ちゃん！,5,7,11</item>
+        <item>Pendual,ベィスドロップ・フリークス,4,7,10</item>
+        <item>Pendual,紅牡丹,6,9,12</item>
+        <item>Pendual,もっと！モット！ときめき feat. 松下,6,9,11</item>
+        <item>Pendual,リリーゼと炎龍レーヴァテイン,6,10,12</item>
+        <item>Pendual,#The_Relentless,6,9,11</item>
+        <item>Pendual,Ｘ↑Ｘ↓,5,8,11</item>
+        <item>Pendual,Discloze,6,9,11</item>
+        <item>Pendual,Invitation from Mr.C,6,9,12</item>
+
+
+    </string-array>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_opening">opening</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_folder">FolderActivity</string>
+    <string name="title_activity_goal">GoalActivity</string>
+    <string name="title_activity_add_list">AddListActivity</string>
+    <string name="title_activity_list">ListActivity</string>
+</resources>
