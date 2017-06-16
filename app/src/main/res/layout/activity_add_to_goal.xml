@@ -108,18 +108,13 @@
         android:text="Search"
         android:textSize="18sp" />
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/lyt_search"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/lyt_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 </LinearLayout>
 

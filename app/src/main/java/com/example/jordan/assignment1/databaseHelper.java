@@ -139,6 +139,16 @@ public class databaseHelper extends SQLiteOpenHelper {
          return cursor;
     }
 
+    public static void updateSongClear(String songName, int difficulty, int newClear) {
+        ContentValues values = new ContentValues();
+        values.put(iidxContract.songEntry.COLUMN_NAME_CLEAR, newClear);
+
+        String selection = iidxContract.songEntry.COLUMN_NAME_SONGNAME + " LIKE ? AND " + iidxContract.songEntry.COLUMN_NAME_DIFFICULTY + " = ?";
+        String[] selectionArgs = {songName, Integer.toString(difficulty)};
+
+        int count = dbInstance.update(iidxContract.songEntry.TABLE_NAME, values, selection, selectionArgs);
+    }
+
     public static void addList(String name) {
         ContentValues values = new ContentValues();
         values.put(iidxContract.goalEntry.COLUMN_NAME_NAME, name);

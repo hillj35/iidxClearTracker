@@ -21,11 +21,12 @@ import java.util.HashMap;
 
 import layout.SongFragment;
 
-public class AddToGoalActivity extends AppCompatActivity implements SongFragment.OnFragmentInteractionListener{
+public class AddToGoalActivity extends AppCompatActivity implements SongFragment.OnFragmentInteractionListener, folderfragment.OnFragmentInteractionListener {
     private String selectedVersion = "ALL";
     private String selectedLevel = "ALL";
     private String listName;
     private HashMap<Button, String> songsByButton = new HashMap<Button, String>();
+    private folderfragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,11 +85,7 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
                 LinearLayout searchResults = (LinearLayout)findViewById(R.id.lyt_search);
                 searchResults.removeAllViews();
 
-                if (listName != null)
-                    displayResults(cursor);
-                else
-                    ClearTracker.getInstance().showSongs(cursor, searchResults, AddToGoalActivity.this);
-
+                displayResults(cursor);
             }
         });
     }
@@ -105,68 +102,10 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
     }
 
     private void displayResults(Cursor cursor) {
-        LinearLayout parent = (LinearLayout) findViewById(R.id.lyt_search);
-        parent.removeAllViews();
-        if (cursor.getCount() == 0) {
-            //no results
-            TextView none = new TextView(this);
-            none.setText("No matches");
-            parent.addView(none);
-        }
-        else {
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                int pad = dpToPxl(6, this);
-                LinearLayout component = new LinearLayout(this);
-                TextView songName = new TextView(this);
-                songName.setText(cursor.getString(0) + "\n" + cursor.getInt(2));
-                songName.setTextSize(20);
-                songName.setPadding(pad, pad, pad, pad);
-
-                final Button addButton = new Button(this);
-                if (databaseHelper.isInList(cursor.getString(0), cursor.getInt(3), listName))
-                    addButton.setText("-");
-                else
-                    addButton.setText("+");
-
-                addButton.setTextSize(20);
-                addButton.setWidth(dpToPxl(66, this));
-                addButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String songName;
-                        String songDifficulty;
-
-                        String songDetails = songsByButton.get(addButton);
-                        String[] detailsSplit = songDetails.split(",");
-
-                        songName = detailsSplit[0];
-                        songDifficulty = detailsSplit[1];
-
-                        if (addButton.getText().toString().equals("+")) {
-                            databaseHelper.addGoalItem(songName, songDifficulty, listName);
-                            addButton.setText("-");
-                        }
-                        else {
-                            databaseHelper.deleteGoalItem(songName, songDifficulty, listName);
-                            addButton.setText("+");
-                        }
-                    }
-                });
-                songsByButton.put(addButton, cursor.getString(0)+ "," + cursor.getInt(3));
-
-                component.addView(songName);
-                component.addView(addButton);
-                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                lp.weight = 1;
-                component.setLayoutParams(lp);
-                songName.setLayoutParams(lp);
-
-                parent.addView(component);
-                cursor.moveToNext();
-            }
-        }
-
+        LinearLayout ll = (LinearLayout)findViewById(R.id.lyt_search);
+        fragment = folderfragment.newInstance();
+        fragment.setCursor(cursor);
+        getSupportFragmentManager().beginTransaction().add(ll.getId(), fragment).commit();
     }
 
     private int dpToPxl(int dp, Context c) {
@@ -174,6 +113,11 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
         return (int) (dp * scale + 0.5f);
     }
 
+
+    @Override
+    public void onFragmentInteraction(int newClear){
+        fragment.updateClear(newClear);
+    }
 
     @Override
     public void onFragmentInteraction(Uri uri){

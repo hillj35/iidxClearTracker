@@ -24,6 +24,8 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
     private ClearTracker clearTracker;
     private String search;
     private int type;
+    private folderfragment fragment;
+    private iidxFragmentPagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +42,27 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         clearTracker = ClearTracker.getInstance();
         clearTracker.clearHashmap();
 
+        Cursor cursor;
+
+        switch (type) {
+            case 1:
+                //level
+                cursor = databaseHelper.getSongsFromLevel(search);
+                break;
+            case 2:
+                //clear
+                cursor = databaseHelper.getSongsFromClear(search);
+                break;
+            default:
+                //goals
+                cursor = databaseHelper.getSongsFromGoalList(search);
+        }
+
         //for tabs
         if (type == 0) {
             ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-            viewPager.setAdapter(new iidxFragmentPagerAdapter(getSupportFragmentManager(), FolderActivity.this, search, type));
+            adapter = new iidxFragmentPagerAdapter(getSupportFragmentManager(), FolderActivity.this, search, type);
+            viewPager.setAdapter(adapter);
             //get preference
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
             int defaultDifficulty = Integer.parseInt(sp.getString("default_difficulty", "0"));
@@ -56,7 +75,9 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             LinearLayout ll = (LinearLayout)findViewById(R.id.lyt_folder);
             TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
             tabLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0));
-            getSupportFragmentManager().beginTransaction().add(ll.getId(), folderfragment.newInstance(search, 0, type)).commit();
+            fragment = folderfragment.newInstance();
+            fragment.setCursor(cursor);
+            getSupportFragmentManager().beginTransaction().add(ll.getId(), fragment).commit();
         }
     }
 
@@ -74,6 +95,16 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
     @Override
     public void onFragmentInteraction(Uri uri){
         //you can leave it empty
+    }
+
+    public void onFragmentInteraction(int newClear) {
+        //get fragment and set new clear
+        if (fragment != null) {
+            fragment.updateClear(newClear);
+        }
+        else {
+            adapter.getCurrentFragment().updateClear(newClear);
+        }
     }
 
 

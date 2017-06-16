@@ -1,5 +1,6 @@
 package com.example.jordan.assignment1;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -8,7 +9,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import layout.SongFragment;
 
 
 /**
@@ -30,7 +37,10 @@ public class folderfragment extends Fragment {
     private String version;
     private int difficulty;
     private int type;
-    private ClearTracker clearTracker = ClearTracker.getInstance();
+    private ArrayList<SongItem> songItems = new ArrayList<SongItem>();
+    private SongItem currentItem;
+    private SongListAdapter adapter;
+    private Cursor cursor;
 
     private OnFragmentInteractionListener mListener;
 
@@ -45,12 +55,9 @@ public class folderfragment extends Fragment {
      * @return A new instance of fragment folderfragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static folderfragment newInstance(String version, int difficulty, int type) {
+    public static folderfragment newInstance() {
         folderfragment fragment = new folderfragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, version);
-        args.putInt(ARG_PARAM2, difficulty);
-        args.putInt(ARG_PARAM3, type);
         fragment.setArguments(args);
         return fragment;
     }
@@ -70,26 +77,55 @@ public class folderfragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_folderfragment, container, false);
-        Cursor cursor;
-        switch (type) {
-            case 0:
-                //version
-                cursor = databaseHelper.getSongsFromVersion(version, difficulty);
-                break;
-            case 1:
-                //level
-                cursor = databaseHelper.getSongsFromLevel(version);
-                break;
-            case 2:
-                //clear
-                cursor = databaseHelper.getSongsFromClear(version);
-                break;
-            default:
-                //goals
-                cursor = databaseHelper.getSongsFromGoalList(version);
-        }
-        clearTracker.showSongs(cursor, (LinearLayout)view.findViewById(R.id.lyt_songs), getActivity());
+        buildSongItemList(cursor);
+
+        //get listview
+        final ListView lv = (ListView)view.findViewById(R.id.lst_songs);
+        adapter = new SongListAdapter(songItems, getContext());
+        lv.setAdapter(adapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                SongItem song = songItems.get(position);
+                String songName = song.getName();
+                int songDifficulty = song.getDifficulty();
+                int songLevel = Integer.parseInt(song.getLevel());
+                int clearValue = song.getClearNum();
+                SongFragment sf = SongFragment.newInstance(songName, songDifficulty, songLevel, clearValue);
+                sf.show(getActivity().getFragmentManager(), "SongFragment");
+                currentItem = song;
+            }
+        });
+
         return view;
+    }
+
+    public void updateClear(int newClear) {
+        currentItem.setClearNum(newClear);
+        currentItem.setClearText(getResources().getStringArray(R.array.clear_types)[newClear]);
+        databaseHelper.updateSongClear(currentItem.getName(), currentItem.getDifficulty(), newClear);
+        adapter.updateView(songItems.indexOf(currentItem));
+    }
+
+    public void setCursor(Cursor cursor) {
+        this.cursor = cursor;
+    }
+
+    private void buildSongItemList(Cursor cursor) {
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            SongItem item;
+            String name = cursor.getString(0);
+            String level = Integer.toString(cursor.getInt(2));
+            int clearNum = cursor.getInt(1);
+            int difficulty = cursor.getInt(3);
+            String clearText = getResources().getStringArray(R.array.clear_types)[clearNum];
+
+            item = new SongItem(name, level, clearText, clearNum, difficulty);
+            songItems.add(item);
+            cursor.moveToNext();
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event

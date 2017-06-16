@@ -23,11 +23,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FolderActivity" />
-        <activity android:name=".GoalActivity" />
-        <activity android:name=".AddToGoalActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".FolderActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".GoalActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AddToGoalActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SettingsActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

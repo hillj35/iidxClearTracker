@@ -75,7 +75,7 @@ public class GoalActivity extends AppCompatActivity implements SongFragment.OnFr
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri){
+    public void onFragmentInteraction(int newClear){
         //you can leave it empty
     }
 

@@ -91,8 +91,7 @@ public class SongFragment extends DialogFragment {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Spinner spn = (Spinner)view.findViewById(R.id.spn_clear);
-                        clearTracker.updateSongClear(songName, songDifficulty, spn.getSelectedItemPosition());
-                        clearTracker.updateClearView(spn.getSelectedItemPosition());
+                        mListener.onFragmentInteraction(spn.getSelectedItemPosition());
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -102,13 +101,6 @@ public class SongFragment extends DialogFragment {
                 });
 
         return builder.create();
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override
@@ -180,6 +172,6 @@ public class SongFragment extends DialogFragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(int newClear);
     }
 }
