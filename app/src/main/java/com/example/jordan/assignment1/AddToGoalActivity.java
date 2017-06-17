@@ -40,7 +40,12 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
         }
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        ab.setTitle(listName);
+        if (listName == null) {
+            ab.setTitle("Search");
+        }
+        else {
+            ab.setTitle(listName);
+        }
 
         final Spinner levelSpinner = (Spinner) findViewById(R.id.spn_lvl);
         final Spinner styleSpinner = (Spinner) findViewById(R.id.spn_style);
