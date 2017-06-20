@@ -2,13 +2,6 @@
     <string name="app_name">IIDX Clear Tracker</string>
     <string name="lbl_version">Version Name</string>
     <string name="btn_help">How to Use</string>
-    <string name="help_text_home">IIDX is a rhythm game with many different songs. Many players like to
-    keep track of which songs they\'ve cleared. This application helps with that. Songs are split into different "folders"
-    with the name (ie Pendual) of each version released. You can select a folder to see all the songs released on that version.</string>
-    <string name="help_text_2">Lists of goals that you want to clear can be made by touching the navigation bar in the top left
-    and selecting "Goals." You can add goal lists and edit them to add or delete songs off of them.</string>
-    <string name="help_text">On this page you can select a clear type for the song. Clear types range from "No Play" to "Full Combo".
-    After selecting a clear type, it\'s saved in a database and persists between openning and closing of the application.</string>
     <string name="normal">Normal</string>
     <string name="hyper">Hyper</string>
     <string name="another">Another</string>
@@ -18,8 +11,22 @@
         <item>Goals</item>
         <item>Search</item>
     </string-array>
-    <string-array name="levels">
+    <string-array name="levelsAll">
         <item>ALL</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+    <string-array name="levels">
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -1031,7 +1038,6 @@
         <item>Alphabetically</item>
         <item>Level</item>
         <item>Clear</item>
-        <item>Version</item>
     </string-array>
 
     <string-array name="default_difficulty_values">
@@ -1045,4 +1051,7 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

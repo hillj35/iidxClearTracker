@@ -37,7 +37,7 @@ public class GoalActivity extends AppCompatActivity implements SongFragment.OnFr
                 listname = (String)goalSpinner.getSelectedItem();
                 LinearLayout layout = (LinearLayout) findViewById(R.id.lyt_goalList);
                 layout.removeAllViews();
-                Cursor cursor = databaseHelper.getSongsFromGoalList(listname);
+                Cursor cursor = databaseHelper.getSongsFromGoalList(listname, 1);
                 clearTracker.showSongs(cursor, layout, GoalActivity.this);
                 TextView clearText = (TextView) findViewById(R.id.clearedText);
                 clearText.setText(databaseHelper.getClearCount(cursor) + " Cleared");

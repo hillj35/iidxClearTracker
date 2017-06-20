@@ -56,4 +56,21 @@
             android:textSize="16sp" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"></View>
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="55dp"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:gravity="right"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        android:visibility="invisible"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
 </LinearLayout>

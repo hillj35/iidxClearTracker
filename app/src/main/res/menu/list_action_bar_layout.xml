@@ -3,15 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:icon="@android:drawable/ic_menu_delete"
-        android:title="Delete List"
-        android:visible="false"
-        app:showAsAction="always" />
-    <item
+        android:id="@+id/menu_list_edit"
         android:icon="@android:drawable/ic_menu_edit"
         android:title="Edit"
         android:visible="false"
         app:showAsAction="always" />
-    <item android:title="Sort" />
-    <item android:title="Stats" />
+    <item
+        android:id="@+id/menu_list_sort"
+        android:title="Sort" />
+    <item
+        android:id="@+id/menu_list_stats"
+        android:title="Stats" />
+    <item
+        android:id="@+id/menu_list_delete"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="Delete List"
+        android:visible="false"
+        app:showAsAction="always" />
 </menu>

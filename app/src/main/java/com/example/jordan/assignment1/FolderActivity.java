@@ -20,14 +20,17 @@ import android.widget.TabHost;
 import android.widget.TextView;
 
 import layout.SongFragment;
+import layout.SortFragment;
 
-public class FolderActivity extends AppCompatActivity implements SongFragment.OnFragmentInteractionListener, folderfragment.OnFragmentInteractionListener {
+public class FolderActivity extends AppCompatActivity implements SongFragment.OnFragmentInteractionListener, folderfragment.OnFragmentInteractionListener,
+                                                                        SortFragment.OnFragmentInteractionListener {
     private ClearTracker clearTracker;
     private String search;
     private int type;
     private folderfragment fragment;
     private iidxFragmentPagerAdapter adapter;
     private Menu menu;
+    private int sortValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,29 +47,33 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         clearTracker = ClearTracker.getInstance();
         clearTracker.clearHashmap();
 
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        sortValue = Integer.parseInt(sp.getString("default_sort", "0"));
+
         Cursor cursor;
 
         switch (type) {
             case 1:
                 //level
-                cursor = databaseHelper.getSongsFromLevel(search);
+                cursor = databaseHelper.getSongsFromLevel(search, sortValue);
                 break;
             case 2:
                 //clear
-                cursor = databaseHelper.getSongsFromClear(search);
+                cursor = databaseHelper.getSongsFromClear(search, sortValue);
                 break;
             default:
                 //goals
-                cursor = databaseHelper.getSongsFromGoalList(search);
+                cursor = databaseHelper.getSongsFromGoalList(search, sortValue);
         }
+
+
 
         //for tabs
         if (type == 0) {
             ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-            adapter = new iidxFragmentPagerAdapter(getSupportFragmentManager(), FolderActivity.this, search, type);
+            adapter = new iidxFragmentPagerAdapter(getSupportFragmentManager(), FolderActivity.this, search, type, sortValue);
             viewPager.setAdapter(adapter);
             //get preference
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
             int defaultDifficulty = Integer.parseInt(sp.getString("default_difficulty", "0"));
             viewPager.setCurrentItem(defaultDifficulty);
 
@@ -104,6 +111,14 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         if (id == android.R.id.home) {
             onBackPressed();  return true;
         }
+        else if (id == R.id.menu_list_sort) {
+            SortFragment sf = SortFragment.newInstance(0);
+            sf.show(this.getSupportFragmentManager(), "SortFragment");
+        }
+        else if (id == R.id.menu_list_delete) {
+            databaseHelper.deleteList(search);
+            onBackPressed();
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -123,5 +138,37 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         }
     }
 
+    @Override
+    public void onSortInteraction(int sort) {
+        sortValue = sort;
+        Cursor cursor;
 
+        switch (type) {
+            case 0:
+                //version
+                ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+                cursor = databaseHelper.getSongsFromVersion(search, viewPager.getCurrentItem(), sortValue);
+                break;
+            case 1:
+                //level
+                cursor = databaseHelper.getSongsFromLevel(search, sortValue);
+                break;
+            case 2:
+                //clear
+                cursor = databaseHelper.getSongsFromClear(search, sortValue);
+                break;
+            default:
+                //goals
+                cursor = databaseHelper.getSongsFromGoalList(search, sortValue);
+        }
+
+        if (type > 0) {
+            fragment.setCursor(cursor);
+            fragment.Resort();
+        }
+        else {
+            adapter.getCurrentFragment().setCursor(cursor);
+            adapter.getCurrentFragment().Resort();
+        }
+    }
 }

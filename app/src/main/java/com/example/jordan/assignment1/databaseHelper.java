@@ -157,6 +157,14 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     public static void deleteList(String name) {
+        Cursor cursor = getSongsFromGoalList(name, 0);
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()) {
+            deleteGoalItem(cursor.getString(0), Integer.toString(cursor.getInt(3)), name);
+            cursor.moveToNext();
+        }
+
         String where = iidxContract.goalEntry.COLUMN_NAME_NAME + "=?";
         String[] args = new String[] {name};
         dbInstance.delete(iidxContract.goalEntry.TABLE_NAME, where, args);
@@ -224,7 +232,21 @@ public class databaseHelper extends SQLiteOpenHelper {
         return listNames.toArray(new String[listNames.size()]);
     }
 
-    public static Cursor getSongsFromGoalList(String listName) {
+    public static Cursor getSongsFromGoalList(String listName, int sort) {
+        String sortValues = "";
+        switch (sort) {
+            case 0:
+                break;
+            case 1:
+                sortValues = "b." + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                break;
+            case 2:
+                sortValues = "b." + iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC,";
+                break;
+            default:
+                break;
+        }
+
         //select all songs in list
         String query = "SELECT " + iidxContract.songEntry.COLUMN_NAME_SONGNAME + ", " +
                 iidxContract.songEntry.COLUMN_NAME_CLEAR + ", " +
@@ -235,8 +257,8 @@ public class databaseHelper extends SQLiteOpenHelper {
                 iidxContract.songEntry.COLUMN_NAME_SONGNAME + " AND a." +
                 iidxContract.goalItemEntry.COLUMN_NAME_DIFFICULTY + "=b." +
                 iidxContract.songEntry.COLUMN_NAME_DIFFICULTY  + " WHERE " +
-                "a." + iidxContract.goalItemEntry.COLUMN_NAME_LIST + "='" + listName + "' ORDER BY " +
-                "a." + iidxContract.goalItemEntry.COLUMN_NAME_SONG + " COLLATE NOCASE ASC";
+                "a." + iidxContract.goalItemEntry.COLUMN_NAME_LIST + "='" + listName + "' ORDER BY " + sortValues +
+                " a." + iidxContract.goalItemEntry.COLUMN_NAME_SONG + " COLLATE NOCASE ASC";
 
         Cursor cursor = dbInstance.rawQuery(query, null);
         return cursor;
@@ -257,7 +279,20 @@ public class databaseHelper extends SQLiteOpenHelper {
         return Integer.toString(cleared) + "/" + Integer.toString(total);
     }
 
-    public static Cursor getSongsFromVersion(String version, int difficulty) {
+    public static Cursor getSongsFromVersion(String version, int difficulty, int sort) {
+        String sortValues = "";
+        switch (sort) {
+            case 0:
+                break;
+            case 1:
+                sortValues = iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                break;
+            case 2:
+                sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC,";
+                break;
+            default:
+                break;
+        }
         String[] projection = new String[4];
         projection[0] = iidxContract.songEntry.COLUMN_NAME_SONGNAME;
         projection[1] = iidxContract.songEntry.COLUMN_NAME_CLEAR;
@@ -267,7 +302,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         String selection = iidxContract.songEntry.COLUMN_NAME_VERSION + " = ? AND " +
                 iidxContract.songEntry.COLUMN_NAME_DIFFICULTY + " = ?";
         String[] selectionArgs = {version, Integer.toString(difficulty)};
-        String sortOrder = iidxContract.songEntry.COLUMN_NAME_SONGNAME + " COLLATE NOCASE ASC";
+        String sortOrder = sortValues + " " + iidxContract.songEntry.COLUMN_NAME_SONGNAME + " COLLATE NOCASE ASC";
         Cursor cursor = dbInstance.query(iidxContract.songEntry.TABLE_NAME,
                 projection,
                 selection,
@@ -279,7 +314,20 @@ public class databaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public static Cursor getSongsFromLevel(String level) {
+    public static Cursor getSongsFromLevel(String level, int sort) {
+        String sortValues = "";
+        switch (sort) {
+            case 0:
+                break;
+            case 1:
+                sortValues = iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                break;
+            case 2:
+                sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC,";
+                break;
+            default:
+                break;
+        }
         String[] projection = new String[4];
         projection[0] = iidxContract.songEntry.COLUMN_NAME_SONGNAME;
         projection[1] = iidxContract.songEntry.COLUMN_NAME_CLEAR;
@@ -288,7 +336,7 @@ public class databaseHelper extends SQLiteOpenHelper {
 
         String selection = iidxContract.songEntry.COLUMN_NAME_LEVEL + "=?";
         String[] selectionArgs = {level};
-        String sortOrder = iidxContract.songEntry.COLUMN_NAME_SONGNAME + " COLLATE NOCASE ASC";
+        String sortOrder = sortValues + " " + iidxContract.songEntry.COLUMN_NAME_SONGNAME + " COLLATE NOCASE ASC";
         Cursor cursor = dbInstance.query(iidxContract.songEntry.TABLE_NAME,
                 projection,
                 selection,
@@ -300,7 +348,20 @@ public class databaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public static Cursor getSongsFromClear(String clear) {
+    public static Cursor getSongsFromClear(String clear, int sort) {
+        String sortValues = "";
+        switch (sort) {
+            case 0:
+                break;
+            case 1:
+                sortValues = iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                break;
+            case 2:
+                sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC,";
+                break;
+            default:
+                break;
+        }
         String[] projection = new String[4];
         projection[0] = iidxContract.songEntry.COLUMN_NAME_SONGNAME;
         projection[1] = iidxContract.songEntry.COLUMN_NAME_CLEAR;
@@ -309,7 +370,7 @@ public class databaseHelper extends SQLiteOpenHelper {
 
         String selection = iidxContract.songEntry.COLUMN_NAME_CLEAR + "=?";
         String[] selectionArgs = {clear};
-        String sortOrder = iidxContract.songEntry.COLUMN_NAME_SONGNAME + " COLLATE NOCASE ASC";
+        String sortOrder = sortValues + " " + iidxContract.songEntry.COLUMN_NAME_SONGNAME + " COLLATE NOCASE ASC";
         Cursor cursor = dbInstance.query(iidxContract.songEntry.TABLE_NAME,
                 projection,
                 selection,

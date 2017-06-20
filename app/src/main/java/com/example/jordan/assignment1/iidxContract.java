@@ -25,6 +25,7 @@ public final class iidxContract {
         public static final String COLUMN_NAME_LIST = "list";
         public static final String COLUMN_NAME_SONG = "song";
         public static final String COLUMN_NAME_DIFFICULTY = "difficulty";
+        public static final String COLUMN_NAME_GOAL_CLEAR = "goalclear";
     }
 
     public static class goalEntry implements BaseColumns {

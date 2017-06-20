@@ -51,7 +51,7 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
         final Spinner styleSpinner = (Spinner) findViewById(R.id.spn_style);
         final Button searchButton = (Button) findViewById(R.id.btn_search);
 
-        levelSpinner.setAdapter(ArrayAdapter.createFromResource(this, R.array.levels, android.R.layout.simple_spinner_dropdown_item));
+        levelSpinner.setAdapter(ArrayAdapter.createFromResource(this, R.array.levelsAll, android.R.layout.simple_spinner_dropdown_item));
         styleSpinner.setAdapter(ArrayAdapter.createFromResource(this, R.array.VersionsAll, android.R.layout.simple_spinner_dropdown_item));
 
         levelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

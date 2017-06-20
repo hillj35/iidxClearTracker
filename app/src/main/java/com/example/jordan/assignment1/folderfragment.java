@@ -37,6 +37,7 @@ public class folderfragment extends Fragment {
     private String version;
     private int difficulty;
     private int type;
+    private View view;
     private ArrayList<SongItem> songItems = new ArrayList<SongItem>();
     private SongItem currentItem;
     private SongListAdapter adapter;
@@ -76,7 +77,7 @@ public class folderfragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_folderfragment, container, false);
+        view = inflater.inflate(R.layout.fragment_folderfragment, container, false);
         buildSongItemList(cursor);
 
         //get listview
@@ -112,7 +113,15 @@ public class folderfragment extends Fragment {
         this.cursor = cursor;
     }
 
+    public void Resort() {
+        buildSongItemList(cursor);
+        ListView lv = (ListView)view.findViewById(R.id.lst_songs);
+        adapter = new SongListAdapter(songItems, getContext());
+        lv.setAdapter(adapter);
+    }
+
     private void buildSongItemList(Cursor cursor) {
+        songItems.clear();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             SongItem item;

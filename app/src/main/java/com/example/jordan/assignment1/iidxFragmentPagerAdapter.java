@@ -17,13 +17,15 @@ public class iidxFragmentPagerAdapter extends FragmentPagerAdapter {
     private Context context;
     private String version;
     private int type;
+    private int sortValue;
     private folderfragment currentFragment;
 
-    public iidxFragmentPagerAdapter(FragmentManager fm, Context context, String version, int type) {
+    public iidxFragmentPagerAdapter(FragmentManager fm, Context context, String version, int type, int sortValue) {
         super(fm);
         this.context = context;
         this.version = version;
         this.type = type;
+        this.sortValue = sortValue;
     }
 
     public folderfragment getCurrentFragment() {
@@ -46,7 +48,7 @@ public class iidxFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         folderfragment fragment = folderfragment.newInstance();
-        Cursor cursor = databaseHelper.getSongsFromVersion(version, position);
+        Cursor cursor = databaseHelper.getSongsFromVersion(version, position, sortValue);
         fragment.setCursor(cursor);
         return fragment;
     }
