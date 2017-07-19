@@ -29,18 +29,21 @@ import layout.SongFragment;
 public class folderfragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "version";
+    private static final String ARG_PARAM1 = "listName";
     private static final String ARG_PARAM2 = "difficulty";
     private static final String ARG_PARAM3 = "type";
+    private static final String ARG_PARAM4 = "list";
 
     // TODO: Rename and change types of parameters
     private String version;
+    private String listName;
     private int difficulty;
     private int type;
     private View view;
     private ArrayList<SongItem> songItems = new ArrayList<SongItem>();
     private SongItem currentItem;
     private SongListAdapter adapter;
+    private boolean listAdd;
     private Cursor cursor;
 
     private OnFragmentInteractionListener mListener;
@@ -56,9 +59,11 @@ public class folderfragment extends Fragment {
      * @return A new instance of fragment folderfragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static folderfragment newInstance() {
+    public static folderfragment newInstance(boolean list, String listName) {
         folderfragment fragment = new folderfragment();
         Bundle args = new Bundle();
+        args.putBoolean(ARG_PARAM4, list);
+        args.putString(ARG_PARAM1, listName);
         fragment.setArguments(args);
         return fragment;
     }
@@ -67,9 +72,8 @@ public class folderfragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            version = getArguments().getString(ARG_PARAM1);
-            difficulty = getArguments().getInt(ARG_PARAM2);
-            type = getArguments().getInt(ARG_PARAM3);
+            listAdd = getArguments().getBoolean(ARG_PARAM4);
+            listName = getArguments().getString(ARG_PARAM1);
         }
     }
 
@@ -82,7 +86,7 @@ public class folderfragment extends Fragment {
 
         //get listview
         final ListView lv = (ListView)view.findViewById(R.id.lst_songs);
-        adapter = new SongListAdapter(songItems, getContext());
+        adapter = new SongListAdapter(songItems, getContext(), listName);
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -116,7 +120,7 @@ public class folderfragment extends Fragment {
     public void Resort() {
         buildSongItemList(cursor);
         ListView lv = (ListView)view.findViewById(R.id.lst_songs);
-        adapter = new SongListAdapter(songItems, getContext());
+        adapter = new SongListAdapter(songItems, getContext(), listName);
         lv.setAdapter(adapter);
     }
 
@@ -131,7 +135,7 @@ public class folderfragment extends Fragment {
             int difficulty = cursor.getInt(3);
             String clearText = getResources().getStringArray(R.array.clear_types)[clearNum];
 
-            item = new SongItem(name, level, clearText, clearNum, difficulty);
+            item = new SongItem(name, level, clearText, clearNum, difficulty, listAdd);
             songItems.add(item);
             cursor.moveToNext();
         }

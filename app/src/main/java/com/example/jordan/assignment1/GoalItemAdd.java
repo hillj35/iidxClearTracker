@@ -5,16 +5,15 @@ import android.view.View;
 import android.widget.TextView;
 
 /**
- * Created by Jordan on 6/15/2017.
+ * Created by Jordan on 7/17/2017.
  */
 
-public class SongItem {
+public class GoalItemAdd {
     private String name;
     private String level;
     private int clearNum;
     private String clearText;
     private int difficulty;
-    private boolean listAdd;
 
     private TextView clear;
     private View clearColor;
@@ -22,13 +21,12 @@ public class SongItem {
     private int[] colors = {Color.TRANSPARENT, Color.GRAY, Color.MAGENTA,
             Color.GREEN, Color.CYAN, Color.RED, Color.YELLOW, Color.BLUE};
 
-    public SongItem(String name, String level, String clearText, int clearNum, int difficulty, boolean listAdd) {
+    public GoalItemAdd(String name, String level, String clearText, int clearNum, int difficulty) {
         this.name = name;
         this.level = level;
         this.clearText = clearText;
         this.clearNum = clearNum;
         this.difficulty = difficulty;
-        this.listAdd = listAdd;
     }
 
     public String getName() {
@@ -46,7 +44,6 @@ public class SongItem {
     public int getDifficulty() {
         return difficulty;
     }
-    public boolean getList() { return listAdd; }
 
     public void setClearText(String value) {
         clearText = value;

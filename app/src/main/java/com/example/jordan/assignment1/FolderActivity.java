@@ -1,5 +1,6 @@
 package com.example.jordan.assignment1;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Point;
@@ -31,6 +32,7 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
     private iidxFragmentPagerAdapter adapter;
     private Menu menu;
     private int sortValue;
+    private boolean goal = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,7 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             default:
                 //goals
                 cursor = databaseHelper.getSongsFromGoalList(search, sortValue);
+                goal = true;
         }
 
 
@@ -84,7 +87,7 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             LinearLayout ll = (LinearLayout)findViewById(R.id.lyt_folder);
             TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
             tabLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0));
-            fragment = folderfragment.newInstance();
+            fragment = folderfragment.newInstance(false, "");
             fragment.setCursor(cursor);
             getSupportFragmentManager().beginTransaction().add(ll.getId(), fragment).commit();
         }
@@ -112,12 +115,18 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             onBackPressed();  return true;
         }
         else if (id == R.id.menu_list_sort) {
-            SortFragment sf = SortFragment.newInstance(0);
+            SortFragment sf = SortFragment.newInstance(sortValue);
             sf.show(this.getSupportFragmentManager(), "SortFragment");
         }
         else if (id == R.id.menu_list_delete) {
             databaseHelper.deleteList(search);
             onBackPressed();
+        }
+        else if (id == R.id.menu_list_edit) {
+            Intent i = new Intent(this, AddToGoalActivity.class);
+            i.putExtra("listname", search);
+            i.putExtra("list", true);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);
@@ -136,6 +145,9 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         else {
             adapter.getCurrentFragment().updateClear(newClear);
         }
+        //sorted by clear, update
+        if (sortValue == 2)
+            onSortInteraction(sortValue);
     }
 
     @Override

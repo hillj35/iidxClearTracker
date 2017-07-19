@@ -25,6 +25,7 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
     private String selectedVersion = "ALL";
     private String selectedLevel = "ALL";
     private String listName;
+    boolean listSearch;
     private HashMap<Button, String> songsByButton = new HashMap<Button, String>();
     private folderfragment fragment;
 
@@ -46,6 +47,8 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
         else {
             ab.setTitle(listName);
         }
+
+        listSearch = getIntent().getBooleanExtra("list", false);
 
         final Spinner levelSpinner = (Spinner) findViewById(R.id.spn_lvl);
         final Spinner styleSpinner = (Spinner) findViewById(R.id.spn_style);
@@ -108,7 +111,7 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
 
     private void displayResults(Cursor cursor) {
         LinearLayout ll = (LinearLayout)findViewById(R.id.lyt_search);
-        fragment = folderfragment.newInstance();
+        fragment = folderfragment.newInstance(listSearch, listName);
         fragment.setCursor(cursor);
         getSupportFragmentManager().beginTransaction().add(ll.getId(), fragment).commit();
     }

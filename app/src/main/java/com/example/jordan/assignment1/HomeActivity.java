@@ -101,6 +101,7 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
         switch (itemId) {
             case R.id.app_bar_search:
                 intent = new Intent(this, AddToGoalActivity.class);
+                intent.putExtra("list", false);
                 startActivity(intent);
                 break;
             case R.id.action_settings:
