@@ -34,16 +34,19 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
     private int sortValue;
     private boolean goal = false;
 
+    private String[] clearTypes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folder);
 
+        clearTypes = getResources().getStringArray(R.array.clear_types);
+
         search = getIntent().getStringExtra("search");
         type = getIntent().getIntExtra("type", 0);
 
         ActionBar ab = getSupportActionBar();
-        ab.setTitle(search);
         ab.setDisplayHomeAsUpEnabled(true);
 
         clearTracker = ClearTracker.getInstance();
@@ -55,17 +58,24 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         Cursor cursor;
 
         switch (type) {
+            case 0:
+                ab.setTitle(search);
+                cursor = null;
+                break;
             case 1:
                 //level
                 cursor = databaseHelper.getSongsFromLevel(search, sortValue);
+                ab.setTitle("Level " + search);
                 break;
             case 2:
                 //clear
                 cursor = databaseHelper.getSongsFromClear(search, sortValue);
+                ab.setTitle(clearTypes[Integer.parseInt(search)]);
                 break;
             default:
                 //goals
                 cursor = databaseHelper.getSongsFromGoalList(search, sortValue);
+                ab.setTitle(search);
                 goal = true;
         }
 
@@ -91,6 +101,12 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             fragment.setCursor(cursor);
             getSupportFragmentManager().beginTransaction().add(ll.getId(), fragment).commit();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        onSortInteraction(sortValue);
     }
 
     @Override
@@ -179,8 +195,10 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             fragment.Resort();
         }
         else {
-            adapter.getCurrentFragment().setCursor(cursor);
-            adapter.getCurrentFragment().Resort();
+            if (adapter.getCurrentFragment() != null) {
+                adapter.getCurrentFragment().setCursor(cursor);
+                adapter.getCurrentFragment().Resort();
+            }
         }
     }
 }
