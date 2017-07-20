@@ -111,7 +111,7 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
 
     private void displayResults(Cursor cursor) {
         LinearLayout ll = (LinearLayout)findViewById(R.id.lyt_search);
-        fragment = folderfragment.newInstance(listSearch, listName);
+        fragment = folderfragment.newInstance(listSearch, listName, true);
         fragment.setCursor(cursor);
         getSupportFragmentManager().beginTransaction().add(ll.getId(), fragment).commit();
     }

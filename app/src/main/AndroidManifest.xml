@@ -38,7 +38,6 @@
         <activity
             android:name=".SettingsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".StatsActivity"></activity>
     </application>
 
 </manifest>

@@ -103,7 +103,7 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             LinearLayout ll = (LinearLayout)findViewById(R.id.lyt_folder);
             TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
             tabLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0));
-            fragment = folderfragment.newInstance(false, "");
+            fragment = folderfragment.newInstance(false, "", false);
             fragment.setCursor(cursor);
             getSupportFragmentManager().beginTransaction().add(ll.getId(), fragment).commit();
         }

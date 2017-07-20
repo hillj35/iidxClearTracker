@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -30,7 +32,7 @@ public class folderfragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "listName";
-    private static final String ARG_PARAM2 = "difficulty";
+    private static final String ARG_PARAM2 = "search";
     private static final String ARG_PARAM3 = "type";
     private static final String ARG_PARAM4 = "list";
 
@@ -44,6 +46,7 @@ public class folderfragment extends Fragment {
     private SongItem currentItem;
     private SongListAdapter adapter;
     private boolean listAdd;
+    private boolean search;
     private Cursor cursor;
 
     private OnFragmentInteractionListener mListener;
@@ -59,10 +62,11 @@ public class folderfragment extends Fragment {
      * @return A new instance of fragment folderfragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static folderfragment newInstance(boolean list, String listName) {
+    public static folderfragment newInstance(boolean list, String listName, boolean search) {
         folderfragment fragment = new folderfragment();
         Bundle args = new Bundle();
         args.putBoolean(ARG_PARAM4, list);
+        args.putBoolean(ARG_PARAM2, search);
         args.putString(ARG_PARAM1, listName);
         fragment.setArguments(args);
         return fragment;
@@ -74,6 +78,7 @@ public class folderfragment extends Fragment {
         if (getArguments() != null) {
             listAdd = getArguments().getBoolean(ARG_PARAM4);
             listName = getArguments().getString(ARG_PARAM1);
+            search = getArguments().getBoolean(ARG_PARAM2);
         }
     }
 
@@ -138,6 +143,20 @@ public class folderfragment extends Fragment {
             item = new SongItem(name, level, clearText, clearNum, difficulty, listAdd);
             songItems.add(item);
             cursor.moveToNext();
+        }
+
+        TextView infoTxt = (TextView)view.findViewById(R.id.txt_none_folder);
+        ImageView infoImg = (ImageView)view.findViewById(R.id.img_info_folder);
+
+        if (search)
+            infoTxt.setText("No results for this search. Please try again.");
+        if (cursor.getCount() > 0) {
+            infoTxt.setVisibility(View.INVISIBLE);
+            infoImg.setVisibility(View.INVISIBLE);
+        }
+        else {
+            infoTxt.setVisibility(View.VISIBLE);
+            infoImg.setVisibility(View.VISIBLE);
         }
     }
 
