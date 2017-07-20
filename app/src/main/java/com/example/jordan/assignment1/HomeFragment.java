@@ -11,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -83,6 +85,18 @@ public class HomeFragment extends Fragment {
             list = view.getResources().getStringArray(arrayid);
         else
             list = databaseHelper.getLists();
+
+        TextView noLists = (TextView)view.findViewById(R.id.txt_no_lists);
+        ImageView infoImg = (ImageView)view.findViewById(R.id.img_info);
+
+        if (list.length > 0) {
+            noLists.setVisibility(View.INVISIBLE);
+            infoImg.setVisibility(View.INVISIBLE);
+        }
+        else {
+            noLists.setVisibility(View.VISIBLE);
+            infoImg.setVisibility(View.VISIBLE);
+        }
 
         lv = (ListView)view.findViewById(R.id.lst_folders);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -90,6 +90,16 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if (adapter != null) {
+            if (adapter.getCurrentFragment() != null) {
+                ((HomeFragment)adapter.getCurrentFragment()).updateList();
+            }
+        }
+    }
+
+    @Override
     public void onFragmentInteraction(Uri uri){
         //you can leave it empty
     }

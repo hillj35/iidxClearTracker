@@ -48,9 +48,9 @@ public class ClearTracker {
         iidxdb = databaseHelper.dbInstance;
     }
 
-    public static void populateDatabase(Context context, SQLiteDatabase db) {
+    public static void populateDatabase(Context context, SQLiteDatabase db, int id) {
         Resources res = context.getResources();
-        String[] songArray = res.getStringArray(R.array.songs);
+        String[] songArray = res.getStringArray(id);
         //create an entry in songs for each version
 
         for (String s : songArray) {

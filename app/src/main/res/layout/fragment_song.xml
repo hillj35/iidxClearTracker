@@ -7,9 +7,9 @@
         android:id="@+id/txt_SongName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="6dp"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="26dp"
+        android:paddingRight="26dp"
         android:paddingTop="6dp"
         android:text="Song Name"
         android:textSize="24sp" />
@@ -18,7 +18,7 @@
         android:id="@+id/txt_Difficulty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="6dp"
+        android:paddingLeft="26dp"
         android:text="NORMAL 1"
         android:textColor="@color/colorNormal"
         android:textSize="18sp" />
@@ -28,21 +28,14 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/txt_ClearType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingLeft="6dp"
-            android:paddingTop="8dp"
-            android:text="No Play"
-            android:textSize="18sp" />
-
         <Spinner
             android:id="@+id/spn_clear"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:spinnerMode="dialog" />
+            android:layout_height="46dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="26dp"
+            android:layout_weight="0.91"
+            android:spinnerMode="dialog"
+            android:textAlignment="center" />
     </LinearLayout>
 </LinearLayout>

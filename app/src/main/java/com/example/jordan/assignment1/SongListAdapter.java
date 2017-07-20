@@ -79,6 +79,17 @@ public class SongListAdapter extends ArrayAdapter<SongItem> implements View.OnCl
 
         viewHolder.name.setText(song.getName());
         viewHolder.level.setText(song.getLevel());
+        switch (song.getDifficulty()) {
+            case 0:
+                viewHolder.level.setTextColor(ContextCompat.getColor(context, R.color.colorNormal));
+                break;
+            case 1:
+                viewHolder.level.setTextColor(ContextCompat.getColor(context, R.color.colorHyper));
+                break;
+            case 2:
+                viewHolder.level.setTextColor(ContextCompat.getColor(context, R.color.colorAnother));
+                break;
+        }
         viewHolder.clear.setText(song.getClearText());
         viewHolder.clearColor.setBackgroundColor(colors[song.getClearNum()]);
 

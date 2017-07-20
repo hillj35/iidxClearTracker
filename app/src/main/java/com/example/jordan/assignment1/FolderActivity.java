@@ -20,11 +20,12 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import layout.DeleteFragment;
 import layout.SongFragment;
 import layout.SortFragment;
 
 public class FolderActivity extends AppCompatActivity implements SongFragment.OnFragmentInteractionListener, folderfragment.OnFragmentInteractionListener,
-                                                                        SortFragment.OnFragmentInteractionListener {
+                                                                        SortFragment.OnFragmentInteractionListener, DeleteFragment.OnFragmentInteractionListener {
     private ClearTracker clearTracker;
     private String search;
     private int type;
@@ -70,7 +71,12 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             case 2:
                 //clear
                 cursor = databaseHelper.getSongsFromClear(search, sortValue);
-                ab.setTitle(clearTypes[Integer.parseInt(search)]);
+                int index = Integer.parseInt(search);
+                if (index > 1) {
+                    ab.setTitle(clearTypes[index] + " Clear");
+                }
+                else
+                    ab.setTitle(clearTypes[index]);
                 break;
             default:
                 //goals
@@ -119,6 +125,8 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             //goals
             menu.getItem(0).setVisible(true);
             menu.getItem(1).setVisible(true);
+            menu.getItem(2).setVisible(true);
+            menu.getItem(3).setVisible(true);
         }
         return true;
     }
@@ -135,8 +143,8 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             sf.show(this.getSupportFragmentManager(), "SortFragment");
         }
         else if (id == R.id.menu_list_delete) {
-            databaseHelper.deleteList(search);
-            onBackPressed();
+            DeleteFragment df = DeleteFragment.newInstance();
+            df.show(this.getSupportFragmentManager(), "DeleteFragment");
         }
         else if (id == R.id.menu_list_edit) {
             Intent i = new Intent(this, AddToGoalActivity.class);
@@ -164,6 +172,12 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         //sorted by clear, update
         if (sortValue == 2)
             onSortInteraction(sortValue);
+    }
+
+    @Override
+    public void onDeleteInteraction() {
+        databaseHelper.deleteList(search);
+        onBackPressed();
     }
 
     @Override

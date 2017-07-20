@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 
 public class databaseHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     public static final String DATABASE_NAME = "iidx.db";
     private static Context c;
     private static databaseHelper instance;
@@ -43,15 +43,17 @@ public class databaseHelper extends SQLiteOpenHelper {
         db.execSQL(iidxContract.SQL_CREATE_GOAL);
         db.execSQL(iidxContract.SQL_CREATE_GOALITEM);
         db.execSQL(iidxContract.SQL_CREATE_PLAYER);
-        ClearTracker.populateDatabase(c, db);
+        ClearTracker.populateDatabase(c, db, R.array.songs);
     }
 
     public void onUpgrade (SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(iidxContract.SQL_DELETE_SONG);
+        /*db.execSQL(iidxContract.SQL_DELETE_SONG);
         db.execSQL(iidxContract.SQL_DELETE_GOAL);
         db.execSQL(iidxContract.SQL_DELETE_GOALITEM);
         db.execSQL(iidxContract.SQL_DELETE_PLAYER);
-        onCreate(db);
+        onCreate(db);*/
+        //add new songs
+        ClearTracker.populateDatabase(c, db, R.array.newSongs);
     }
 
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {

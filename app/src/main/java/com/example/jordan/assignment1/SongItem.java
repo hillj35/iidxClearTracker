@@ -1,6 +1,9 @@
 package com.example.jordan.assignment1;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,6 +18,7 @@ public class SongItem {
     private String clearText;
     private int difficulty;
     private boolean listAdd;
+    private Context context;
 
     private TextView clear;
     private View clearColor;
@@ -29,6 +33,7 @@ public class SongItem {
         this.clearNum = clearNum;
         this.difficulty = difficulty;
         this.listAdd = listAdd;
+        this.context = context;
     }
 
     public String getName() {

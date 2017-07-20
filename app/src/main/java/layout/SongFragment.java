@@ -87,7 +87,7 @@ public class SongFragment extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         view = inflater.inflate(R.layout.fragment_song, null);
         builder.setView(view);
-        builder.setMessage("Edit Song")
+        builder.setTitle("Edit Clear")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Spinner spn = (Spinner)view.findViewById(R.id.spn_clear);
@@ -111,7 +111,7 @@ public class SongFragment extends DialogFragment {
         String[] clearValues = getResources().getStringArray(R.array.clear_types);
         //init spinner values
         Spinner clearSpinner = (Spinner)view.findViewById(R.id.spn_clear);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.clear_types, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.clear_types, R.layout.clear_spinner_item);
         clearSpinner.setAdapter(adapter);
         clearSpinner.setSelection(clearType);
 
@@ -121,8 +121,8 @@ public class SongFragment extends DialogFragment {
         TextView difficultytxt = (TextView)view.findViewById(R.id.txt_Difficulty);
         String difficultyString = "";
 
-        TextView clearTxt = (TextView)view.findViewById(R.id.txt_ClearType);
-        clearTxt.setText(clearValues[clearType]);
+        //TextView clearTxt = (TextView)view.findViewById(R.id.txt_ClearType);
+        //clearTxt.setText(clearValues[clearType]);
         switch (songDifficulty) {
             case 0:
                 difficultyString = "NORMAL " + level;

@@ -41,6 +41,7 @@
         <item>12</item>
     </string-array>
     <string-array name="Versions">
+        <item>Copula</item>
         <item>Pendual</item>
         <item>Spada</item>
         <item>Tricoro</item>
@@ -68,6 +69,7 @@
     </string-array>
     <string-array name="VersionsAll">
         <item>ALL</item>
+        <item>Copula</item>
         <item>Pendual</item>
         <item>Spada</item>
         <item>Tricoro</item>
@@ -103,6 +105,101 @@
         <item>Ex Hard</item>
         <item>Full Combo</item>
     </string-array>
+
+    <string-array name="newSongs">
+        <item>Copula,Acid Pumper,4,9,11</item>
+        <item>Copula,Angelic Jelly,6,9,11</item>
+        <item>Copula,Aublia,5,8,11</item>
+        <item>Copula,Damage Per Second,4,7,9</item>
+        <item>Copula,Derelict Star feat. Ryu*,6,9,11</item>
+        <item>Copula,Devil\'s Gear,6,10,12</item>
+        <item>Copula,DIAMOND CROSSING,7,10,12</item>
+        <item>Copula,do the thing feat. Kanae Asaba,3,8,10</item>
+        <item>Copula,Donkey Donk,6,9,10</item>
+        <item>Copula,Dreamin Train,4,6,10</item>
+        <item>Copula,Dynamite,7,10,12</item>
+        <item>Copula,Everlasting Last,4,8,10</item>
+        <item>Copula,Exchange Place,4,7,9</item>
+        <item>Copula,GET READY!!,6,9,11</item>
+        <item>Copula,Glitch Nerds,5,8,10</item>
+        <item>Copula,Go Faraway,5,7,10</item>
+        <item>Copula,Godspeed,7,10,12</item>
+        <item>Copula,Grand Chariot,7,10,12</item>
+        <item>Copula,Inner Spirit,5,9,11</item>
+        <item>Copula,Journey,3,6,9</item>
+        <item>Copula,m1dy Dynamic,6,9,11</item>
+        <item>Copula,Musik LoverZ,5,7,10</item>
+        <item>Copula,NANAIRO,5,9,10</item>
+        <item>Copula,NINJA IS DEAD IIDX ver.,6,9,12</item>
+        <item>Copula,Nowhere,4,8,10</item>
+        <item>Copula,refrain,6,10,12</item>
+        <item>Copula,Ride To The Core,5,9,11</item>
+        <item>Copula,Routing,6,9,11</item>
+        <item>Copula,Sephirot,5,8,10</item>
+        <item>Copula,Set U Free feat. Kanae Asaba,4,8,10</item>
+        <item>Copula,SHELTER OF THE MIND,6,9,11</item>
+        <item>Copula,STARLiGHT,5,9,11</item>
+        <item>Copula,STARLIGHT DANCEHALL,6,9,11</item>
+        <item>Copula,StrayedCatz,6,10,12</item>
+        <item>Copula,SURVIVOR,4,7,9</item>
+        <item>Copula,To The Paradise,3,7,9</item>
+        <item>Copula,Transport,5,7,10</item>
+        <item>Copula,Triple Counter,7,10,12</item>
+        <item>Copula,Uh-Oh,5,8,11</item>
+        <item>Copula,Violet Pulse,2,8,10</item>
+        <item>Copula,Wheel of Journey,3,8,10</item>
+        <item>Copula,ZEPHYRANTHES,5,9,11</item>
+        <item>Copula,朝焼けから始まるボクらの小さな旅,5,9,11</item>
+        <item>Copula,オルタネイトβ,4,7,10</item>
+        <item>Copula,灼熱 Pt.2 Long Train Running,7,11,12</item>
+        <item>Copula,シュッパツシンコウ・シサカンコ,5,8,10</item>
+        <item>Copula,少女アリスと箱庭幻想コンチェルト,5,8,10</item>
+        <item>Copula,セロトニン,6,9,11</item>
+        <item>Copula,太陽SUNSUNボンジュールアバンチュール,6,8,11</item>
+        <item>Copula,追想快晴テーマパーク,6,10,11</item>
+        <item>Copula,星屑ディスタンシア,4,6,10</item>
+        <item>Copula,めいさいアイドル☆あいむちゃん♪,7,10,12</item>
+        <item>Copula,Arcana,6,8,10</item>
+        <item>Copula,Battle Train -IIDX Edition-,4,10,11</item>
+        <item>Copula,Blue Spring Express,7,10,12</item>
+        <item>Copula,Central Station,5,8,10</item>
+        <item>Copula,chaos eater -IIDX edition-,5,9,11</item>
+        <item>Copula,GOBBLE,4,7,11</item>
+        <item>Copula,Konzert V,6,10,12</item>
+        <item>Copula,On the FM,6,8,11</item>
+        <item>Copula,Rock It,5,8,11</item>
+        <item>Copula,Violet Rose,7,9,11</item>
+        <item>Copula,Welcome,4,10,11</item>
+        <item>Copula,炸裂！イェーガー電光チョップ！！(JAEGER FINAL ATTACK),6,9,11</item>
+        <item>Copula,真 地獄超特急 -HELL or HELL-,7,10,12</item>
+        <item>Copula,量子の海のリントヴルム,6,9,11</item>
+        <item>Copula,AO-1,7,10,12</item>
+        <item>Copula,Daily Lunch Special,6,9,11</item>
+        <item>Copula,GENERATE feat.綾倉盟,5,8,10</item>
+        <item>Copula,Highcharge Divolt,6,10,12</item>
+        <item>Copula,M4K3 1T B0UNC3,7,10,12</item>
+        <item>Copula,NO LIMIT -オレ達に限界は無い-,4,6,10</item>
+        <item>Copula,Outbreak,6,9,11</item>
+        <item>Copula,OUTER LIMITS ALTERNATIVE,5,8,10</item>
+        <item>Copula,POSSESSION,7,10,12</item>
+        <item>Copula,quick master (reform version),1,3,5</item>
+        <item>Copula,Tori-no-kimochi,1,6,10</item>
+        <item>Copula,X,7,10,12</item>
+        <item>Copula,199024club -Re:BounceKiller-,5,10,12</item>
+        <item>Copula,ギョギョっと人魚♨爆婚ブライダル,4,8,10</item>
+        <item>Copula,明鏡止水,5,9,11</item>
+        <item>Copula,La dolce primavera,4,8,10</item>
+        <item>Copula,Nightmare before oversleep,7,10,12</item>
+        <item>Copula,NZM,6,9,12</item>
+        <item>Copula,紫陽花 -AZISAI-,7,10,12</item>
+        <item>Copula,麗 ～うらら～,5,9,11</item>
+        <item>Copula,駅猫のワルツ,6,10,12</item>
+        <item>Copula,か・し・ま・し☆PUMP UP！,6,9,11</item>
+        <item>Copula,CODE:1 [revision1.0.1],5,9,12</item>
+        <item>Copula,SEITEN NO TERIYAKI,4,7,11</item>
+        <item>Copula,Super Duper Racers,4,8,10</item>
+    </string-array>
+
     <string-array name="songs">
         <item>1st Style,Dr.LOVE,2,3,3</item>
         <item>1st Style,GAMBOL,1,1,-</item>
@@ -579,7 +676,7 @@
         <item>Sirius,Elisha,6,10,11</item>
         <item>Sirius,Empire State Glory,6,9,11</item>
         <item>Sirius,eRAseRmOToRpHAntOM,7,10,12</item>
-        <item>Sirius,Evans [N][H] Evans -prototype-,6,11,12</item>
+        <item>Sirius,Evans,6,11,12</item>
         <item>Sirius,EXUSIA,6,10,12</item>
         <item>Sirius,G59,7,10,12</item>
         <item>Sirius,GALGALIM,6,10,11</item>
@@ -997,7 +1094,97 @@
         <item>Pendual,Ｘ↑Ｘ↓,5,8,11</item>
         <item>Pendual,Discloze,6,9,11</item>
         <item>Pendual,Invitation from Mr.C,6,9,12</item>
-
+        <item>Copula,Acid Pumper,4,9,11</item>
+        <item>Copula,Angelic Jelly,6,9,11</item>
+        <item>Copula,Aublia,5,8,11</item>
+        <item>Copula,Damage Per Second,4,7,9</item>
+        <item>Copula,Derelict Star feat. Ryu*,6,9,11</item>
+        <item>Copula,Devil\'s Gear,6,10,12</item>
+        <item>Copula,DIAMOND CROSSING,7,10,12</item>
+        <item>Copula,do the thing feat. Kanae Asaba,3,8,10</item>
+        <item>Copula,Donkey Donk,6,9,10</item>
+        <item>Copula,Dreamin Train,4,6,10</item>
+        <item>Copula,Dynamite,7,10,12</item>
+        <item>Copula,Everlasting Last,4,8,10</item>
+        <item>Copula,Exchange Place,4,7,9</item>
+        <item>Copula,GET READY!!,6,9,11</item>
+        <item>Copula,Glitch Nerds,5,8,10</item>
+        <item>Copula,Go Faraway,5,7,10</item>
+        <item>Copula,Godspeed,7,10,12</item>
+        <item>Copula,Grand Chariot,7,10,12</item>
+        <item>Copula,Inner Spirit,5,9,11</item>
+        <item>Copula,Journey,3,6,9</item>
+        <item>Copula,m1dy Dynamic,6,9,11</item>
+        <item>Copula,Musik LoverZ,5,7,10</item>
+        <item>Copula,NANAIRO,5,9,10</item>
+        <item>Copula,NINJA IS DEAD IIDX ver.,6,9,12</item>
+        <item>Copula,Nowhere,4,8,10</item>
+        <item>Copula,refrain,6,10,12</item>
+        <item>Copula,Ride To The Core,5,9,11</item>
+        <item>Copula,Routing,6,9,11</item>
+        <item>Copula,Sephirot,5,8,10</item>
+        <item>Copula,Set U Free feat. Kanae Asaba,4,8,10</item>
+        <item>Copula,SHELTER OF THE MIND,6,9,11</item>
+        <item>Copula,STARLiGHT,5,9,11</item>
+        <item>Copula,STARLIGHT DANCEHALL,6,9,11</item>
+        <item>Copula,StrayedCatz,6,10,12</item>
+        <item>Copula,SURVIVOR,4,7,9</item>
+        <item>Copula,To The Paradise,3,7,9</item>
+        <item>Copula,Transport,5,7,10</item>
+        <item>Copula,Triple Counter,7,10,12</item>
+        <item>Copula,Uh-Oh,5,8,11</item>
+        <item>Copula,Violet Pulse,2,8,10</item>
+        <item>Copula,Wheel of Journey,3,8,10</item>
+        <item>Copula,ZEPHYRANTHES,5,9,11</item>
+        <item>Copula,朝焼けから始まるボクらの小さな旅,5,9,11</item>
+        <item>Copula,オルタネイトβ,4,7,10</item>
+        <item>Copula,灼熱 Pt.2 Long Train Running,7,11,12</item>
+        <item>Copula,シュッパツシンコウ・シサカンコ,5,8,10</item>
+        <item>Copula,少女アリスと箱庭幻想コンチェルト,5,8,10</item>
+        <item>Copula,セロトニン,6,9,11</item>
+        <item>Copula,太陽SUNSUNボンジュールアバンチュール,6,8,11</item>
+        <item>Copula,追想快晴テーマパーク,6,10,11</item>
+        <item>Copula,星屑ディスタンシア,4,6,10</item>
+        <item>Copula,めいさいアイドル☆あいむちゃん♪,7,10,12</item>
+        <item>Copula,Arcana,6,8,10</item>
+        <item>Copula,Battle Train -IIDX Edition-,4,10,11</item>
+        <item>Copula,Blue Spring Express,7,10,12</item>
+        <item>Copula,Central Station,5,8,10</item>
+        <item>Copula,chaos eater -IIDX edition-,5,9,11</item>
+        <item>Copula,GOBBLE,4,7,11</item>
+        <item>Copula,Konzert V,6,10,12</item>
+        <item>Copula,On the FM,6,8,11</item>
+        <item>Copula,Rock It,5,8,11</item>
+        <item>Copula,Violet Rose,7,9,11</item>
+        <item>Copula,Welcome,4,10,11</item>
+        <item>Copula,炸裂！イェーガー電光チョップ！！(JAEGER FINAL ATTACK),6,9,11</item>
+        <item>Copula,真 地獄超特急 -HELL or HELL-,7,10,12</item>
+        <item>Copula,量子の海のリントヴルム,6,9,11</item>
+        <item>Copula,AO-1,7,10,12</item>
+        <item>Copula,Daily Lunch Special,6,9,11</item>
+        <item>Copula,GENERATE feat.綾倉盟,5,8,10</item>
+        <item>Copula,Highcharge Divolt,6,10,12</item>
+        <item>Copula,M4K3 1T B0UNC3,7,10,12</item>
+        <item>Copula,NO LIMIT -オレ達に限界は無い-,4,6,10</item>
+        <item>Copula,Outbreak,6,9,11</item>
+        <item>Copula,OUTER LIMITS ALTERNATIVE,5,8,10</item>
+        <item>Copula,POSSESSION,7,10,12</item>
+        <item>Copula,quick master (reform version),1,3,5</item>
+        <item>Copula,Tori-no-kimochi,1,6,10</item>
+        <item>Copula,X,7,10,12</item>
+        <item>Copula,199024club -Re:BounceKiller-,5,10,12</item>
+        <item>Copula,ギョギョっと人魚♨爆婚ブライダル,4,8,10</item>
+        <item>Copula,明鏡止水,5,9,11</item>
+        <item>Copula,La dolce primavera,4,8,10</item>
+        <item>Copula,Nightmare before oversleep,7,10,12</item>
+        <item>Copula,NZM,6,9,12</item>
+        <item>Copula,紫陽花 -AZISAI-,7,10,12</item>
+        <item>Copula,麗 ～うらら～,5,9,11</item>
+        <item>Copula,駅猫のワルツ,6,10,12</item>
+        <item>Copula,か・し・ま・し☆PUMP UP！,6,9,11</item>
+        <item>Copula,CODE:1 [revision1.0.1],5,9,12</item>
+        <item>Copula,SEITEN NO TERIYAKI,4,7,11</item>
+        <item>Copula,Super Duper Racers,4,8,10</item>
 
     </string-array>
     <string name="title_activity_login">Sign in</string>
