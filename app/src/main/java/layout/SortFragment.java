@@ -85,7 +85,7 @@ public class SortFragment extends DialogFragment {
 
     @Override
     public void onStart() {
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.defualt_sort, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.defualt_sort, R.layout.clear_spinner_item);
         Spinner spn = (Spinner)view.findViewById(R.id.spn_sort);
         spn.setAdapter(adapter);
         spn.setSelection(selected);

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:text="EX Hard Clear"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/txt_hard_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_ex_num"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/txt_ec_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_normal_num"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/txt_np_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_fail_num"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/txt_total_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0"
+            app:layout_constraintTop_toBottomOf="@+id/txt_np_num"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/txt_fail_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0"
+            app:layout_constraintTop_toBottomOf="@+id/txt_ae_num"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/txt_ae_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0"
+            app:layout_constraintTop_toBottomOf="@+id/txt_ec_num"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/txt_normal_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_hard_num"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/txt_ex_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0"
+            app:layout_constraintTop_toBottomOf="@+id/txt_fc_num"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/txt_fc_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/txt_fc_pct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="0.0%"
+            android:textAlignment="textEnd"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:text="Full Combo"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_np_pct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0.0%"
+            android:textAlignment="textEnd"
+            app:layout_constraintTop_toBottomOf="@+id/txt_fail_pct"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/txt_fail_pct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0%"
+            android:textAlignment="textEnd"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_ae_pct"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/txt_normal_pct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0%"
+            android:textAlignment="textEnd"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_hard_pct"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/txt_hard_pct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0.0%"
+            android:textAlignment="textEnd"
+            app:layout_constraintTop_toBottomOf="@+id/txt_ex_pct"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/txt_ec_pct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0%"
+            android:textAlignment="textEnd"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_normal_pct"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/txt_ae_pct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0%"
+            android:textAlignment="textEnd"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_ec_pct"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/txt_ex_pct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0.0%"
+            android:textAlignment="textEnd"
+            app:layout_constraintTop_toBottomOf="@+id/txt_fc_pct"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline" />
+
+        <android.support.constraint.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8"/>
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:text="Hard Clear"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:text="Normal Clear"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:text="Easy Clear"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:text="Assist Easy Clear"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:text="Failed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:text="No Play"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:text="Total"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

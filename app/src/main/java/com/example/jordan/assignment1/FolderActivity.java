@@ -25,7 +25,8 @@ import layout.SongFragment;
 import layout.SortFragment;
 
 public class FolderActivity extends AppCompatActivity implements SongFragment.OnFragmentInteractionListener, folderfragment.OnFragmentInteractionListener,
-                                                                        SortFragment.OnFragmentInteractionListener, DeleteFragment.OnFragmentInteractionListener {
+                                                                        SortFragment.OnFragmentInteractionListener, DeleteFragment.OnFragmentInteractionListener,
+                                                                        StatsFragment.OnFragmentInteractionListener {
     private ClearTracker clearTracker;
     private String search;
     private int type;
@@ -34,6 +35,7 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
     private Menu menu;
     private int sortValue;
     private boolean goal = false;
+    private Cursor cursor;
 
     private String[] clearTypes;
 
@@ -55,8 +57,6 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         sortValue = Integer.parseInt(sp.getString("default_sort", "0"));
-
-        Cursor cursor;
 
         switch (type) {
             case 0:
@@ -151,6 +151,16 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             i.putExtra("listname", search);
             i.putExtra("list", true);
             startActivity(i);
+        }
+        else if(id == R.id.menu_list_stats) {
+            StatsFragment sf = new StatsFragment();
+            if (cursor == null) {
+                folderfragment ff = adapter.getCurrentFragment();
+                cursor = ff.getCursor();
+            }
+            sf.setCursor(cursor);
+            sf.show(getSupportFragmentManager(), "StatsFragment");
+            cursor = null;
         }
 
         return super.onOptionsItemSelected(item);

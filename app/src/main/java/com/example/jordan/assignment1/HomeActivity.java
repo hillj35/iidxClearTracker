@@ -32,7 +32,7 @@ import java.util.HashMap;
  * Created by Jordan on 4/22/2017.
  */
 
-public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener {
+public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, StatsFragment.OnFragmentInteractionListener {
     private Menu menu;
     HashMap<String, TextView> clearTexts = new HashMap<String, TextView>();
     private homeFragmentPagerAdapter adapter;
@@ -121,6 +121,10 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
             case R.id.app_bar_add:
                 NewGoalDialogFragment ngdf = new NewGoalDialogFragment();
                 ngdf.show(getFragmentManager(), "NewGoalListFragment");
+                break;
+            case R.id.app_bar_stats:
+                StatsFragment sf = new StatsFragment();
+                sf.show(getSupportFragmentManager(), "StatsFragment");
                 break;
         }
         return true;

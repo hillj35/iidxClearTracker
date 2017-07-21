@@ -24,7 +24,8 @@ public class NewGoalDialogFragment extends DialogFragment {
         View view = inflater.inflate(R.layout.new_goal_name, null);
         builder.setView(view);
         et = (EditText) view.findViewById(R.id.edt_goalName);
-        builder.setMessage("Enter a name for your new goal list")
+        builder.setTitle("New List");
+        builder.setMessage("Enter a name for your new list")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         databaseHelper.addList(et.getText().toString());

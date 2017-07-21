@@ -122,6 +122,10 @@ public class folderfragment extends Fragment {
         this.cursor = cursor;
     }
 
+    public Cursor getCursor() {
+        return cursor;
+    }
+
     public void Resort() {
         buildSongItemList(cursor);
         ListView lv = (ListView)view.findViewById(R.id.lst_songs);
