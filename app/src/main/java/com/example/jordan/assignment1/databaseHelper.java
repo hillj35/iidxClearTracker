@@ -244,7 +244,7 @@ public class databaseHelper extends SQLiteOpenHelper {
                 sortValues = "b." + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             case 2:
-                sortValues = "b." + iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC,";
+                sortValues = "b." + iidxContract.songEntry.COLUMN_NAME_CLEAR + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             default:
                 break;
@@ -291,7 +291,7 @@ public class databaseHelper extends SQLiteOpenHelper {
                 sortValues = iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             case 2:
-                sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC,";
+                sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC," + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             default:
                 break;
@@ -326,7 +326,7 @@ public class databaseHelper extends SQLiteOpenHelper {
                 sortValues = iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             case 2:
-                sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC,";
+                sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC," + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             default:
                 break;
@@ -360,7 +360,7 @@ public class databaseHelper extends SQLiteOpenHelper {
                 sortValues = iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             case 2:
-                sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC,";
+                sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC," + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             default:
                 break;
