@@ -36,6 +36,7 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
     private Menu menu;
     HashMap<String, TextView> clearTexts = new HashMap<String, TextView>();
     private homeFragmentPagerAdapter adapter;
+    private int currentPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +46,40 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
 
         databaseHelper.getInstance(this);
 
+
+        adapter = new homeFragmentPagerAdapter(getSupportFragmentManager(), HomeActivity.this);
+
+
+    }
+
+
+    public void updateGoalList() {
+        HomeFragment hf = (HomeFragment) adapter.getCurrentFragment();
+        hf.updateList();
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        this.menu = menu;
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.home_action_bar_layout, menu);
+        if (adapter.getCurrentPage() == 3)
+            menu.getItem(1).setVisible(true);
+        return true;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
         //for tabs
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpagerHome);
-        adapter = new homeFragmentPagerAdapter(getSupportFragmentManager(), HomeActivity.this);
 
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -58,6 +90,7 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
 
             @Override
             public void onPageSelected(int position) {
+                currentPage = position;
                 if (position == 3) {
                     //goals page
                     menu.getItem(1).setVisible(true);
@@ -71,32 +104,14 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
 
             }
         });
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabsHome);
-        tabLayout.setupWithViewPager(viewPager);
-    }
-
-    public void updateGoalList() {
-        HomeFragment hf = (HomeFragment) adapter.getCurrentFragment();
-        hf.updateList();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        this.menu = menu;
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.home_action_bar_layout, menu);
-        return true;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         if (adapter != null) {
             if (adapter.getCurrentFragment() != null) {
                 ((HomeFragment)adapter.getCurrentFragment()).updateList();
             }
         }
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabsHome);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override

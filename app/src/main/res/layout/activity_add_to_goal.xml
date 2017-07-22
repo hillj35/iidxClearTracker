@@ -11,6 +11,8 @@
         android:id="@+id/edt_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:ems="10"
         android:hint="Search..."
         android:inputType="textPersonName"
@@ -26,6 +28,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:paddingBottom="6dp"
             android:paddingLeft="6dp"
@@ -37,6 +40,7 @@
             android:id="@+id/spn_lvl"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:paddingRight="6dp"
             android:spinnerMode="dialog"
@@ -52,6 +56,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:paddingBottom="6dp"
             android:paddingLeft="6dp"
@@ -63,6 +68,7 @@
             android:id="@+id/spn_style"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:paddingRight="6dp"
             android:spinnerMode="dialog"
@@ -78,6 +84,7 @@
             android:id="@+id/chk_normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:checked="true"
             android:text="Normal" />
@@ -107,6 +114,12 @@
         android:layout_gravity="center_horizontal"
         android:text="Search"
         android:textSize="18sp" />
+
+    <View
+        android:id="@+id/verticalDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black_overlay" />
 
     <LinearLayout
         android:id="@+id/lyt_search"

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 /**
  * Created by Jordan on 5/30/2017.
@@ -28,8 +29,14 @@ public class NewGoalDialogFragment extends DialogFragment {
         builder.setMessage("Enter a name for your new list")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        databaseHelper.addList(et.getText().toString());
-                        ((HomeActivity)getActivity()).updateGoalList();
+                        if (et.getText().toString().trim().equals("")) {
+                            Toast.makeText(getActivity().getApplicationContext(), "No list name entered", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            databaseHelper.addList(et.getText().toString());
+                            ((HomeActivity) getActivity()).updateGoalList();
+                            dialog.dismiss();
+                        }
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

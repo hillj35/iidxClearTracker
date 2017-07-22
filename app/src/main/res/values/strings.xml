@@ -41,6 +41,7 @@
         <item>12</item>
     </string-array>
     <string-array name="Versions">
+        <item>Sinobuz</item>
         <item>Copula</item>
         <item>Pendual</item>
         <item>Spada</item>
@@ -69,6 +70,7 @@
     </string-array>
     <string-array name="VersionsAll">
         <item>ALL</item>
+        <item>Sinobuz</item>
         <item>Copula</item>
         <item>Pendual</item>
         <item>Spada</item>
@@ -198,6 +200,92 @@
         <item>Copula,CODE:1 [revision1.0.1],5,9,12</item>
         <item>Copula,SEITEN NO TERIYAKI,4,7,11</item>
         <item>Copula,Super Duper Racers,4,8,10</item>
+        <item>Sinobuz,Affection,3,6,10</item>
+        <item>Sinobuz,Amazing Mirage,5,9,11</item>
+        <item>Sinobuz,AsiaN distractive,5,8,11</item>
+        <item>Sinobuz,Be A Star,4,9,11</item>
+        <item>Sinobuz,Believe in you,5,8,10</item>
+        <item>Sinobuz,Beyond The Seven,4,7,11</item>
+        <item>Sinobuz,BREAK OVER,5,9,11</item>
+        <item>Sinobuz,DISAPPEAR feat. koyomin,4,9,11</item>
+        <item>Sinobuz,elemental bender feat. Kanae Asaba,3,6,8</item>
+        <item>Sinobuz,Magical,4,6,10</item>
+        <item>Sinobuz,Modular Technology,6,10,11</item>
+        <item>Sinobuz,Music is The Answer,4,8,10</item>
+        <item>Sinobuz,OOO,3,7,10</item>
+        <item>Sinobuz,OTENAMI Hurricane,6,10,12</item>
+        <item>Sinobuz,PAPAYAPA BASS,5,8,11</item>
+        <item>Sinobuz,Remedy feat. Kanae Asaba,5,8,10</item>
+        <item>Sinobuz,ROTTERDAM SHOGUN,6,9,11</item>
+        <item>Sinobuz,Sarutobi Champion is 拙者,6,9,11</item>
+        <item>Sinobuz,SAY BAY,5,8,12</item>
+        <item>Sinobuz,Seaside Labyrinth,4,7,9</item>
+        <item>Sinobuz,Seize the Day,5,8,10</item>
+        <item>Sinobuz,Selfish Sweet,3,5,9</item>
+        <item>Sinobuz,shuriken,4,6,10</item>
+        <item>Sinobuz,SINOBUZ Fantasy,6,9,10</item>
+        <item>Sinobuz,Summer,3,7,10</item>
+        <item>Sinobuz,Super Rush,6,9,12</item>
+        <item>Sinobuz,Sweet Clapper,3,7,10</item>
+        <item>Sinobuz,The Commanders,5,8,10</item>
+        <item>Sinobuz,(This Is Not) The Angels,4,8,11</item>
+        <item>Sinobuz,TOGAKUSHI,5,10,12</item>
+        <item>Sinobuz,Umbral,3,7,10</item>
+        <item>Sinobuz,XINOBIKILL,6,9,11</item>
+        <item>Sinobuz,ちらちら・はらはら,2,5,7</item>
+        <item>Sinobuz,冬椿 ft. Kanae Asaba,5,7,10</item>
+        <item>Sinobuz,焱影,5,9,12</item>
+        <item>Sinobuz,次葉 -turn the page-,4,8,10</item>
+        <item>Sinobuz,鴉,7,10,11</item>
+        <item>Sinobuz,#MAGiCVLGiRL_TRVP_B3VTZ,6,9,12</item>
+        <item>Sinobuz,お命ちょうDAI！901娘,5,8,10</item>
+        <item>Sinobuz,忍恋花,5,9,11</item>
+        <item>Sinobuz,獅子霞麗ノ舞,4,6,9</item>
+        <item>Sinobuz,¡Viva!,5,8,10</item>
+        <item>Sinobuz,禍根,5,9,11</item>
+        <item>Sinobuz,Breakin\' Chain,4,8,10</item>
+        <item>Sinobuz,HADES,5,9,12</item>
+        <item>Sinobuz,九尾狐夜行,5,9,12</item>
+        <item>Sinobuz,Around The Galaxy,5,9,11</item>
+        <item>Sinobuz,ミッドナイト堕天使,5,7,11</item>
+        <item>Sinobuz,焔極OVERKILL,6,10,12</item>
+        <item>Sinobuz,Steel Edge,5,8,12</item>
+        <item>Sinobuz,SCREAM THE LIFE FEAT.KYONO,4,8,10</item>
+        <item>Sinobuz,SAMURAI-Scramble,5,9,11</item>
+        <item>Sinobuz,Yellow Sketch(RX-Ver.S.P.L.),4,9,11</item>
+        <item>Sinobuz,BabeL ～Grand Story～,6,10,11</item>
+        <item>Sinobuz,SWEET LAB,3,6,10</item>
+        <item>Sinobuz,津軽雪,7,10,12</item>
+        <item>Sinobuz,イザナミノナゲキ,6,9,12</item>
+        <item>Sinobuz,Sky High,6,10,12</item>
+        <item>Sinobuz,SEQUENCE CAT,5,10,11</item>
+        <item>Sinobuz,〆,6,9,12</item>
+        <item>Sinobuz,Go Ahead!!,7,10,12</item>
+        <item>Sinobuz,ディッシュウォッシャー◎彡おいわちゃん,3,7,11</item>
+        <item>Sinobuz,Honey Trap,5,8,11</item>
+        <item>Sinobuz,月雪に舞う華のように,5,7,10</item>
+        <item>Sinobuz,Piano Samurai,5,9,10</item>
+        <item>Sinobuz,HAPPY★RUSH,4,9,11</item>
+        <item>Sinobuz,GuNGNiR,7,11,12</item>
+        <item>Sinobuz,DORNWALD ～Junge～,6,10,12</item>
+        <item>Sinobuz,BroGamer,7,9,11</item>
+        <item>Sinobuz,RISING FIRE HAWK,5,8,11</item>
+        <item>Sinobuz,AO-∞,6,9,10</item>
+        <item>Sinobuz,FUZIN RIZIN,5,9,12</item>
+        <item>Sinobuz,Caterpillar,6,10,12</item>
+        <item>Sinobuz,Shoot\'Em All,3,7,11</item>
+        <item>Sinobuz,Egret and Willow,6,8,11</item>
+        <item>Sinobuz,Macuilxochitl,7,10,11</item>
+        <item>Sinobuz,Summerlights(IIDX Edition),6,9,12</item>
+        <item>Sinobuz,Warrior,5,8,10</item>
+        <item>Sinobuz,Quakes,6,10,12</item>
+        <item>Sinobuz,Mare Nectaris,7,10,12</item>
+        <item>Sinobuz,Rave Cannon,5,9,12</item>
+        <item>Sinobuz,yamabiko (SINOBUZ Edition),5,8,11</item>
+        <item>Sinobuz,ECHIDNA,6,10,12</item>
+        <item>Sinobuz,Beat Juggling Mix,6,9,11</item>
+        <item>Sinobuz,RAIN,6,9,12</item>
+
     </string-array>
 
     <string-array name="songs">
@@ -1185,6 +1273,92 @@
         <item>Copula,CODE:1 [revision1.0.1],5,9,12</item>
         <item>Copula,SEITEN NO TERIYAKI,4,7,11</item>
         <item>Copula,Super Duper Racers,4,8,10</item>
+        <item>Sinobuz,Affection,3,6,10</item>
+        <item>Sinobuz,Amazing Mirage,5,9,11</item>
+        <item>Sinobuz,AsiaN distractive,5,8,11</item>
+        <item>Sinobuz,Be A Star,4,9,11</item>
+        <item>Sinobuz,Believe in you,5,8,10</item>
+        <item>Sinobuz,Beyond The Seven,4,7,11</item>
+        <item>Sinobuz,BREAK OVER,5,9,11</item>
+        <item>Sinobuz,DISAPPEAR feat. koyomin,4,9,11</item>
+        <item>Sinobuz,elemental bender feat. Kanae Asaba,3,6,8</item>
+        <item>Sinobuz,Magical,4,6,10</item>
+        <item>Sinobuz,Modular Technology,6,10,11</item>
+        <item>Sinobuz,Music is The Answer,4,8,10</item>
+        <item>Sinobuz,OOO,3,7,10</item>
+        <item>Sinobuz,OTENAMI Hurricane,6,10,12</item>
+        <item>Sinobuz,PAPAYAPA BASS,5,8,11</item>
+        <item>Sinobuz,Remedy feat. Kanae Asaba,5,8,10</item>
+        <item>Sinobuz,ROTTERDAM SHOGUN,6,9,11</item>
+        <item>Sinobuz,Sarutobi Champion is 拙者,6,9,11</item>
+        <item>Sinobuz,SAY BAY,5,8,12</item>
+        <item>Sinobuz,Seaside Labyrinth,4,7,9</item>
+        <item>Sinobuz,Seize the Day,5,8,10</item>
+        <item>Sinobuz,Selfish Sweet,3,5,9</item>
+        <item>Sinobuz,shuriken,4,6,10</item>
+        <item>Sinobuz,SINOBUZ Fantasy,6,9,10</item>
+        <item>Sinobuz,Summer,3,7,10</item>
+        <item>Sinobuz,Super Rush,6,9,12</item>
+        <item>Sinobuz,Sweet Clapper,3,7,10</item>
+        <item>Sinobuz,The Commanders,5,8,10</item>
+        <item>Sinobuz,(This Is Not) The Angels,4,8,11</item>
+        <item>Sinobuz,TOGAKUSHI,5,10,12</item>
+        <item>Sinobuz,Umbral,3,7,10</item>
+        <item>Sinobuz,XINOBIKILL,6,9,11</item>
+        <item>Sinobuz,ちらちら・はらはら,2,5,7</item>
+        <item>Sinobuz,冬椿 ft. Kanae Asaba,5,7,10</item>
+        <item>Sinobuz,焱影,5,9,12</item>
+        <item>Sinobuz,次葉 -turn the page-,4,8,10</item>
+        <item>Sinobuz,鴉,7,10,11</item>
+        <item>Sinobuz,#MAGiCVLGiRL_TRVP_B3VTZ,6,9,12</item>
+        <item>Sinobuz,お命ちょうDAI！901娘,5,8,10</item>
+        <item>Sinobuz,忍恋花,5,9,11</item>
+        <item>Sinobuz,獅子霞麗ノ舞,4,6,9</item>
+        <item>Sinobuz,¡Viva!,5,8,10</item>
+        <item>Sinobuz,禍根,5,9,11</item>
+        <item>Sinobuz,Breakin\' Chain,4,8,10</item>
+        <item>Sinobuz,HADES,5,9,12</item>
+        <item>Sinobuz,九尾狐夜行,5,9,12</item>
+        <item>Sinobuz,Around The Galaxy,5,9,11</item>
+        <item>Sinobuz,ミッドナイト堕天使,5,7,11</item>
+        <item>Sinobuz,焔極OVERKILL,6,10,12</item>
+        <item>Sinobuz,Steel Edge,5,8,12</item>
+        <item>Sinobuz,SCREAM THE LIFE FEAT.KYONO,4,8,10</item>
+        <item>Sinobuz,SAMURAI-Scramble,5,9,11</item>
+        <item>Sinobuz,Yellow Sketch(RX-Ver.S.P.L.),4,9,11</item>
+        <item>Sinobuz,BabeL ～Grand Story～,6,10,11</item>
+        <item>Sinobuz,SWEET LAB,3,6,10</item>
+        <item>Sinobuz,津軽雪,7,10,12</item>
+        <item>Sinobuz,イザナミノナゲキ,6,9,12</item>
+        <item>Sinobuz,Sky High,6,10,12</item>
+        <item>Sinobuz,SEQUENCE CAT,5,10,11</item>
+        <item>Sinobuz,〆,6,9,12</item>
+        <item>Sinobuz,Go Ahead!!,7,10,12</item>
+        <item>Sinobuz,ディッシュウォッシャー◎彡おいわちゃん,3,7,11</item>
+        <item>Sinobuz,Honey Trap,5,8,11</item>
+        <item>Sinobuz,月雪に舞う華のように,5,7,10</item>
+        <item>Sinobuz,Piano Samurai,5,9,10</item>
+        <item>Sinobuz,HAPPY★RUSH,4,9,11</item>
+        <item>Sinobuz,GuNGNiR,7,11,12</item>
+        <item>Sinobuz,DORNWALD ～Junge～,6,10,12</item>
+        <item>Sinobuz,BroGamer,7,9,11</item>
+        <item>Sinobuz,RISING FIRE HAWK,5,8,11</item>
+        <item>Sinobuz,AO-∞,6,9,10</item>
+        <item>Sinobuz,FUZIN RIZIN,5,9,12</item>
+        <item>Sinobuz,Caterpillar,6,10,12</item>
+        <item>Sinobuz,Shoot\'Em All,3,7,11</item>
+        <item>Sinobuz,Egret and Willow,6,8,11</item>
+        <item>Sinobuz,Macuilxochitl,7,10,11</item>
+        <item>Sinobuz,Summerlights(IIDX Edition),6,9,12</item>
+        <item>Sinobuz,Warrior,5,8,10</item>
+        <item>Sinobuz,Quakes,6,10,12</item>
+        <item>Sinobuz,Mare Nectaris,7,10,12</item>
+        <item>Sinobuz,Rave Cannon,5,9,12</item>
+        <item>Sinobuz,yamabiko (SINOBUZ Edition),5,8,11</item>
+        <item>Sinobuz,ECHIDNA,6,10,12</item>
+        <item>Sinobuz,Beat Juggling Mix,6,9,11</item>
+        <item>Sinobuz,RAIN,6,9,12</item>
+
 
     </string-array>
     <string name="title_activity_login">Sign in</string>

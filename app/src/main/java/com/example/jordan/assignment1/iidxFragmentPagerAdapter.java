@@ -7,6 +7,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Created by Jordan on 6/11/2017.
  */
@@ -19,6 +22,7 @@ public class iidxFragmentPagerAdapter extends FragmentPagerAdapter {
     private int type;
     private int sortValue;
     private folderfragment currentFragment;
+    private folderfragment[] fragments = new folderfragment[3];
 
     public iidxFragmentPagerAdapter(FragmentManager fm, Context context, String version, int type, int sortValue) {
         super(fm);
@@ -45,11 +49,23 @@ public class iidxFragmentPagerAdapter extends FragmentPagerAdapter {
         return PAGE_COUNT;
     }
 
+    public void resortFragments(int newSort) {
+        sortValue = newSort;
+        for (int i = 0; i < 3; i++) {
+            if (fragments[i] != null) {
+                Cursor cursor = databaseHelper.getSongsFromVersion(version, i, sortValue);
+                fragments[i].setCursor(cursor);
+                fragments[i].Resort();
+            }
+        }
+    }
+
     @Override
     public Fragment getItem(int position) {
         folderfragment fragment = folderfragment.newInstance(false, "", false);
         Cursor cursor = databaseHelper.getSongsFromVersion(version, position, sortValue);
         fragment.setCursor(cursor);
+        fragments[position] = fragment;
         return fragment;
     }
 

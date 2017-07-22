@@ -153,14 +153,14 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             startActivity(i);
         }
         else if(id == R.id.menu_list_stats) {
+            onSortInteraction(sortValue);
             StatsFragment sf = new StatsFragment();
-            if (cursor == null) {
+            if (type == 0) {
                 folderfragment ff = adapter.getCurrentFragment();
                 cursor = ff.getCursor();
             }
             sf.setCursor(cursor);
             sf.show(getSupportFragmentManager(), "StatsFragment");
-            cursor = null;
         }
 
         return super.onOptionsItemSelected(item);
@@ -194,6 +194,8 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
     public void onSortInteraction(int sort) {
         sortValue = sort;
         Cursor cursor;
+
+        adapter.resortFragments(sortValue);
 
         switch (type) {
             case 0:

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,7 @@ public class folderfragment extends Fragment {
     private int type;
     private View view;
     private ArrayList<SongItem> songItems = new ArrayList<SongItem>();
-    private SongItem currentItem;
+    private int currentItem = 0;
     private SongListAdapter adapter;
     private boolean listAdd;
     private boolean search;
@@ -104,18 +105,29 @@ public class folderfragment extends Fragment {
                 int clearValue = song.getClearNum();
                 SongFragment sf = SongFragment.newInstance(songName, songDifficulty, songLevel, clearValue);
                 sf.show(getActivity().getFragmentManager(), "SongFragment");
-                currentItem = song;
+                currentItem = position;
             }
         });
-
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //scroll if activity was restarted
+        ListView lv = (ListView)view.findViewById(R.id.lst_songs);
+        Log.w("Scroll", Integer.toString(currentItem));
+        lv.setSelection(currentItem);
+    }
+
     public void updateClear(int newClear) {
-        currentItem.setClearNum(newClear);
-        currentItem.setClearText(getResources().getStringArray(R.array.clear_types)[newClear]);
-        databaseHelper.updateSongClear(currentItem.getName(), currentItem.getDifficulty(), newClear);
-        adapter.updateView(songItems.indexOf(currentItem));
+        SongItem update = songItems.get(currentItem);
+        update.setClearNum(newClear);
+        update.setClearText(getResources().getStringArray(R.array.clear_types)[newClear]);
+        databaseHelper.updateSongClear(update.getName(), update.getDifficulty(), newClear);
+        adapter.updateView(currentItem);
+        adapter.notifyDataSetChanged();
     }
 
     public void setCursor(Cursor cursor) {

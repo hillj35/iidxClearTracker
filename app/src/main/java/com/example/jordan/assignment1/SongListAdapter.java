@@ -110,10 +110,12 @@ public class SongListAdapter extends ArrayAdapter<SongItem> implements View.OnCl
                     if ((int)v.getTag() == android.R.drawable.ic_input_add) {
                         databaseHelper.addGoalItem(song.getName(), Integer.toString(song.getDifficulty()), listName);
                         v.setBackground(ContextCompat.getDrawable(context, android.R.drawable.ic_delete));
+                        v.setTag(android.R.drawable.ic_delete);
                     }
                     else {
                         databaseHelper.deleteGoalItem(song.getName(), Integer.toString(song.getDifficulty()), listName);
                         v.setBackground(ContextCompat.getDrawable(context, android.R.drawable.ic_input_add));
+                        v.setTag(android.R.drawable.ic_input_add);
                     }
                 }
             });

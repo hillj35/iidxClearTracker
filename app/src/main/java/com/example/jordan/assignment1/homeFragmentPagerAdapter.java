@@ -12,9 +12,10 @@ import android.view.ViewGroup;
 
 public class homeFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 4;
-    private String tabTitles[] = new String[] {"Version", "Level", "Clear", "Goal"};
+    private String tabTitles[] = new String[] {"Version", "Level", "Clear", "Lists"};
     private Context context;
     private Fragment currentFragment;
+    private int curPage;
 
     public homeFragmentPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
@@ -30,11 +31,16 @@ public class homeFragmentPagerAdapter extends FragmentPagerAdapter {
         return currentFragment;
     }
 
+    public int getCurrentPage() {
+        return curPage;
+    }
+
     @Override
     public void setPrimaryItem(ViewGroup container, int position, Object object) {
         if (getCurrentFragment() != object) {
             currentFragment = (Fragment) object;
         }
+        curPage = position;
         super.setPrimaryItem(container, position, object);
     }
 
