@@ -104,7 +104,7 @@ public class folderfragment extends Fragment {
                 int songLevel = Integer.parseInt(song.getLevel());
                 int clearValue = song.getClearNum();
                 SongFragment sf = SongFragment.newInstance(songName, songDifficulty, songLevel, clearValue);
-                sf.show(getActivity().getFragmentManager(), "SongFragment");
+                sf.show(getActivity().getSupportFragmentManager(), "SongFragment");
                 currentItem = position;
             }
         });

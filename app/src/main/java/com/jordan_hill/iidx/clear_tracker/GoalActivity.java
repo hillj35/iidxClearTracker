@@ -30,7 +30,7 @@ public class GoalActivity extends AppCompatActivity implements SongFragment.OnFr
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setTitle("Goals");
 
-        goalSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        /*goalSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 listname = (String)goalSpinner.getSelectedItem();
@@ -46,7 +46,7 @@ public class GoalActivity extends AppCompatActivity implements SongFragment.OnFr
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
         databaseHelper.updateListSpinner(goalSpinner, this);
     }
 

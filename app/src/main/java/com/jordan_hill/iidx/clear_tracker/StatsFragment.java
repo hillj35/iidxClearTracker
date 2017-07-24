@@ -109,7 +109,7 @@ public class StatsFragment extends DialogFragment {
     
     private void calculateStats() {
         int[] nums = new int[]{0,0,0,0,0,0,0,0};
-        double[] percents = new double[8];
+        double[] percents = new double[]{0,0,0,0,0,0,0,0};
         int total = stats.getCount();
         if (stats != null) {
             stats.moveToFirst();
@@ -121,8 +121,10 @@ public class StatsFragment extends DialogFragment {
         }
 
         //calculate percents
-        for (int i = 0; i < 8; i++) {
-            percents[i] = ((double)nums[i] / (double)total) * 100;
+        if (total > 0) {
+            for (int i = 0; i < 8; i++) {
+                percents[i] = ((double) nums[i] / (double) total) * 100;
+            }
         }
         
         //set all text views to values

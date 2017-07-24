@@ -87,7 +87,7 @@ public class ClearTracker {
     }
 
 
-    public void showSongs(final Cursor cursor, final LinearLayout ll, final Context context) {
+    /*public void showSongs(final Cursor cursor, final LinearLayout ll, final Context context) {
 
         //navigate cursor
         cursor.moveToFirst();
@@ -165,7 +165,7 @@ public class ClearTracker {
                             //clicked, open fragment
                             currentSong = songsByLayout.get(view);
                             SongFragment sf = SongFragment.newInstance(songName, songDifficulty, songLevel, currentSong.getClearValue());
-                            sf.show(((Activity)context).getFragmentManager(), "SongFragment");
+                            sf.show(((Activity)context), "SongFragment");
                         default:
                             horizontalLayout.setBackgroundColor(Color.TRANSPARENT);
                             return true;
@@ -175,7 +175,7 @@ public class ClearTracker {
 
             cursor.moveToNext();
         }
-    }
+    }*/
 
 
     private int dpToPxl(int dp, Context c) {
