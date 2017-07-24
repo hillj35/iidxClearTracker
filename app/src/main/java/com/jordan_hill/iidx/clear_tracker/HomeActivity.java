@@ -1,29 +1,14 @@
-package com.example.jordan.assignment1;
+package com.jordan_hill.iidx.clear_tracker;
 
-import android.app.FragmentManager;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -137,10 +122,6 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
             case R.id.app_bar_add:
                 NewGoalDialogFragment ngdf = new NewGoalDialogFragment();
                 ngdf.show(getFragmentManager(), "NewGoalListFragment");
-                break;
-            case R.id.app_bar_stats:
-                StatsFragment sf = new StatsFragment();
-                sf.show(getSupportFragmentManager(), "StatsFragment");
                 break;
         }
         return true;

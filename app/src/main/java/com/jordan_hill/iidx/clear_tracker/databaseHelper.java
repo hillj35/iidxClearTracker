@@ -1,16 +1,12 @@
-package com.example.jordan.assignment1;
+package com.jordan_hill.iidx.clear_tracker;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.BaseColumns;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,7 +15,7 @@ import java.util.ArrayList;
  */
 
 public class databaseHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 5;
+    public static final int DATABASE_VERSION = 6;
     public static final String DATABASE_NAME = "iidx.db";
     private static Context c;
     private static databaseHelper instance;
@@ -228,10 +224,11 @@ public class databaseHelper extends SQLiteOpenHelper {
             cursor.moveToNext();
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
                 android.R.layout.simple_list_item_1, listNames);
 
         listSpinner.setAdapter(adapter);
+        cursor.close();
     }
 
     public static String[] getLists() {
@@ -262,7 +259,7 @@ public class databaseHelper extends SQLiteOpenHelper {
                 sortValues = "b." + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             case 2:
-                sortValues = "b." + iidxContract.songEntry.COLUMN_NAME_CLEAR + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                sortValues = "b." + iidxContract.songEntry.COLUMN_NAME_CLEAR + ", b." + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             default:
                 break;
@@ -281,8 +278,7 @@ public class databaseHelper extends SQLiteOpenHelper {
                 "a." + iidxContract.goalItemEntry.COLUMN_NAME_LIST + "='" + listName + "' ORDER BY " + sortValues +
                 " a." + iidxContract.goalItemEntry.COLUMN_NAME_SONG + " COLLATE NOCASE ASC";
 
-        Cursor cursor = dbInstance.rawQuery(query, null);
-        return cursor;
+        return dbInstance.rawQuery(query, null);
     }
 
     public static String getClearCount(Cursor cursor) {
@@ -324,15 +320,13 @@ public class databaseHelper extends SQLiteOpenHelper {
                 iidxContract.songEntry.COLUMN_NAME_DIFFICULTY + " = ?";
         String[] selectionArgs = {version, Integer.toString(difficulty)};
         String sortOrder = sortValues + " " + iidxContract.songEntry.COLUMN_NAME_SONGNAME + " COLLATE NOCASE ASC";
-        Cursor cursor = dbInstance.query(iidxContract.songEntry.TABLE_NAME,
+        return dbInstance.query(iidxContract.songEntry.TABLE_NAME,
                 projection,
                 selection,
                 selectionArgs,
                 null,
                 null,
                 sortOrder);
-
-        return cursor;
     }
 
     public static Cursor getSongsFromLevel(String level, int sort) {
@@ -358,15 +352,13 @@ public class databaseHelper extends SQLiteOpenHelper {
         String selection = iidxContract.songEntry.COLUMN_NAME_LEVEL + "=?";
         String[] selectionArgs = {level};
         String sortOrder = sortValues + " " + iidxContract.songEntry.COLUMN_NAME_SONGNAME + " COLLATE NOCASE ASC";
-        Cursor cursor = dbInstance.query(iidxContract.songEntry.TABLE_NAME,
+        return dbInstance.query(iidxContract.songEntry.TABLE_NAME,
                 projection,
                 selection,
                 selectionArgs,
                 null,
                 null,
                 sortOrder);
-
-        return cursor;
     }
 
     public static Cursor getSongsFromClear(String clear, int sort) {
@@ -392,15 +384,13 @@ public class databaseHelper extends SQLiteOpenHelper {
         String selection = iidxContract.songEntry.COLUMN_NAME_CLEAR + "=?";
         String[] selectionArgs = {clear};
         String sortOrder = sortValues + " " + iidxContract.songEntry.COLUMN_NAME_SONGNAME + " COLLATE NOCASE ASC";
-        Cursor cursor = dbInstance.query(iidxContract.songEntry.TABLE_NAME,
+        return dbInstance.query(iidxContract.songEntry.TABLE_NAME,
                 projection,
                 selection,
                 selectionArgs,
                 null,
                 null,
                 sortOrder);
-
-        return cursor;
     }
 }
 

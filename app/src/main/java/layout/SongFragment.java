@@ -3,8 +3,6 @@ package layout;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -13,18 +11,12 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.jordan.assignment1.ClearTracker;
-import com.example.jordan.assignment1.R;
-import com.example.jordan.assignment1.databaseHelper;
-
-import org.w3c.dom.Text;
+import com.jordan_hill.iidx.clear_tracker.ClearTracker;
+import com.jordan_hill.iidx.clear_tracker.R;
 
 /**
  * A simple {@link Fragment} subclass.

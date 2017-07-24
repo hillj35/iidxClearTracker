@@ -1,8 +1,7 @@
-package com.example.jordan.assignment1;
+package com.jordan_hill.iidx.clear_tracker;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

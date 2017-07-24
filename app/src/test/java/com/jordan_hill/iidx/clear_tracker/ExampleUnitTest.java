@@ -1,4 +1,4 @@
-package com.example.jordan.assignment1;
+package com.jordan_hill.iidx.clear_tracker;
 
 import org.junit.Test;
 

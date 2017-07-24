@@ -1,4 +1,4 @@
-package com.example.jordan.assignment1;
+package com.jordan_hill.iidx.clear_tracker;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

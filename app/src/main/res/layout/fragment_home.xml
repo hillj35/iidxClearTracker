@@ -24,9 +24,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_weight="0.00"
-            app:srcCompat="@drawable/ic_info_black_24dp" />
+            app:srcCompat="@drawable/ic_info_black_24dp"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/txt_no_lists"
@@ -34,9 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="0.02"
-            android:paddingLeft="10dp"
-            android:paddingRight="20dp"
-            android:text='You have no custom goal lists. Touch "+" to create a new one!'
+            android:paddingStart="10dp"
+            android:paddingEnd="20dp"
+            android:text="@string/no_lists"
             android:textAlignment="center"
             android:textSize="24sp" />
 

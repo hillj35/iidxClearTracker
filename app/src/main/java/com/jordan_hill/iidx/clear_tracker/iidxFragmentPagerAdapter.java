@@ -1,4 +1,4 @@
-package com.example.jordan.assignment1;
+package com.jordan_hill.iidx.clear_tracker;
 
 import android.database.Cursor;
 import android.support.v4.app.Fragment;
@@ -6,9 +6,6 @@ import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by Jordan on 6/11/2017.

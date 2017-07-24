@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jordan.assignment1">
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    package="com.jordan_hill.iidx.clear_tracker">
 
     <application
         android:allowBackup="true"
@@ -15,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
         <activity
-            android:name=".HomeActivity"
+            android:name="com.jordan_hill.iidx.clear_tracker.HomeActivity"
+            android:screenOrientation="portrait"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,19 +20,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FolderActivity"
+            android:name="com.jordan_hill.iidx.clear_tracker.FolderActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GoalActivity"
+            android:name="com.jordan_hill.iidx.clear_tracker.GoalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AddToGoalActivity"
+            android:name="com.jordan_hill.iidx.clear_tracker.AddToGoalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ProfileActivity"
+            android:name="com.jordan_hill.iidx.clear_tracker.ProfileActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.jordan_hill.iidx.clear_tracker.SettingsActivity"
             android:screenOrientation="portrait" />
     </application>
 

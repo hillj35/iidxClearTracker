@@ -1,4 +1,4 @@
-package com.example.jordan.assignment1;
+package com.jordan_hill.iidx.clear_tracker;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -9,9 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.example.jordan.assignment1.R;
-import com.example.jordan.assignment1.SongItem;
 
 import java.util.ArrayList;
 

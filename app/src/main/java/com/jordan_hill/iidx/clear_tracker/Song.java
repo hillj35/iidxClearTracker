@@ -1,6 +1,5 @@
-package com.example.jordan.assignment1;
+package com.jordan_hill.iidx.clear_tracker;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;

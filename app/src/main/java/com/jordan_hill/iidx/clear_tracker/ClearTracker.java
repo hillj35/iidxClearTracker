@@ -1,36 +1,28 @@
-package com.example.jordan.assignment1;
+package com.jordan_hill.iidx.clear_tracker;
 
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.GridLayout;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import layout.SongFragment;
 
 public class ClearTracker {
     private SQLiteDatabase iidxdb;
-    private HashMap<View, Song> songsByLayout = new HashMap<View, Song>();
+    private HashMap<View, Song> songsByLayout = new HashMap<>();
     private int[] Colors = {Color.TRANSPARENT, Color.GRAY, Color.MAGENTA,
             Color.GREEN, Color.CYAN, Color.RED, Color.YELLOW, Color.BLUE};
 
@@ -56,9 +48,9 @@ public class ClearTracker {
         for (String s : songArray) {
             String[] attributes = s.split(",");
             ContentValues values = new ContentValues();
-            int difNormal = 0;
-            int difHyper = 0;
-            int difAnother = 0;
+            int difNormal;
+            int difHyper;
+            int difAnother;
             try {
                 difNormal = Integer.parseInt(attributes[2]);
                 values.put(iidxContract.songEntry.COLUMN_NAME_SONGNAME, attributes[1]);
@@ -88,20 +80,6 @@ public class ClearTracker {
                 db.insert(iidxContract.songEntry.TABLE_NAME, null, values);
             } catch (NumberFormatException e) {}
         }
-    }
-
-    public void updateSongClear(String songName, int difficulty, int newClear) {
-        ContentValues values = new ContentValues();
-        values.put(iidxContract.songEntry.COLUMN_NAME_CLEAR, newClear);
-
-        String selection = iidxContract.songEntry.COLUMN_NAME_SONGNAME + " LIKE ? AND " + iidxContract.songEntry.COLUMN_NAME_DIFFICULTY + " = ?";
-        String[] selectionArgs = {songName, Integer.toString(difficulty)};
-
-        int count = iidxdb.update(iidxContract.songEntry.TABLE_NAME, values, selection, selectionArgs);
-    }
-
-    public void updateClearView(int newClear) {
-        currentSong.updateClear(newClear);
     }
 
     public void clearHashmap() {

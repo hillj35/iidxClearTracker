@@ -1,6 +1,5 @@
-package com.example.jordan.assignment1;
+package com.jordan_hill.iidx.clear_tracker;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.app.ActionBar;
@@ -15,9 +14,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 
-import java.util.HashMap;
 
 import layout.SongFragment;
 
@@ -26,7 +23,6 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
     private String selectedLevel = "ALL";
     private String listName;
     boolean listSearch;
-    private HashMap<Button, String> songsByButton = new HashMap<Button, String>();
     private folderfragment fragment;
 
     @Override
@@ -114,11 +110,6 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
         fragment = folderfragment.newInstance(listSearch, listName, true, 4);
         fragment.setCursor(cursor);
         getSupportFragmentManager().beginTransaction().add(ll.getId(), fragment).commit();
-    }
-
-    private int dpToPxl(int dp, Context c) {
-        float scale = c.getResources().getDisplayMetrics().density;
-        return (int) (dp * scale + 0.5f);
     }
 
 
