@@ -1,16 +1,23 @@
 package com.example.jordan.assignment1;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.media.audiofx.BassBoost;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-public class SettingsActivity extends AppCompatActivity {
+import layout.DeleteFragment;
+
+public class SettingsActivity extends AppCompatActivity implements DeleteFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,26 @@ public class SettingsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onDeleteInteraction() {
+        final ProgressDialog progress;
+        progress = ProgressDialog.show(this, "Deleting Data", "This may take a moment, please be patient.", true);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                databaseHelper.reset();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        progress.dismiss();
+                    }
+                });
+            }
+        }).start();
+    }
+
     public static class PrefsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener{
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +72,17 @@ public class SettingsActivity extends AppCompatActivity {
 
             ListPreference sortPref = (ListPreference)findPreference("default_sort");
             sortPref.setSummary(sortPref.getEntry());
+
+            Preference delete = findPreference("delete_data");
+            delete.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    //show fragment
+                    DeleteFragment df = DeleteFragment.newInstance();
+                    df.show(((SettingsActivity)getActivity()).getSupportFragmentManager(), "deletefragment");
+                    return true;
+                }
+            });
         }
 
         @Override

@@ -63,12 +63,13 @@ public class folderfragment extends Fragment {
      * @return A new instance of fragment folderfragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static folderfragment newInstance(boolean list, String listName, boolean search) {
+    public static folderfragment newInstance(boolean list, String listName, boolean search, int type) {
         folderfragment fragment = new folderfragment();
         Bundle args = new Bundle();
         args.putBoolean(ARG_PARAM4, list);
         args.putBoolean(ARG_PARAM2, search);
         args.putString(ARG_PARAM1, listName);
+        args.putInt(ARG_PARAM3, type);
         fragment.setArguments(args);
         return fragment;
     }
@@ -80,6 +81,7 @@ public class folderfragment extends Fragment {
             listAdd = getArguments().getBoolean(ARG_PARAM4);
             listName = getArguments().getString(ARG_PARAM1);
             search = getArguments().getBoolean(ARG_PARAM2);
+            type = getArguments().getInt(ARG_PARAM3);
         }
     }
 
@@ -166,7 +168,7 @@ public class folderfragment extends Fragment {
 
         if (search)
             infoTxt.setText("No results for this search. Please try again.");
-        if (cursor.getCount() > 0) {
+        if (cursor.getCount() > 0 || type < 3) {
             infoTxt.setVisibility(View.INVISIBLE);
             infoImg.setVisibility(View.INVISIBLE);
         }

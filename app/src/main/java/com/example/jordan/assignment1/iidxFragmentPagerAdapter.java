@@ -62,7 +62,7 @@ public class iidxFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        folderfragment fragment = folderfragment.newInstance(false, "", false);
+        folderfragment fragment = folderfragment.newInstance(false, "", false, 0);
         Cursor cursor = databaseHelper.getSongsFromVersion(version, position, sortValue);
         fragment.setCursor(cursor);
         fragments[position] = fragment;

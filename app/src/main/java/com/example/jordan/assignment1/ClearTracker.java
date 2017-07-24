@@ -54,7 +54,6 @@ public class ClearTracker {
         //create an entry in songs for each version
 
         for (String s : songArray) {
-            Log.w("Line", s);
             String[] attributes = s.split(",");
             ContentValues values = new ContentValues();
             int difNormal = 0;
@@ -92,8 +91,6 @@ public class ClearTracker {
     }
 
     public void updateSongClear(String songName, int difficulty, int newClear) {
-        Log.w("updating", Integer.toString(newClear));
-
         ContentValues values = new ContentValues();
         values.put(iidxContract.songEntry.COLUMN_NAME_CLEAR, newClear);
 
@@ -113,8 +110,6 @@ public class ClearTracker {
 
 
     public void showSongs(final Cursor cursor, final LinearLayout ll, final Context context) {
-        //log
-        Log.w("showingsongs", "showSongs: ");
 
         //navigate cursor
         cursor.moveToFirst();

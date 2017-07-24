@@ -60,6 +60,24 @@ public class databaseHelper extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
 
+    public static void reset() {
+        dbInstance.execSQL(iidxContract.SQL_DELETE_GOAL);
+        dbInstance.execSQL(iidxContract.SQL_DELETE_GOALITEM);
+        dbInstance.execSQL(iidxContract.SQL_DELETE_PLAYER);
+
+        dbInstance.execSQL(iidxContract.SQL_CREATE_GOAL);
+        dbInstance.execSQL(iidxContract.SQL_CREATE_GOALITEM);
+        dbInstance.execSQL(iidxContract.SQL_CREATE_PLAYER);
+
+        ContentValues values = new ContentValues();
+        values.put(iidxContract.songEntry.COLUMN_NAME_CLEAR, 0);
+
+        String selection = "1=1";
+        String[] selectionArgs = {};
+
+        int count = dbInstance.update(iidxContract.songEntry.TABLE_NAME, values, selection, selectionArgs);
+    }
+
     public static void addGoalItem(String songName, String difficulty, String listName) {
         ContentValues values = new ContentValues();
         values.put(iidxContract.goalItemEntry.COLUMN_NAME_SONG, songName);

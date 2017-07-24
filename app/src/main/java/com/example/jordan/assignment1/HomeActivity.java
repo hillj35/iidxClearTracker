@@ -82,6 +82,7 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpagerHome);
 
         viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(currentPage);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

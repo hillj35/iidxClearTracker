@@ -20,4 +20,10 @@
         android:positiveButtonText="@null"
         android:title="@string/defualt_sort_name" />
 
+    <Preference
+        android:title="Delete Data"
+        android:key="delete_data"
+        android:summary="Delete All Clear/List Data"
+        />
+
 </PreferenceScreen>

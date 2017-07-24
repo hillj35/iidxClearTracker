@@ -1,14 +1,17 @@
 package com.example.jordan.assignment1;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Point;
 import android.net.Uri;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import layout.DeleteFragment;
 import layout.SongFragment;
@@ -103,7 +107,7 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             LinearLayout ll = (LinearLayout)findViewById(R.id.lyt_folder);
             TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
             tabLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0));
-            fragment = folderfragment.newInstance(false, "", false);
+            fragment = folderfragment.newInstance(false, "", false, type);
             fragment.setCursor(cursor);
             getSupportFragmentManager().beginTransaction().add(ll.getId(), fragment).commit();
         }
@@ -143,8 +147,22 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             sf.show(this.getSupportFragmentManager(), "SortFragment");
         }
         else if (id == R.id.menu_list_delete) {
-            DeleteFragment df = DeleteFragment.newInstance();
-            df.show(this.getSupportFragmentManager(), "DeleteFragment");
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Are you sure you want to delete this list? This cannot be undone!");
+            builder.setTitle("Delete List?")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            onDeleteInteraction();
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+
+            AlertDialog ad = builder.create();
+            ad.show();
         }
         else if (id == R.id.menu_list_edit) {
             Intent i = new Intent(this, AddToGoalActivity.class);
@@ -158,6 +176,9 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             if (type == 0) {
                 folderfragment ff = adapter.getCurrentFragment();
                 cursor = ff.getCursor();
+            }
+            else {
+                cursor = fragment.getCursor();
             }
             sf.setCursor(cursor);
             sf.show(getSupportFragmentManager(), "StatsFragment");
@@ -195,7 +216,8 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         sortValue = sort;
         Cursor cursor;
 
-        adapter.resortFragments(sortValue);
+        if (adapter != null)
+            adapter.resortFragments(sortValue);
 
         switch (type) {
             case 0:
