@@ -33,12 +33,14 @@ public class SongFragment extends DialogFragment {
     private static final String ARG_DIFFICULTY = "difficulty";
     private static final String ARG_CLEAR = "clear";
     private static final String ARG_LEVEL = "level";
+    private static final String ARG_SCORE = "score";
 
     // TODO: Rename and change types of parameters
     private String songName;
     private int songDifficulty;
     private int clearType;
     private int level;
+    private int score;
     private ClearTracker clearTracker;
     private View view;
 
@@ -54,13 +56,14 @@ public class SongFragment extends DialogFragment {
      * @return A new instance of fragment SongFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SongFragment newInstance(String name, int difficulty, int level, int clear) {
+    public static SongFragment newInstance(String name, int difficulty, int level, int clear, int score) {
         SongFragment fragment = new SongFragment();
         Bundle args = new Bundle();
         args.putString(ARG_NAME, name);
         args.putInt(ARG_DIFFICULTY, difficulty);
         args.putInt(ARG_CLEAR, clear);
         args.putInt(ARG_LEVEL, level);
+        args.putInt(ARG_SCORE, score);
         fragment.setArguments(args);
         return fragment;
     }
@@ -73,6 +76,7 @@ public class SongFragment extends DialogFragment {
             songDifficulty = getArguments().getInt(ARG_DIFFICULTY);
             clearType = getArguments().getInt(ARG_CLEAR);
             level = getArguments().getInt(ARG_LEVEL);
+            score = getArguments().getInt(ARG_SCORE);
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -83,7 +87,8 @@ public class SongFragment extends DialogFragment {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Spinner spn = (Spinner)view.findViewById(R.id.spn_clear);
-                        mListener.onFragmentInteraction(spn.getSelectedItemPosition());
+                        Spinner spnScore = (Spinner)view.findViewById(R.id.spn_score);
+                        mListener.onFragmentInteraction(spn.getSelectedItemPosition(), spnScore.getSelectedItemPosition());
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -103,9 +108,14 @@ public class SongFragment extends DialogFragment {
         String[] clearValues = getResources().getStringArray(R.array.clear_types);
         //init spinner values
         Spinner clearSpinner = (Spinner)view.findViewById(R.id.spn_clear);
+        Spinner scoreSpinner = (Spinner)view.findViewById(R.id.spn_score);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.clear_types, R.layout.clear_spinner_item);
         clearSpinner.setAdapter(adapter);
         clearSpinner.setSelection(clearType);
+
+        adapter = ArrayAdapter.createFromResource(getActivity(), R.array.scores, R.layout.clear_spinner_item);
+        scoreSpinner.setAdapter(adapter);
+        scoreSpinner.setSelection(score);
 
         TextView name = (TextView)view.findViewById(R.id.txt_SongName);
         name.setText(songName);
@@ -163,6 +173,6 @@ public class SongFragment extends DialogFragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(int newClear);
+        void onFragmentInteraction(int newClear, int newScore);
     }
 }

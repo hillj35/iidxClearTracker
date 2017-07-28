@@ -11,6 +11,17 @@
         <item>Goals</item>
         <item>Search</item>
     </string-array>
+    <string-array name="scores">
+        <item>---</item>
+        <item>F</item>
+        <item>E</item>
+        <item>D</item>
+        <item>C</item>
+        <item>B</item>
+        <item>A</item>
+        <item>AA</item>
+        <item>AAA</item>
+    </string-array>
     <string-array name="levelsAll">
         <item>ALL</item>
         <item>1</item>

@@ -13,10 +13,10 @@ public class SongItem {
     private String name;
     private String level;
     private int clearNum;
+    private int score;
     private String clearText;
     private int difficulty;
     private boolean listAdd;
-    private Context context;
 
     private TextView clear;
     private View clearColor;
@@ -24,14 +24,14 @@ public class SongItem {
     private int[] colors = {Color.TRANSPARENT, Color.GRAY, Color.MAGENTA,
             Color.GREEN, Color.CYAN, Color.RED, Color.YELLOW, Color.BLUE};
 
-    public SongItem(String name, String level, String clearText, int clearNum, int difficulty, boolean listAdd) {
+    public SongItem(String name, String level, String clearText, int clearNum, int difficulty, int score, boolean listAdd) {
         this.name = name;
         this.level = level;
         this.clearText = clearText;
         this.clearNum = clearNum;
         this.difficulty = difficulty;
         this.listAdd = listAdd;
-        this.context = context;
+        this.score = score;
     }
 
     public String getName() {
@@ -49,6 +49,7 @@ public class SongItem {
     public int getDifficulty() {
         return difficulty;
     }
+    public int getScore() {return score;}
     public boolean getList() { return listAdd; }
 
     public void setClearText(String value) {
@@ -63,6 +64,7 @@ public class SongItem {
     public void setClearColorView(View value) {
         clearColor = value;
     }
+    public void setClearScore(int value) {score = value;}
 
     public void setClears() {
         clear.setText(getClearText());

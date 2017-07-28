@@ -103,7 +103,8 @@ public class folderfragment extends Fragment {
                 int songDifficulty = song.getDifficulty();
                 int songLevel = Integer.parseInt(song.getLevel());
                 int clearValue = song.getClearNum();
-                SongFragment sf = SongFragment.newInstance(songName, songDifficulty, songLevel, clearValue);
+                int score = song.getScore();
+                SongFragment sf = SongFragment.newInstance(songName, songDifficulty, songLevel, clearValue, score);
                 sf.show(getActivity().getSupportFragmentManager(), "SongFragment");
                 currentItem = position;
             }
@@ -121,11 +122,12 @@ public class folderfragment extends Fragment {
         lv.setSelection(currentItem);
     }
 
-    public void updateClear(int newClear) {
+    public void updateClear(int newClear, int newScore) {
         SongItem update = songItems.get(currentItem);
         update.setClearNum(newClear);
+        update.setClearScore(newScore);
         update.setClearText(getResources().getStringArray(R.array.clear_types)[newClear]);
-        databaseHelper.updateSongClear(update.getName(), update.getDifficulty(), newClear);
+        databaseHelper.updateSongClear(update.getName(), update.getDifficulty(), newClear, newScore);
         adapter.updateView(currentItem);
         adapter.notifyDataSetChanged();
     }
@@ -154,9 +156,10 @@ public class folderfragment extends Fragment {
             String level = Integer.toString(cursor.getInt(2));
             int clearNum = cursor.getInt(1);
             int difficulty = cursor.getInt(3);
+            int score = cursor.getInt(4);
             String clearText = getResources().getStringArray(R.array.clear_types)[clearNum];
 
-            item = new SongItem(name, level, clearText, clearNum, difficulty, listAdd);
+            item = new SongItem(name, level, clearText, clearNum, difficulty, score, listAdd);
             songItems.add(item);
             cursor.moveToNext();
         }

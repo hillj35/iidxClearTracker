@@ -185,13 +185,13 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         //you can leave it empty
     }
 
-    public void onFragmentInteraction(int newClear) {
+    public void onFragmentInteraction(int newClear, int newScore) {
         //get fragment and set new clear
         if (fragment != null) {
-            fragment.updateClear(newClear);
+            fragment.updateClear(newClear, newScore);
         }
         else {
-            adapter.getCurrentFragment().updateClear(newClear);
+            adapter.getCurrentFragment().updateClear(newClear, newScore);
         }
         //sorted by clear, update
         if (sortValue == 2)

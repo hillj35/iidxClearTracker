@@ -114,8 +114,8 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
 
 
     @Override
-    public void onFragmentInteraction(int newClear){
-        fragment.updateClear(newClear);
+    public void onFragmentInteraction(int newClear, int newScore){
+        fragment.updateClear(newClear, newScore);
     }
 
     @Override

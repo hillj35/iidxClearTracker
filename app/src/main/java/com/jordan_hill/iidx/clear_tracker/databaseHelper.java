@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 
 public class databaseHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 6;
+    public static final int DATABASE_VERSION = 7;
     public static final String DATABASE_NAME = "iidx.db";
     private static Context c;
     private static databaseHelper instance;
@@ -50,6 +50,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         onCreate(db);*/
         //add new songs
         ClearTracker.populateDatabase(c, db, R.array.newSongs);
+        db.execSQL("ALTER TABLE " + iidxContract.songEntry.TABLE_NAME + " ADD COLUMN " + iidxContract.songEntry.COLUMN_NAME_SCORE + " INTEGER DEFAULT 0");
     }
 
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -91,11 +92,12 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     public static Cursor searchSongs(String version, String level, Boolean normal, Boolean hyper, Boolean another, String match) {
-        String[] projection = new String[4];
+        String[] projection = new String[5];
         projection[0] = iidxContract.songEntry.COLUMN_NAME_SONGNAME;
         projection[1] = iidxContract.songEntry.COLUMN_NAME_CLEAR;
         projection[2] = iidxContract.songEntry.COLUMN_NAME_LEVEL;
         projection[3] = iidxContract.songEntry.COLUMN_NAME_DIFFICULTY;
+        projection[4] = iidxContract.songEntry.COLUMN_NAME_SCORE;
 
         String versionSelection = "1=1";
         if (!version.equals("ALL"))
@@ -155,9 +157,10 @@ public class databaseHelper extends SQLiteOpenHelper {
          return cursor;
     }
 
-    public static void updateSongClear(String songName, int difficulty, int newClear) {
+    public static void updateSongClear(String songName, int difficulty, int newClear, int newScore) {
         ContentValues values = new ContentValues();
         values.put(iidxContract.songEntry.COLUMN_NAME_CLEAR, newClear);
+        values.put(iidxContract.songEntry.COLUMN_NAME_SCORE, newScore);
 
         String selection = iidxContract.songEntry.COLUMN_NAME_SONGNAME + " LIKE ? AND " + iidxContract.songEntry.COLUMN_NAME_DIFFICULTY + " = ?";
         String[] selectionArgs = {songName, Integer.toString(difficulty)};
@@ -269,7 +272,8 @@ public class databaseHelper extends SQLiteOpenHelper {
         String query = "SELECT " + iidxContract.songEntry.COLUMN_NAME_SONGNAME + ", " +
                 iidxContract.songEntry.COLUMN_NAME_CLEAR + ", " +
                 iidxContract.songEntry.COLUMN_NAME_LEVEL + ", b." +
-                iidxContract.songEntry.COLUMN_NAME_DIFFICULTY + " FROM " + iidxContract.goalItemEntry.TABLE_NAME +
+                iidxContract.songEntry.COLUMN_NAME_DIFFICULTY + ", " +
+                iidxContract.songEntry.COLUMN_NAME_SCORE + " FROM " + iidxContract.goalItemEntry.TABLE_NAME +
                 " a INNER JOIN " + iidxContract.songEntry.TABLE_NAME + " b ON " +
                 "a." + iidxContract.goalItemEntry.COLUMN_NAME_SONG + "=b." +
                 iidxContract.songEntry.COLUMN_NAME_SONGNAME + " AND a." +
@@ -310,11 +314,12 @@ public class databaseHelper extends SQLiteOpenHelper {
             default:
                 break;
         }
-        String[] projection = new String[4];
+        String[] projection = new String[5];
         projection[0] = iidxContract.songEntry.COLUMN_NAME_SONGNAME;
         projection[1] = iidxContract.songEntry.COLUMN_NAME_CLEAR;
         projection[2] = iidxContract.songEntry.COLUMN_NAME_LEVEL;
         projection[3] = iidxContract.songEntry.COLUMN_NAME_DIFFICULTY;
+        projection[4] = iidxContract.songEntry.COLUMN_NAME_SCORE;
 
         String selection = iidxContract.songEntry.COLUMN_NAME_VERSION + " = ? AND " +
                 iidxContract.songEntry.COLUMN_NAME_DIFFICULTY + " = ?";
@@ -343,11 +348,12 @@ public class databaseHelper extends SQLiteOpenHelper {
             default:
                 break;
         }
-        String[] projection = new String[4];
+        String[] projection = new String[5];
         projection[0] = iidxContract.songEntry.COLUMN_NAME_SONGNAME;
         projection[1] = iidxContract.songEntry.COLUMN_NAME_CLEAR;
         projection[2] = iidxContract.songEntry.COLUMN_NAME_LEVEL;
         projection[3] = iidxContract.songEntry.COLUMN_NAME_DIFFICULTY;
+        projection[4] = iidxContract.songEntry.COLUMN_NAME_SCORE;
 
         String selection = iidxContract.songEntry.COLUMN_NAME_LEVEL + "=?";
         String[] selectionArgs = {level};
@@ -375,11 +381,12 @@ public class databaseHelper extends SQLiteOpenHelper {
             default:
                 break;
         }
-        String[] projection = new String[4];
+        String[] projection = new String[5];
         projection[0] = iidxContract.songEntry.COLUMN_NAME_SONGNAME;
         projection[1] = iidxContract.songEntry.COLUMN_NAME_CLEAR;
         projection[2] = iidxContract.songEntry.COLUMN_NAME_LEVEL;
         projection[3] = iidxContract.songEntry.COLUMN_NAME_DIFFICULTY;
+        projection[4] = iidxContract.songEntry.COLUMN_NAME_SCORE;
 
         String selection = iidxContract.songEntry.COLUMN_NAME_CLEAR + "=?";
         String[] selectionArgs = {clear};

@@ -13,6 +13,7 @@ public final class iidxContract {
         public static final String COLUMN_NAME_LEVEL = "level";
         public static final String COLUMN_NAME_DIFFICULTY = "difficulty";
         public static final String COLUMN_NAME_CLEAR = "clear";
+        public static final String COLUMN_NAME_SCORE = "score";
     }
 
     public static class playerEntry implements BaseColumns {

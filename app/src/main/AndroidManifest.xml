@@ -23,9 +23,6 @@
             android:name="com.jordan_hill.iidx.clear_tracker.FolderActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.jordan_hill.iidx.clear_tracker.GoalActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.jordan_hill.iidx.clear_tracker.AddToGoalActivity"
             android:screenOrientation="portrait" />
         <activity
