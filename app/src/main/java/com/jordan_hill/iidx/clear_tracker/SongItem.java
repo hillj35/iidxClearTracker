@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class SongItem {
     private String name;
     private String level;
+    private String scoreString;
     private int clearNum;
     private int score;
     private String clearText;
@@ -19,12 +20,13 @@ public class SongItem {
     private boolean listAdd;
 
     private TextView clear;
+    private TextView scoreTxt;
     private View clearColor;
 
     private int[] colors = {Color.TRANSPARENT, Color.GRAY, Color.MAGENTA,
             Color.GREEN, Color.CYAN, Color.RED, Color.YELLOW, Color.BLUE};
 
-    public SongItem(String name, String level, String clearText, int clearNum, int difficulty, int score, boolean listAdd) {
+    public SongItem(String name, String level, String clearText, String scoreText, int clearNum, int difficulty, int score, boolean listAdd) {
         this.name = name;
         this.level = level;
         this.clearText = clearText;
@@ -32,6 +34,7 @@ public class SongItem {
         this.difficulty = difficulty;
         this.listAdd = listAdd;
         this.score = score;
+        this.scoreString = scoreText;
     }
 
     public String getName() {
@@ -40,6 +43,7 @@ public class SongItem {
     public String getLevel() {
         return level;
     }
+    public String getScoreText() {return scoreString;}
     public String getClearText() {
         return clearText;
     }
@@ -61,6 +65,8 @@ public class SongItem {
     public void setClearText(TextView value) {
         clear = value;
     }
+    public void setScoreText(TextView value) { scoreTxt = value; }
+    public void setScoreText(String value) {scoreString = value;}
     public void setClearColorView(View value) {
         clearColor = value;
     }
@@ -68,6 +74,7 @@ public class SongItem {
 
     public void setClears() {
         clear.setText(getClearText());
+        scoreTxt.setText(getScoreText());
         clearColor.setBackgroundColor(colors[getClearNum()]);
     }
 }

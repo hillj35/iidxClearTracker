@@ -27,6 +27,7 @@ public class SongListAdapter extends ArrayAdapter<SongItem> implements View.OnCl
         TextView name;
         TextView level;
         TextView clear;
+        TextView score;
         View clearColor;
         Button addToList;
     }
@@ -63,6 +64,7 @@ public class SongListAdapter extends ArrayAdapter<SongItem> implements View.OnCl
             viewHolder.name = (TextView) convertView.findViewById(R.id.song_item_name);
             viewHolder.level = (TextView) convertView.findViewById(R.id.song_item_level);
             viewHolder.clear = (TextView) convertView.findViewById(R.id.song_item_clear);
+            viewHolder.score = (TextView) convertView.findViewById(R.id.txt_score);
             viewHolder.clearColor = convertView.findViewById(R.id.clearColor);
             viewHolder.addToList = (Button) convertView.findViewById(R.id.btn_list_add);
 
@@ -88,6 +90,7 @@ public class SongListAdapter extends ArrayAdapter<SongItem> implements View.OnCl
                 break;
         }
         viewHolder.clear.setText(song.getClearText());
+        viewHolder.score.setText(song.getScoreText());
         viewHolder.clearColor.setBackgroundColor(colors[song.getClearNum()]);
 
         if (song.getList()) {
@@ -121,6 +124,7 @@ public class SongListAdapter extends ArrayAdapter<SongItem> implements View.OnCl
             viewHolder.addToList.setVisibility(View.INVISIBLE);
 
         song.setClearText(viewHolder.clear);
+        song.setScoreText(viewHolder.score);
         song.setClearColorView(viewHolder.clearColor);
 
         return convertView;

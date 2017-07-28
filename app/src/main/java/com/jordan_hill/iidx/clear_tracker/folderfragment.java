@@ -127,6 +127,7 @@ public class folderfragment extends Fragment {
         update.setClearNum(newClear);
         update.setClearScore(newScore);
         update.setClearText(getResources().getStringArray(R.array.clear_types)[newClear]);
+        update.setScoreText(getResources().getStringArray(R.array.scores)[newScore]);
         databaseHelper.updateSongClear(update.getName(), update.getDifficulty(), newClear, newScore);
         adapter.updateView(currentItem);
         adapter.notifyDataSetChanged();
@@ -158,8 +159,9 @@ public class folderfragment extends Fragment {
             int difficulty = cursor.getInt(3);
             int score = cursor.getInt(4);
             String clearText = getResources().getStringArray(R.array.clear_types)[clearNum];
+            String scoreText = getResources().getStringArray(R.array.scores)[score];
 
-            item = new SongItem(name, level, clearText, clearNum, difficulty, score, listAdd);
+            item = new SongItem(name, level, clearText, scoreText, clearNum, difficulty, score, listAdd);
             songItems.add(item);
             cursor.moveToNext();
         }
