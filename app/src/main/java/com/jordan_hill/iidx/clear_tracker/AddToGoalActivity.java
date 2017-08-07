@@ -118,8 +118,9 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
         fragment.updateClear(newClear, newScore);
     }
 
+
     @Override
-    public void onFragmentInteraction(Uri uri){
-        //you can leave it empty
+    public void onFragmentInteraction(int numSelected) {
+
     }
 }

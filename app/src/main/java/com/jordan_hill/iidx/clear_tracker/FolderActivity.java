@@ -7,15 +7,23 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.ActionMode;
+import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+
+import java.util.List;
 
 import layout.DeleteFragment;
 import layout.SongFragment;
@@ -23,7 +31,7 @@ import layout.SortFragment;
 
 public class FolderActivity extends AppCompatActivity implements SongFragment.OnFragmentInteractionListener, folderfragment.OnFragmentInteractionListener,
                                                                         SortFragment.OnFragmentInteractionListener, DeleteFragment.OnFragmentInteractionListener,
-                                                                        StatsFragment.OnFragmentInteractionListener {
+                                                                        StatsFragment.OnFragmentInteractionListener, MultiEditFragment.OnFragmentInteractionListener {
     private ClearTracker clearTracker;
     private String search;
     private int type;
@@ -36,10 +44,72 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
 
     private String[] clearTypes;
 
+    private ActionMode actionMode;
+
+    //for context menu
+    private ActionMode.Callback actionModeCallback = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            MenuInflater inflater = mode.getMenuInflater();
+            inflater.inflate(R.menu.folder_context_menu, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            Log.w("yooo", "yoo");
+            switch (item.getItemId()) {
+                case android.R.id.home:
+                    if (type > 0)
+                        fragment.disableBulkMode();
+                    else
+                        adapter.getCurrentFragment().disableBulkMode();
+                    break;
+                case R.id.menu_multi_edit:
+                    //show fragment
+                    MultiEditFragment mef = MultiEditFragment.newInstance();
+                    mef.show(getSupportFragmentManager(), "MultiEditFragment");
+                    break;
+                default:
+                    return false;
+            }
+            return true;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            actionMode = null;
+            if (type > 0)
+                fragment.disableBulkMode();
+            else
+                adapter.getCurrentFragment().disableBulkMode();
+        }
+    };
+
+    private void startContextMenu() {
+        if (actionMode != null)
+            return;
+        actionMode = startSupportActionMode(actionModeCallback);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        databaseHelper.getInstance(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folder);
+
+        List<Fragment> folderFragments = getSupportFragmentManager().getFragments();
+        if (folderFragments != null) {
+            for (int i = 0; i < folderFragments.size(); i++) {
+                if (folderFragments.get(i) != null)
+                    getSupportFragmentManager().beginTransaction().remove(folderFragments.get(i)).commit();
+            }
+        }
 
         clearTypes = getResources().getStringArray(R.array.clear_types);
 
@@ -83,7 +153,6 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         }
 
 
-
         //for tabs
         if (type == 0) {
             ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -109,7 +178,7 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
     @Override
     public void onResume() {
         super.onResume();
-        onSortInteraction(sortValue);
+        //onSortInteraction(sortValue);
     }
 
     @Override
@@ -185,6 +254,12 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         //you can leave it empty
     }
 
+    @Override
+    public void onFragmentInteraction(int numSelected) {
+        startContextMenu();
+        actionMode.setTitle(Integer.toString(numSelected) + " Selected");
+    }
+
     public void onFragmentInteraction(int newClear, int newScore) {
         //get fragment and set new clear
         if (fragment != null) {
@@ -196,6 +271,28 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         //sorted by clear, update
         if (sortValue == 2)
             onSortInteraction(sortValue);
+    }
+
+    @Override
+    public void onMultiInteraction(int newClear, int newScore) {
+        //get all selected songs and update
+        folderfragment f;
+        SparseBooleanArray selected;
+        if (type > 0) {
+            selected = fragment.getSelectedItems();
+            f = fragment;
+        }
+
+        else {
+            selected = adapter.getCurrentFragment().getSelectedItems();
+            f = adapter.getCurrentFragment();
+        }
+
+        for (int i = 0; i < selected.size(); i++) {
+            if (selected.valueAt(i)) {
+                f.updateClear(newClear, newScore, selected.keyAt(i));
+            }
+        }
     }
 
     @Override

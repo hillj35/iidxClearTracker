@@ -4,24 +4,15 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txt_SongName"
+        android:id="@+id/txt_multi_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="2dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
         android:paddingTop="6dp"
-        android:text="Song Name"
+        android:text="Multi Edit"
         android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/txt_Difficulty"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="24dp"
-        android:text="NORMAL 1"
-        android:textColor="@color/colorNormal"
-        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +20,7 @@
         android:orientation="horizontal">
 
         <Spinner
-            android:id="@+id/spn_clear"
+            android:id="@+id/spn_clear_multi"
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:layout_marginLeft="26dp"
@@ -39,7 +30,7 @@
             android:textAlignment="center" />
 
         <Spinner
-            android:id="@+id/spn_score"
+            android:id="@+id/spn_score_multi"
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:layout_marginEnd="26dp"

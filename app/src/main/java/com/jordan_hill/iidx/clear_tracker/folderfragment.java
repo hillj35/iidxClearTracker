@@ -6,10 +6,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.Checkable;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -47,6 +50,9 @@ public class folderfragment extends Fragment {
     private boolean listAdd;
     private boolean search;
     private Cursor cursor;
+    private boolean bulkMode = false;
+    private ListView lv;
+    private int selectedNum = 0;
 
     private OnFragmentInteractionListener mListener;
 
@@ -91,22 +97,56 @@ public class folderfragment extends Fragment {
         buildSongItemList(cursor);
 
         //get listview
-        final ListView lv = (ListView)view.findViewById(R.id.lst_songs);
+        lv = (ListView)view.findViewById(R.id.lst_songs);
         adapter = new SongListAdapter(songItems, getContext(), listName);
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SongItem song = songItems.get(position);
-                String songName = song.getName();
-                int songDifficulty = song.getDifficulty();
-                int songLevel = Integer.parseInt(song.getLevel());
-                int clearValue = song.getClearNum();
-                int score = song.getScore();
-                SongFragment sf = SongFragment.newInstance(songName, songDifficulty, songLevel, clearValue, score);
-                sf.show(getActivity().getSupportFragmentManager(), "SongFragment");
-                currentItem = position;
+                if (!bulkMode) {
+                    SongItem song = songItems.get(position);
+                    String songName = song.getName();
+                    int songDifficulty = song.getDifficulty();
+                    int songLevel = Integer.parseInt(song.getLevel());
+                    int clearValue = song.getClearNum();
+                    int score = song.getScore();
+                    SongFragment sf = SongFragment.newInstance(songName, songDifficulty, songLevel, clearValue, score);
+                    sf.show(getActivity().getSupportFragmentManager(), "SongFragment");
+                    currentItem = position;
+                    lv.clearChoices();
+                    lv.requestLayout();
+                }
+                else {
+                    //this seems backwards but it works lol
+                    if (lv.isItemChecked(position)) {
+                        lv.setItemChecked(position, true);
+                        selectedNum++;
+                    }
+                    else {
+                        lv.setItemChecked(position, false);
+                        selectedNum--;
+                    }
+                    mListener.onFragmentInteraction(selectedNum);
+                    //CheckableLayout child = (CheckableLayout) parent.getChildAt(position);
+                    //child.toggle();
+                }
+            }
+        });
+
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                bulkMode = !bulkMode;
+                if (bulkMode) {
+                    lv.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
+                    lv.setItemChecked(position, true);
+                    selectedNum = 1;
+                }
+                else
+                    disableBulkMode();
+                mListener.onFragmentInteraction(1);
+                return true;
             }
         });
         return view;
@@ -117,20 +157,36 @@ public class folderfragment extends Fragment {
         super.onResume();
 
         //scroll if activity was restarted
-        ListView lv = (ListView)view.findViewById(R.id.lst_songs);
         Log.w("Scroll", Integer.toString(currentItem));
         lv.setSelection(currentItem);
     }
 
     public void updateClear(int newClear, int newScore) {
-        SongItem update = songItems.get(currentItem);
+        updateClear(newClear, newScore, currentItem);
+    }
+
+    public void updateClear(int newClear, int newScore, int position) {
+        SongItem update = songItems.get(position);
         update.setClearNum(newClear);
         update.setClearScore(newScore);
         update.setClearText(getResources().getStringArray(R.array.clear_types)[newClear]);
         update.setScoreText(getResources().getStringArray(R.array.scores)[newScore]);
         databaseHelper.updateSongClear(update.getName(), update.getDifficulty(), newClear, newScore);
-        adapter.updateView(currentItem);
+        adapter.updateView(position);
         adapter.notifyDataSetChanged();
+    }
+
+    public SparseBooleanArray getSelectedItems() {
+        return lv.getCheckedItemPositions();
+    }
+
+    public void disableBulkMode() {
+        bulkMode = false;
+        lv.clearChoices();
+        lv.requestLayout();
+        selectedNum = 0;
+        //lv.refreshDrawableState();
+        //lv.setChoiceMode(AbsListView.CHOICE_MODE_NONE);
     }
 
     public void setCursor(Cursor cursor) {
@@ -143,48 +199,44 @@ public class folderfragment extends Fragment {
 
     public void Resort() {
         buildSongItemList(cursor);
-        ListView lv = (ListView)view.findViewById(R.id.lst_songs);
         adapter = new SongListAdapter(songItems, getContext(), listName);
         lv.setAdapter(adapter);
     }
 
     private void buildSongItemList(Cursor cursor) {
-        songItems.clear();
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            SongItem item;
-            String name = cursor.getString(0);
-            String level = Integer.toString(cursor.getInt(2));
-            int clearNum = cursor.getInt(1);
-            int difficulty = cursor.getInt(3);
-            int score = cursor.getInt(4);
-            String clearText = getResources().getStringArray(R.array.clear_types)[clearNum];
-            String scoreText = getResources().getStringArray(R.array.scores)[score];
-
-            item = new SongItem(name, level, clearText, scoreText, clearNum, difficulty, score, listAdd);
-            songItems.add(item);
-            cursor.moveToNext();
-        }
-
-        TextView infoTxt = (TextView)view.findViewById(R.id.txt_none_folder);
-        ImageView infoImg = (ImageView)view.findViewById(R.id.img_info_folder);
-
-        if (search)
-            infoTxt.setText("No results for this search. Please try again.");
-        if (cursor.getCount() > 0 || type < 3) {
-            infoTxt.setVisibility(View.INVISIBLE);
-            infoImg.setVisibility(View.INVISIBLE);
+        if (cursor == null) {
+            getActivity().getSupportFragmentManager().beginTransaction().remove(this);
         }
         else {
-            infoTxt.setVisibility(View.VISIBLE);
-            infoImg.setVisibility(View.VISIBLE);
-        }
-    }
+            songItems.clear();
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                SongItem item;
+                String name = cursor.getString(0);
+                String level = Integer.toString(cursor.getInt(2));
+                int clearNum = cursor.getInt(1);
+                int difficulty = cursor.getInt(3);
+                int score = cursor.getInt(4);
+                String clearText = getResources().getStringArray(R.array.clear_types)[clearNum];
+                String scoreText = getResources().getStringArray(R.array.scores)[score];
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+                item = new SongItem(name, level, clearText, scoreText, clearNum, difficulty, score, listAdd);
+                songItems.add(item);
+                cursor.moveToNext();
+            }
+
+            TextView infoTxt = (TextView) view.findViewById(R.id.txt_none_folder);
+            ImageView infoImg = (ImageView) view.findViewById(R.id.img_info_folder);
+
+            if (search)
+                infoTxt.setText("No results for this search. Please try again.");
+            if (cursor.getCount() > 0 || type < 3) {
+                infoTxt.setVisibility(View.INVISIBLE);
+                infoImg.setVisibility(View.INVISIBLE);
+            } else {
+                infoTxt.setVisibility(View.VISIBLE);
+                infoImg.setVisibility(View.VISIBLE);
+            }
         }
     }
 
@@ -217,6 +269,6 @@ public class folderfragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(int numSelected);
     }
 }
