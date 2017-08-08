@@ -83,10 +83,9 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             actionMode = null;
-            if (type > 0)
-                fragment.disableBulkMode();
-            else
-                adapter.getCurrentFragment().disableBulkMode();
+            getFragment().disableBulkMode();
+            if (sortValue == 2 || sortValue == 3)
+                onSortInteraction(sortValue);
         }
     };
 
@@ -286,8 +285,8 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         else {
             adapter.getCurrentFragment().updateClear(newClear, newScore);
         }
-        //sorted by clear, update
-        if (sortValue == 2)
+        //sorted by clear or score, update
+        if (sortValue == 2 || sortValue == 3)
             onSortInteraction(sortValue);
     }
 

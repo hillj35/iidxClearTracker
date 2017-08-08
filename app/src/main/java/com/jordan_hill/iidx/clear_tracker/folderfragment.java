@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -142,10 +144,11 @@ public class folderfragment extends Fragment {
                     lv.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
                     lv.setItemChecked(position, true);
                     selectedNum = 1;
+                    mListener.onFragmentInteraction(1);
                 }
                 else
                     disableBulkMode();
-                mListener.onFragmentInteraction(1);
+
                 return true;
             }
         });

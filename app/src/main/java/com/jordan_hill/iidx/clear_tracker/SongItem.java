@@ -73,8 +73,11 @@ public class SongItem {
     public void setClearScore(int value) {score = value;}
 
     public void setClears() {
-        clear.setText(getClearText());
-        scoreTxt.setText(getScoreText());
-        clearColor.setBackgroundColor(colors[getClearNum()]);
+        try {
+            clear.setText(getClearText());
+            scoreTxt.setText(getScoreText());
+            clearColor.setBackgroundColor(colors[getClearNum()]);
+        }
+        catch (Exception e) {}
     }
 }

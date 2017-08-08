@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <CheckBox
+        android:id="@+id/chk_clear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="6dp"
+        android:layout_marginStart="20dp"
+        android:layout_weight="1"
+        android:checked="true"
+        android:text="Update Clear"
+        android:textSize="18sp" />
 
-        <CheckBox
-            android:id="@+id/chk_clear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="Update Clear"
-            android:textSize="18sp" />
-
-        <CheckBox
-            android:id="@+id/chk_score"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="Update Score"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <Spinner
+        android:id="@+id/spn_clear_multi"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="46dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:spinnerMode="dialog"
+        android:textAlignment="center" />
 
-        <Spinner
-            android:id="@+id/spn_clear_multi"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginLeft="26dp"
-            android:layout_marginRight="13dp"
-            android:layout_weight="0.91"
-            android:spinnerMode="dialog"
-            android:textAlignment="center" />
+    <View
+        android:id="@+id/verticalDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black_overlay" />
 
-        <Spinner
-            android:id="@+id/spn_score_multi"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginEnd="26dp"
-            android:layout_marginStart="13dp"
-            android:layout_weight="0.91"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
+    <CheckBox
+        android:id="@+id/chk_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:checked="true"
+        android:text="Update Score"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/spn_score_multi"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:spinnerMode="dialog" />
+
 </LinearLayout>

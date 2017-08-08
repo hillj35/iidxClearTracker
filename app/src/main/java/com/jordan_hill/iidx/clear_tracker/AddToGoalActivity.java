@@ -29,6 +29,7 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
     private String listName;
     boolean listSearch;
     private folderfragment fragment;
+    private Menu menu;
 
     private ActionMode actionMode;
 
@@ -77,6 +78,20 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
         if (actionMode != null)
             return;
         actionMode = startSupportActionMode(actionModeCallback);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.list_action_bar_layout, menu);
+        menu.getItem(0).setVisible(false);
+        menu.getItem(1).setVisible(false);
+        menu.getItem(2).setVisible(true);
+        menu.getItem(3).setVisible(false);
+        menu.getItem(4).setVisible(false);
+        return true;
     }
 
     @Override
@@ -154,6 +169,12 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
 
         if (id == android.R.id.home) {
             onBackPressed();  return true;
+        }
+        if (id == R.id.menu_bulk_edit) {
+            if (fragment != null) {
+                onFragmentInteraction(0);
+                fragment.enableBulkMode();
+            }
         }
 
         return super.onOptionsItemSelected(item);
