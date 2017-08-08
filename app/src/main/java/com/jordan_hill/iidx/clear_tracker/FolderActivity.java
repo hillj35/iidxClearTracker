@@ -62,13 +62,12 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
 
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            Log.w("yooo", "yoo");
             switch (item.getItemId()) {
-                case android.R.id.home:
-                    if (type > 0)
-                        fragment.disableBulkMode();
-                    else
-                        adapter.getCurrentFragment().disableBulkMode();
+                case R.id.menu_deselect:
+                    getFragment().deselect();
+                    break;
+                case R.id.menu_select_all:
+                    getFragment().selectAll();
                     break;
                 case R.id.menu_multi_edit:
                     //show fragment
@@ -145,6 +144,12 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
                 else
                     ab.setTitle(clearTypes[index]);
                 break;
+            case 3:
+                //score
+                cursor = databaseHelper.getSongsFromScore(search, sortValue);
+                String[] scoreValues = getResources().getStringArray(R.array.scores);
+                ab.setTitle(scoreValues[Integer.parseInt(search)]);
+                break;
             default:
                 //goals
                 cursor = databaseHelper.getSongsFromGoalList(search, sortValue);
@@ -178,7 +183,7 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
     @Override
     public void onResume() {
         super.onResume();
-        //onSortInteraction(sortValue);
+        onSortInteraction(sortValue);
     }
 
     @Override
@@ -187,12 +192,13 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.list_action_bar_layout, menu);
 
-        if (type == 3) {
+        if (type == 4) {
             //goals
             menu.getItem(0).setVisible(true);
             menu.getItem(1).setVisible(true);
             menu.getItem(2).setVisible(true);
             menu.getItem(3).setVisible(true);
+            menu.getItem(4).setVisible(true);
         }
         return true;
     }
@@ -246,7 +252,19 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             sf.show(getSupportFragmentManager(), "StatsFragment");
         }
 
+        else if (id == R.id.menu_bulk_edit) {
+            onFragmentInteraction(0);
+            getFragment().enableBulkMode();
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private folderfragment getFragment() {
+        if (type > 0)
+            return fragment;
+        else
+            return adapter.getCurrentFragment();
     }
 
     @Override
@@ -290,9 +308,20 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
 
         for (int i = 0; i < selected.size(); i++) {
             if (selected.valueAt(i)) {
-                f.updateClear(newClear, newScore, selected.keyAt(i));
+                if (newClear > -1 && newScore > -1)
+                    f.updateClear(newClear, newScore, selected.keyAt(i));
+                else if (newClear > -1)
+                    f.updateClearOnly(newClear, selected.keyAt(i));
+                else if (newScore > -1)
+                    f.updateScore(newScore, selected.keyAt(i));
             }
         }
+    }
+
+    @Override
+    public void onBulkModeDeactivate() {
+        if (actionMode != null)
+            actionMode.finish();
     }
 
     @Override
@@ -322,6 +351,9 @@ public class FolderActivity extends AppCompatActivity implements SongFragment.On
             case 2:
                 //clear
                 cursor = databaseHelper.getSongsFromClear(search, sortValue);
+                break;
+            case 3:
+                cursor = databaseHelper.getSongsFromScore(search, sortValue);
                 break;
             default:
                 //goals

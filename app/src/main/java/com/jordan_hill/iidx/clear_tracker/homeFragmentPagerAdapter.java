@@ -11,8 +11,8 @@ import android.view.ViewGroup;
  */
 
 public class homeFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 6;
-    private String tabTitles[] = new String[] {"Version", "Level", "Clear", "Lists", "Static Lists", "Score"};
+    final int PAGE_COUNT = 5;
+    private String tabTitles[] = new String[] {"Version", "Level", "Clear", "Score", "Lists"};
     private Context context;
     private Fragment currentFragment;
     private int curPage;
@@ -56,6 +56,9 @@ public class homeFragmentPagerAdapter extends FragmentPagerAdapter {
                 break;
             case 2:
                 id = R.array.clear_types;
+                break;
+            case 3:
+                id = R.array.scores;
                 break;
             default:
                 id = -1;

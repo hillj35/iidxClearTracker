@@ -120,34 +120,6 @@
     </string-array>
 
     <string-array name="newSongs">
-        <item>4th Style,Clione†,-,-,11</item>
-        <item>5th Style,RIDE ON THE LIGHT (HI GREAT MIX)†,-,-,10</item>
-        <item>Sirius,Almagest (HCN Ver.),7,11,12</item>
-        <item>Sirius,SOLID STATE SQUAD†,-,-,12</item>
-        <item>Resort Anthem,Golden Palms†,-,-,11</item>
-        <item>Resort Anthem,Kailua (HCN Ver.),5,9,11</item>
-        <item>Tricoro,朧†,-,-,11</item>
-        <item>Tricoro,仮想空間の旅人たち†,-,-,12</item>
-        <item>Spada,Ancient Scapes †LEGGENDARIA,-,-,12</item>
-        <item>Spada,Close the World feat.a☆ru †LEGGENDARIA,-,-,12</item>
-        <item>Spada,Feel The Beat †LEGGENDARIA,-,-,12</item>
-        <item>Spada,invoker †LEGGENDARIA,-,-,12</item>
-        <item>Spada,Sigmund †LEGGENDARIA,-,-,12</item>
-        <item>Spada,Verflucht †LEGGENDARIA,-,-,12</item>
-        <item>Spada,疾風迅雷 †LEGGENDARIA,-,-,12</item>
-        <item>Pendual,Beat Radiance†,-,-,12</item>
-        <item>Pendual,chrono diver -fragment-†,-,-,10</item>
-        <item>Pendual,CHRONO DIVER -NORNIR-†,-,-,12</item>
-        <item>Pendual,恋は白帯、サンシロー†,-,-,11</item>
-        <item>Pendual,超青少年ノ為ノ超多幸ナ超古典的超舞曲†,-,-,12</item>
-        <item>Copula,Damage Per Second†,-,-,10</item>
-        <item>Sinobuz,LUV CAN SAVE U†,-,-,10</item>
-        <item>Sinobuz,廿†,-,-,12</item>
-        <item>Sinobuz,EBONY &amp; IVORY†,-,-,12</item>
-        <item>Sinobuz,凛として咲く花の如く†,-,-,11</item>
-        <item>Sinobuz,VANESSA†,-,-,12</item>
-        <item>Sinobuz,KAMAITACHI†,-,-,12</item>
-
 
     </string-array>
 
@@ -1248,6 +1220,9 @@
         <item>Sinobuz,凛として咲く花の如く†,-,-,11</item>
         <item>Sinobuz,VANESSA†,-,-,12</item>
         <item>Sinobuz,KAMAITACHI†,-,-,12</item>
+        <item>Sinobuz,INVISIBLE STRIX,6,10,11</item>
+        <item>Sinobuz,nostos,5,8,11</item>
+        <item>Sinobuz,Surf on the Light,4,8,10</item>
 
 
     </string-array>
@@ -1289,6 +1264,7 @@
         <item>Alphabetically</item>
         <item>Level</item>
         <item>Clear</item>
+        <item>Score</item>
     </string-array>
 
     <string-array name="default_difficulty_values">

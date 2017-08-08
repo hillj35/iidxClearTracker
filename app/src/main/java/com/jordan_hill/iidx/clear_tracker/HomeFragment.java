@@ -102,8 +102,8 @@ public class HomeFragment extends Fragment {
                 //start folder activity
                 Intent intent = new Intent(getActivity(), FolderActivity.class);
                 String search = list[position];
-                if (type == 2) {
-                    //clear
+                if (type == 2 || type == 3) {
+                    //clear || score
                     search = Integer.toString(position);
                 }
                 intent.putExtra("search", search);

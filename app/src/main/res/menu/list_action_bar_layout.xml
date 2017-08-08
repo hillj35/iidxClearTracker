@@ -12,6 +12,9 @@
         android:id="@+id/menu_list_sort"
         android:title="Sort" />
     <item
+        android:id="@+id/menu_bulk_edit"
+        android:title="Multi Edit" />
+    <item
         android:id="@+id/menu_list_stats"
         android:title="Stats" />
     <item

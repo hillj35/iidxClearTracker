@@ -165,6 +165,24 @@ public class folderfragment extends Fragment {
         updateClear(newClear, newScore, currentItem);
     }
 
+    public void updateScore(int newScore, int position) {
+        SongItem update = songItems.get(position);
+        update.setClearScore(newScore);
+        update.setScoreText(getResources().getStringArray(R.array.scores)[newScore]);
+        databaseHelper.updateSongScore(update.getName(), update.getDifficulty(),  newScore);
+        adapter.updateView(position);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void updateClearOnly(int newClear, int position) {
+        SongItem update = songItems.get(position);
+        update.setClearNum(newClear);
+        update.setClearText(getResources().getStringArray(R.array.clear_types)[newClear]);
+        databaseHelper.updateSongClear(update.getName(), update.getDifficulty(), newClear);
+        adapter.updateView(position);
+        adapter.notifyDataSetChanged();
+    }
+
     public void updateClear(int newClear, int newScore, int position) {
         SongItem update = songItems.get(position);
         update.setClearNum(newClear);
@@ -185,8 +203,30 @@ public class folderfragment extends Fragment {
         lv.clearChoices();
         lv.requestLayout();
         selectedNum = 0;
+        mListener.onBulkModeDeactivate();
         //lv.refreshDrawableState();
         //lv.setChoiceMode(AbsListView.CHOICE_MODE_NONE);
+    }
+
+    public void enableBulkMode() {
+        bulkMode = true;
+    }
+
+    public void selectAll() {
+        selectedNum = 0;
+        for (int i = 0; i < lv.getCount(); i++) {
+            lv.setItemChecked(i, true);
+        }
+        selectedNum = lv.getCount();
+        lv.requestLayout();
+        mListener.onFragmentInteraction(selectedNum);
+    }
+
+    public void deselect() {
+        lv.clearChoices();
+        selectedNum = 0;
+        lv.requestLayout();
+        mListener.onFragmentInteraction(selectedNum);
     }
 
     public void setCursor(Cursor cursor) {
@@ -230,7 +270,7 @@ public class folderfragment extends Fragment {
 
             if (search)
                 infoTxt.setText("No results for this search. Please try again.");
-            if (cursor.getCount() > 0 || type < 3) {
+            if (cursor.getCount() > 0 || type < 4) {
                 infoTxt.setVisibility(View.INVISIBLE);
                 infoImg.setVisibility(View.INVISIBLE);
             } else {
@@ -270,5 +310,6 @@ public class folderfragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(int numSelected);
+        void onBulkModeDeactivate();
     }
 }

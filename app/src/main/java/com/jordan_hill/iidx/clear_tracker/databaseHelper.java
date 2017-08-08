@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 
 public class databaseHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 7;
+    public static final int DATABASE_VERSION = 8;
     public static final String DATABASE_NAME = "iidx.db";
     private static Context c;
     private static databaseHelper instance;
@@ -49,8 +49,12 @@ public class databaseHelper extends SQLiteOpenHelper {
         db.execSQL(iidxContract.SQL_DELETE_PLAYER);
         onCreate(db);*/
         //add new songs
-        ClearTracker.populateDatabase(c, db, R.array.newSongs);
-        db.execSQL("ALTER TABLE " + iidxContract.songEntry.TABLE_NAME + " ADD COLUMN " + iidxContract.songEntry.COLUMN_NAME_SCORE + " INTEGER DEFAULT 0");
+        ClearTracker.populateDatabase(c, db, R.array.songs);
+        try {
+            db.execSQL("ALTER TABLE " + iidxContract.songEntry.TABLE_NAME + " ADD COLUMN " + iidxContract.songEntry.COLUMN_NAME_SCORE + " INTEGER DEFAULT 0");
+        } catch (android.database.sqlite.SQLiteException e) {
+
+        }
     }
 
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -165,6 +169,26 @@ public class databaseHelper extends SQLiteOpenHelper {
         String selection = iidxContract.songEntry.COLUMN_NAME_SONGNAME + " LIKE ? AND " + iidxContract.songEntry.COLUMN_NAME_DIFFICULTY + " = ?";
         String[] selectionArgs = {songName, Integer.toString(difficulty)};
 
+        dbInstance.update(iidxContract.songEntry.TABLE_NAME, values, selection, selectionArgs);
+    }
+
+    public static void updateSongClear(String songName, int difficulty, int newClear) {
+        ContentValues values = new ContentValues();
+        values.put(iidxContract.songEntry.COLUMN_NAME_CLEAR, newClear);
+
+        String selection = iidxContract.songEntry.COLUMN_NAME_SONGNAME + " LIKE ? AND " + iidxContract.songEntry.COLUMN_NAME_DIFFICULTY + " = ?";
+        String[] selectionArgs = {songName, Integer.toString(difficulty)};
+
+        dbInstance.update(iidxContract.songEntry.TABLE_NAME, values, selection, selectionArgs);
+    }
+
+    public static void updateSongScore(String songName, int difficulty, int newScore) {
+        ContentValues values = new ContentValues();
+        values.put(iidxContract.songEntry.COLUMN_NAME_SCORE, newScore);
+
+        String selection = iidxContract.songEntry.COLUMN_NAME_SONGNAME + " LIKE ? AND " + iidxContract.songEntry.COLUMN_NAME_DIFFICULTY + " = ?";
+        String[] selectionArgs = {songName, Integer.toString(difficulty)};
+
         int count = dbInstance.update(iidxContract.songEntry.TABLE_NAME, values, selection, selectionArgs);
     }
 
@@ -264,6 +288,9 @@ public class databaseHelper extends SQLiteOpenHelper {
             case 2:
                 sortValues = "b." + iidxContract.songEntry.COLUMN_NAME_CLEAR + ", b." + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
+            case 3:
+                sortValues = "b." + iidxContract.songEntry.COLUMN_NAME_SCORE + ", b." + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                break;
             default:
                 break;
         }
@@ -300,6 +327,43 @@ public class databaseHelper extends SQLiteOpenHelper {
         return Integer.toString(cleared) + "/" + Integer.toString(total);
     }
 
+    public static Cursor getSongsFromScore(String score, int sort) {
+        String sortValues = "";
+        switch (sort) {
+            case 0:
+                break;
+            case 1:
+                sortValues = iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                break;
+            case 2:
+                sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC," + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                break;
+            case 3:
+                sortValues =  iidxContract.songEntry.COLUMN_NAME_SCORE + " ASC," + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                break;
+            default:
+                break;
+        }
+
+        String[] projection = new String[5];
+        projection[0] = iidxContract.songEntry.COLUMN_NAME_SONGNAME;
+        projection[1] = iidxContract.songEntry.COLUMN_NAME_CLEAR;
+        projection[2] = iidxContract.songEntry.COLUMN_NAME_LEVEL;
+        projection[3] = iidxContract.songEntry.COLUMN_NAME_DIFFICULTY;
+        projection[4] = iidxContract.songEntry.COLUMN_NAME_SCORE;
+
+        String selection = iidxContract.songEntry.COLUMN_NAME_SCORE + " = ?";
+        String[] selectionArgs = {score};
+        String sortOrder = sortValues + " " + iidxContract.songEntry.COLUMN_NAME_SONGNAME + " COLLATE NOCASE ASC";
+        return dbInstance.query(iidxContract.songEntry.TABLE_NAME,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                sortOrder);
+    }
+
     public static Cursor getSongsFromVersion(String version, int difficulty, int sort) {
         String sortValues = "";
         switch (sort) {
@@ -310,6 +374,9 @@ public class databaseHelper extends SQLiteOpenHelper {
                 break;
             case 2:
                 sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC," + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                break;
+            case 3:
+                sortValues =  iidxContract.songEntry.COLUMN_NAME_SCORE + " ASC," + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             default:
                 break;
@@ -345,6 +412,9 @@ public class databaseHelper extends SQLiteOpenHelper {
             case 2:
                 sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC," + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
+            case 3:
+                sortValues =  iidxContract.songEntry.COLUMN_NAME_SCORE + " ASC," + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                break;
             default:
                 break;
         }
@@ -377,6 +447,9 @@ public class databaseHelper extends SQLiteOpenHelper {
                 break;
             case 2:
                 sortValues = iidxContract.songEntry.COLUMN_NAME_CLEAR + " ASC," + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
+                break;
+            case 3:
+                sortValues =  iidxContract.songEntry.COLUMN_NAME_SCORE + " ASC," + iidxContract.songEntry.COLUMN_NAME_LEVEL + " ASC,";
                 break;
             default:
                 break;

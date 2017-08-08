@@ -36,6 +36,9 @@ public class iidxFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public void setPrimaryItem(ViewGroup container, int position, Object object) {
         if (getCurrentFragment() != object) {
+            if (getCurrentFragment() != null) {
+                getCurrentFragment().disableBulkMode();
+            }
             currentFragment = (folderfragment) object;
         }
         super.setPrimaryItem(container, position, object);

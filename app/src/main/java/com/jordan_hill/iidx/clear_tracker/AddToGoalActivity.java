@@ -5,6 +5,10 @@ import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.ActionMode;
+import android.util.SparseBooleanArray;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,12 +22,62 @@ import android.widget.Spinner;
 
 import layout.SongFragment;
 
-public class AddToGoalActivity extends AppCompatActivity implements SongFragment.OnFragmentInteractionListener, folderfragment.OnFragmentInteractionListener {
+public class AddToGoalActivity extends AppCompatActivity implements SongFragment.OnFragmentInteractionListener, folderfragment.OnFragmentInteractionListener,
+                                                                        MultiEditFragment.OnFragmentInteractionListener {
     private String selectedVersion = "ALL";
     private String selectedLevel = "ALL";
     private String listName;
     boolean listSearch;
     private folderfragment fragment;
+
+    private ActionMode actionMode;
+
+    //for context menu
+    private ActionMode.Callback actionModeCallback = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            MenuInflater inflater = mode.getMenuInflater();
+            inflater.inflate(R.menu.folder_context_menu, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.menu_deselect:
+                    fragment.deselect();
+                    break;
+                case R.id.menu_select_all:
+                    fragment.selectAll();
+                    break;
+                case R.id.menu_multi_edit:
+                    //show fragment
+                    MultiEditFragment mef = MultiEditFragment.newInstance();
+                    mef.show(getSupportFragmentManager(), "MultiEditFragment");
+                    break;
+                default:
+                    return false;
+            }
+            return true;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            actionMode = null;
+            fragment.disableBulkMode();
+        }
+    };
+
+    private void startContextMenu() {
+        if (actionMode != null)
+            return;
+        actionMode = startSupportActionMode(actionModeCallback);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +175,31 @@ public class AddToGoalActivity extends AppCompatActivity implements SongFragment
 
     @Override
     public void onFragmentInteraction(int numSelected) {
+        startContextMenu();
+        actionMode.setTitle(Integer.toString(numSelected) + " Selected");
+    }
 
+    @Override
+    public void onMultiInteraction(int newClear, int newScore) {
+        //get all selected songs and update
+        SparseBooleanArray selected;
+        selected = fragment.getSelectedItems();
+
+        for (int i = 0; i < selected.size(); i++) {
+            if (selected.valueAt(i)) {
+                if (newClear > -1 && newScore > -1)
+                    fragment.updateClear(newClear, newScore, selected.keyAt(i));
+                else if (newClear > -1)
+                    fragment.updateClearOnly(newClear, selected.keyAt(i));
+                else if (newScore > -1)
+                    fragment.updateScore(newScore, selected.keyAt(i));
+            }
+        }
+    }
+
+    @Override
+    public void onBulkModeDeactivate() {
+        if (actionMode != null)
+            actionMode.finish();
     }
 }

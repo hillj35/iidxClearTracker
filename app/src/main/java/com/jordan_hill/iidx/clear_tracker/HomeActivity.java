@@ -54,7 +54,7 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
         this.menu = menu;
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.home_action_bar_layout, menu);
-        if (adapter.getCurrentPage() == 3)
+        if (adapter.getCurrentPage() == 4)
             menu.getItem(1).setVisible(true);
         return true;
     }
@@ -77,7 +77,7 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
             @Override
             public void onPageSelected(int position) {
                 currentPage = position;
-                if (position == 3) {
+                if (position == 4) {
                     //goals page
                     menu.getItem(1).setVisible(true);
                 }

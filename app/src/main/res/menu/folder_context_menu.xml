@@ -6,4 +6,12 @@
         android:id="@+id/menu_multi_edit"
         android:icon="@android:drawable/ic_menu_edit"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_deselect"
+        android:title="Deselect"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_select_all"
+        android:title="Select All"
+        app:showAsAction="never" />
 </menu>

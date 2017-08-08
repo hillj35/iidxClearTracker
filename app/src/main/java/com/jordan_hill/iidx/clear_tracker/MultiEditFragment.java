@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -58,7 +60,16 @@ public class MultiEditFragment extends DialogFragment {
                     public void onClick(DialogInterface dialog, int id) {
                         Spinner spn = (Spinner)view.findViewById(R.id.spn_clear_multi);
                         Spinner spnScore = (Spinner)view.findViewById(R.id.spn_score_multi);
-                        mListener.onMultiInteraction(spn.getSelectedItemPosition(), spnScore.getSelectedItemPosition());
+                        CheckBox chkClear = (CheckBox)view.findViewById(R.id.chk_clear);
+                        CheckBox chkScore = (CheckBox)view.findViewById(R.id.chk_score);
+
+                        int newClear = -1;
+                        int newScore = -1;
+                        if (chkClear.isChecked())
+                            newClear = spn.getSelectedItemPosition();
+                        if (chkScore.isChecked())
+                            newScore = spnScore.getSelectedItemPosition();
+                        mListener.onMultiInteraction(newClear, newScore);
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -76,13 +87,36 @@ public class MultiEditFragment extends DialogFragment {
         //array values
         String[] clearValues = getResources().getStringArray(R.array.clear_types);
         //init spinner values
-        Spinner clearSpinner = (Spinner)view.findViewById(R.id.spn_clear_multi);
-        Spinner scoreSpinner = (Spinner)view.findViewById(R.id.spn_score_multi);
+        final Spinner clearSpinner = (Spinner)view.findViewById(R.id.spn_clear_multi);
+        final Spinner scoreSpinner = (Spinner)view.findViewById(R.id.spn_score_multi);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.clear_types, R.layout.clear_spinner_item);
         clearSpinner.setAdapter(adapter);
 
         adapter = ArrayAdapter.createFromResource(getActivity(), R.array.scores, R.layout.clear_spinner_item);
         scoreSpinner.setAdapter(adapter);
+
+        CheckBox chkClear = (CheckBox)view.findViewById(R.id.chk_clear);
+        CheckBox chkScore = (CheckBox)view.findViewById(R.id.chk_score);
+
+        chkClear.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    clearSpinner.setVisibility(View.VISIBLE);
+                else
+                    clearSpinner.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        chkScore.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    scoreSpinner.setVisibility(View.VISIBLE);
+                else
+                    scoreSpinner.setVisibility(View.INVISIBLE);
+            }
+        });
 
         super.onStart();
 
