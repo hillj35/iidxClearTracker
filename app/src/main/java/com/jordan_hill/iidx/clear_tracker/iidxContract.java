@@ -42,6 +42,7 @@ public final class iidxContract {
                 songEntry.COLUMN_NAME_LEVEL + " INT NOT NULL," +
                 songEntry.COLUMN_NAME_DIFFICULTY + " INT NOT NULL," +
                 songEntry.COLUMN_NAME_CLEAR + " INT NOT NULL," +
+                songEntry.COLUMN_NAME_SCORE + " INT DEFAULT 0," +
                 "PRIMARY KEY (name,difficulty) )";
 
     public static final String SQL_CREATE_PLAYER =
